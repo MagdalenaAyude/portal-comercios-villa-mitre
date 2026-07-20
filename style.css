@@ -11,7 +11,8 @@
 --text-muted: #9ca3af;
 --max-width: 1200px;
 --font-sans: 'Plus Jakarta Sans', sans-serif;
---font-display: 'Space Grotesk', sans-serif;
+--font-display: 'Archivo Black', sans-serif;
+--font-hero: 'Space Grotesk', sans-serif;
 --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -159,7 +160,7 @@ header{
 }
 
 .hero-content h1{
-    font-family: var(--font-display);
+    font-family:var(--font-hero);
     font-size: clamp(2.8rem, 6vw, 4rem);
     line-height: 1.1;
     text-align: center;
@@ -184,7 +185,7 @@ header{
 
 .badge-text {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 5rem;
     color: var(--text-main);
 }
 
@@ -194,6 +195,7 @@ header{
 }
 
 .lead {
+    grid-column: 1/-1;
     font-size: 1.15rem;
     color: var(--text-muted);
     margin-bottom: 1rem;
@@ -260,7 +262,7 @@ header{
 }
 
 .stat-item h3 {
- font-family: var(--font-display);
+ font-family:var(--font-hero);
  font-size: 1.8rem;
  font-weight: 700;
  margin-bottom: 0.25rem;
@@ -286,7 +288,7 @@ header{
 }
 
 .section-title {
-  font-family: var(--font-display);
+  font-family:var(--font-hero);
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--text-main);
@@ -301,6 +303,7 @@ header{
 }
 
 .stat-item span {
+    
     font-size: 0.8rem;
     color: var(--text-muted);
 }
@@ -329,7 +332,7 @@ header{
     width: 120px;   
     height: 2px;
     background: var(--vm-green);
-   margin: 28px auto 0;
+    margin: 28px auto 0;
     opacity: 0.6;
 }
 
@@ -413,6 +416,10 @@ header{
     background-color: var(--vm-green);
     color: var(--vm-light-gray);    
 }
+.btn-filtro i {
+    font-size: 0.9rem;
+    color: var(--text-muted); 
+}
 
 .comercios-grid {
     display: grid;
@@ -421,6 +428,7 @@ header{
 }
 
 .comercio-card {
+    font-family: var(--font-sans);
     background-color: var(--vm-dark-gray);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -428,54 +436,86 @@ header{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.comercio-descripcion {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
-
-.comercio-info-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.horario-titulo {
-    color: var(--vm-green);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase; 
-    letter-spacing: 0.5px;
-}
-
-.horario-detalle {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 500;
+   justify-content: space-between;
+    text-align: center; 
+    transition: var(--transition-smooth);
 }
 
 .comercio-card:hover {
     transform: translateY(-6px);
     border-color: rgba(0, 133, 66, 0.5);
-    box-shadow: 0 12px 24px rgba(0, 133, 66, 0.15); 
+   box-shadow: 0 12px 24px var(--vm-green-glow);
 }
 
-.comercio-card strong {
+.comercio-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
     color: var(--text-main);
+}
+
+.rubro {
+    font-family: var(--font-sans);
+    align-items: center;
+    color:var(--text-muted);
+    font-size: 0.7rem;
+    margin-bottom: 0.2px;
     font-weight: 600;
-    display: block;
-    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.descripcion {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.contenedor-sucursales {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; 
+    margin: 0.8rem 0;
+}
+
+.sucursal-bloque {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem; 
+}
+
+.sucursal-direccion {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.sucursal-direccion strong {
+    font-weight: 600;
+}
+
+.sucursal-horario {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin: 0;
+    white-space: pre-line; 
 }
 
 .comercio-links {
     padding-top: 1rem;
-    margin-top: auto;
+    margin-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
-    gap: 10px; 
+    flex-wrap: wrap;
+    
+    gap: 10px;
+
 }
 
 .comercio-links a {
@@ -486,7 +526,10 @@ header{
     border-radius: 8px;
     font-size: 0.9rem;
     font-weight: 600;
+    flex: 1; 
+    min-width: 120px;
 }
+
 
 .btn-whatsapp {
     color: var(--vm-green);
@@ -495,13 +538,32 @@ header{
 
 .btn-instagram {
     color: #e1306c;
-    border: 1px solid rgba(225, 48, 108, 0.2);  
+    border: 1px solid rgba(225, 48, 108, 0.2); 
 }
+.btn-web {
+   color:#3b5998;
+   border: 1px solid rgba(6, 42, 95, 0.712);
+}
+.btn-whatsapp:hover,
+.btn-instagram:hover,
+.btn-web:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color:var(--text-main);
+    
+}
+
+
+
+
+
+
+
+
 
 .sumar-section {
     padding: 60px 20px;
     text-align: center;
-
 }
 
 .sumar-section h2 {
