@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Ferretería": "fas fa-hammer",
         "Almacén": "fas fa-shopping-basket",
         "Cosmética y Belleza": "fas fa-pump-soap",
+        "Regalería y Juguetería": "fa-solid fa-gift",
+        "Polirrubro y Servicios": "fa-solid fa-store",
     };
 
    
@@ -62,8 +64,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "margaritastorear",
                 sitioWeb: "https://www.margaritastorear.com/"
             }
-        }
-    ];
+        },
+             {
+              nombre: "Vibra Bonito",
+              rubro: "Regalería y Juguetería",
+              descripcion: "Regalos que enamoran y juguetes para hacer felices a los más chicos. Todo lo lindo que buscás para regalar y regalarte.",
+              sucursales: [
+                {
+                 direccion: "Washington 676",
+                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs",
+                }
+            ],
+                contacto: {
+                whatsapp: "2914379375",
+                instagram: "vibrabonito.regaleria"
+
+                }
+        },
+            {
+             nombre: "Ohana Multikiosco",
+             rubro: "Polirrubro y Servicios",
+             descripcion: "Tradición familiar y calidez de barrio. Encontrá panificados frescos, fiambres, comidas al paso, kiosco, librería y un servicio oficial exclusivo: somos Unidad Postal 1 de Correo Argentino",
+             sucursales: [
+                {
+                 direccion: "Maipu 1664",
+                 horario:"Lunes a viernes 7:00 a 17:00hs",
+                }
+             ],
+                contacto: {
+                whatsapp: "2914191224",
+                email: "Ohanamultikiosco@gmail.com"
+                }
+
+            }
+        ]
+
+            
+
+
+
     function agregarComercio(listaComercios) {
         if (!contenedorComercios) return;
         contenedorComercios.innerHTML = ""; 
@@ -109,6 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 linksHTML += `
                     <a href="${comercio.contacto.sitioWeb}" target="_blank" class="btn-web">
                         <i class="fas fa-globe"></i> Web
+                    </a>
+                `;
+            }
+            if (comercio.contacto.email) {
+                linksHTML += `
+                    <a href="mailto:${comercio.contacto.email}" class="btn-email">
+                        <i class="fas fa-envelope"></i> Email
                     </a>
                 `;
             }

@@ -398,8 +398,17 @@ header{
     justify-content: center;
     gap: 1rem;
     padding: 20px;
+    overflow-x: auto;
     margin-bottom: 3rem;
 }
+.filtros-container::-webkit-scrollbar {
+    display: none;
+}
+.filtros-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 
 .filtros-container button {
     padding: 0.6rem 1rem;
@@ -421,11 +430,13 @@ header{
     color: var(--text-muted); 
 }
 
-.comercios-grid {
+#contenedor-comercios {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+    width: 100%;
 }
+
 
 .comercio-card {
     font-family: var(--font-sans);
@@ -544,14 +555,20 @@ header{
    color:#3b5998;
    border: 1px solid rgba(6, 42, 95, 0.712);
 }
+.btn-email {
+    color: #ea4335;
+    border: 1px solid rgba(234, 67, 53, 0.2);
+}
+
 .btn-whatsapp:hover,
 .btn-instagram:hover,
-.btn-web:hover {
+.btn-web:hover,
+.btn-email:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color:var(--text-main);
-    
 }
+
 
 
 
