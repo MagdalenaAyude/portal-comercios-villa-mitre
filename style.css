@@ -392,22 +392,23 @@ header{
     border-color: var(--vm-green);
     box-shadow: 0 0 0 3px var(--vm-green-glow);
 }
-
 .filtros-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
-    padding: 20px;
-    overflow-x: auto;
+    padding: 20px 1rem;
     margin-bottom: 3rem;
-}
-.filtros-container::-webkit-scrollbar {
-    display: none;
-}
-.filtros-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.filtros-container::-webkit-scrollbar {
+    display: none;
+}
+
 
 
 .filtros-container button {
