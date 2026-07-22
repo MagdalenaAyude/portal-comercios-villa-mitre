@@ -394,12 +394,13 @@ header{
 }
 .filtros-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1rem;
     padding: 20px 1rem;
     margin-bottom: 3rem;
     overflow-x: auto;
     white-space: nowrap;
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -797,5 +798,10 @@ footer {
     
     .sumar-section {
         padding: 60px 20px;
+    }
+    
+    .filtros-container {
+        justify-content: center;
+        overflow-x: visible;
     }
 }
