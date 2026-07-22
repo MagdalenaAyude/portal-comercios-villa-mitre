@@ -394,7 +394,7 @@ header{
 }
 .filtros-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 1rem;
     padding: 20px 1rem;
     margin-bottom: 3rem;
@@ -568,6 +568,28 @@ header{
     transform: translateY(-3px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color:var(--text-main);
+}
+.badge {
+   display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 20px;
+   
+}
+
+.badge.abierto {
+    background-color: rgba(15, 81, 50, 0.4);
+    color: #4ade80;
+    border-color: rgba(74, 222, 128, 0.3);
+}
+
+.badge.cerrado {
+    background-color: rgba(220, 38, 38, 0.15);
+    color: #f87171;
+    border-color: rgba(248, 113, 113, 0.3);
+
 }
 
 
