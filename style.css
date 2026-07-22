@@ -401,7 +401,7 @@ header{
     overflow-x: auto;
     white-space: nowrap;
     scroll-behavior: smooth;
-   -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -409,9 +409,6 @@ header{
 .filtros-container::-webkit-scrollbar {
     display: none;
 }
-
-
-
 
 
 
@@ -424,7 +421,6 @@ header{
     font-size: 0.9rem;
     transition: var(--transition-smooth);
     cursor: pointer;
-    flex-shrink: 0;
 }
 
 .filtros-container button:hover {
@@ -719,7 +715,7 @@ footer {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     
     .navbar {
         position: relative;
@@ -804,8 +800,8 @@ footer {
         padding: 60px 20px;
     }
     
-    
+    .filtros-container {
+        justify-content: center;
+        overflow-x: visible;
+    }
 }
-   
-    
-
