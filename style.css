@@ -422,6 +422,7 @@ header{
     font-size: 0.9rem;
     transition: var(--transition-smooth);
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .filtros-container button:hover {
