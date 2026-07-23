@@ -399,13 +399,11 @@ header{
     padding: 20px 1rem;
     margin-bottom: 3rem;
     overflow-x: auto;
-    flex-wrap: nowrap;
-  
+    white-space: nowrap;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
     scrollbar-width: none;
-   
 }
 
 .filtros-container::-webkit-scrollbar {
@@ -786,7 +784,7 @@ footer {
     }
     
     .filtros-container {
-        justify-content: center;
+        justify-content: flex-start;
      
     }
 }
