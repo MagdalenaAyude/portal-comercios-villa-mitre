@@ -399,7 +399,8 @@ header{
     padding: 20px 1rem;
     margin-bottom: 3rem;
     overflow-x: auto;
-    white-space: nowrap;
+    flex-wrap: nowrap;
+  
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: none;
@@ -416,13 +417,14 @@ header{
 .filtros-container button {
     padding: 0.6rem 1rem;
     border-radius: 8px;
+    flex-shrink: 0;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background-color: var(--vm-dark-gray);
     color: var(--text-main);
     font-size: 0.9rem;
     transition: var(--transition-smooth);
     cursor: pointer;
-    flex: 0 0 auto;
+   
 }
 
 .filtros-container button:hover {
