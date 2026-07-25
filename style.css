@@ -556,14 +556,18 @@ header{
     border: 1px solid rgba(225, 48, 108, 0.2); 
 }
 .btn-web {
-   color:#3b5998;
-   border: 1px solid rgba(6, 42, 95, 0.712);
+   color:#7c3aed;
+   border: 1px solid rgba(115, 10, 201, 0.479);
 }
 .btn-email {
     color: #ea4335;
     border: 1px solid rgba(234, 67, 53, 0.2);
 }
-
+.btn-facebook {
+    color: #1877f2;
+    border: 1px solid rgba(6, 85, 204, 0.4);
+}
+.btn-facebook:hover,
 .btn-whatsapp:hover,
 .btn-instagram:hover,
 .btn-web:hover,

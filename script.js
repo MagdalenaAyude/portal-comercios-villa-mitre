@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Cosmética y Belleza": "fas fa-pump-soap",
         "Regalería y Juguetería": "fa-solid fa-gift",
         "Polirrubro y Servicios": "fa-solid fa-store",
+        "Indumentaria": "fas fa-tshirt",
     };
 
     const comercios = [
@@ -113,7 +114,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2914191224",
                 email: "Ohanamultikiosco@gmail.com"
             }
-        }
+        },
+        {
+
+            nombre: "Catarsis Moda Circular",
+            rubro: "indumentaria",
+            descripcion: "Espacio dedicado a la moda circular y al consumo consciente, donde encontrás prendas únicas seleccionadas con estilo.",
+            sucursales: [
+                {
+                 direccion: "Alberdi 1729",
+                 horario:"Lunes a viernes 9:30 a 12:30hs y de 16:30 a 19:30hs",
+                 dias: [ 1,2,3,4,5],
+                 franjaHoraria: [
+                 { apertura: "9:30" , cierre: "12:30"},
+                 { apertura: "16:30" , cierre: "19:30"}
+                 ]
+                 }
+            ],
+            contacto: {
+                instagram: "catarsis.bbca" ,
+                facebook: "https://www.facebook.com/profile.php?id=61591973338783"
+            }
+            }
+    
+      
     ];
 
     const contenedorComercios = document.getElementById("contenedor-comercios");
@@ -143,7 +167,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const iconoClase = iconosPorRubro[comercio.rubro] || "fas fa-store";
 
-            // Aquí usamos Abierto(sucursal) para definir la clase "abierto" o "cerrado" junto con "badge"
             const listaSucursalesHTML = comercio.sucursales.map(sucursal => {
                 const estaAbierto = Abierto(sucursal);
                 const estadoClase = estaAbierto ? "abierto" : "cerrado";
@@ -158,11 +181,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
             }).join('');
 
-            let linksHTML = `
-                <a href="https://wa.me/549${comercio.contacto.whatsapp}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            `;
+          let linksHTML = '';
+
+            if (comercio.contacto.whatsapp) {
+                linksHTML += `
+                    <a href="https://wa.me/549${comercio.contacto.whatsapp}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                `;
+            }
 
             if (comercio.contacto.instagram) {
                 linksHTML += `
@@ -179,6 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
+
             if (comercio.contacto.email) {
                 linksHTML += `
                     <a href="mailto:${comercio.contacto.email}" class="btn-email">
@@ -186,6 +214,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
+
+            if (comercio.contacto.facebook) {
+                linksHTML += `
+                    <a href="${comercio.contacto.facebook}" target="_blank" class="btn-facebook">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                `;
+            }
+           
 
             const tarjetaHTML = `
                 <span class="rubro">
