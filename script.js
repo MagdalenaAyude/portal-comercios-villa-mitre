@@ -83,10 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Washington 676",
-                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs",
-                 dias: [1,2,3,4,5],
+                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs | Sábados 10:00 a 13:30hs y de 16:30 a 20:00hs",
+                           
+                 dias: [1,2,3,4,5,6],
                  franjaHoraria:[
                     { apertura: "9:30" , cierre: "13:00" },
+                    { apertura: "16:30" , cierre: "20:00"},
+                    { apertura: "10:00" , cierre: "13:30"},
                     { apertura: "16:30" , cierre: "20:00"}
                  ]
                 }
