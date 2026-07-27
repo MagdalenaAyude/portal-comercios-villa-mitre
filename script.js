@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Cosmética y Belleza": "fas fa-pump-soap",
         "Regalería y Juguetería": "fa-solid fa-gift",
         "Polirrubro y Servicios": "fa-solid fa-store",
-        "Indumentaria": "fas fa-tshirt",
+        "Indumentaria": "fa-solid fa-shirt",
+        "Fiambrería": "fa-solid fa-cheese",
     };
 
     const comercios = [
@@ -84,10 +85,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                  direccion: "Washington 676",
                  horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs | Sábados 10:00 a 13:30hs y de 16:30 a 20:00hs",
-                           
+                            
                  dias: [1,2,3,4,5,6],
                  franjaHoraria:[
-                    { apertura: "9:30" , cierre: "13:00" },
+                    { apertura: "9:30" , cierre: "13:00"},
                     { apertura: "16:30" , cierre: "20:00"},
                     { apertura: "10:00" , cierre: "13:30"},
                     { apertura: "16:30" , cierre: "20:00"}
@@ -107,11 +108,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                  direccion: "Maipu 1664",
                  horario:"Lunes a viernes 7:00 a 17:00hs",
-                 dias: [ 1,2,3,4,5],
+                 dias: [1,2,3,4,5],
                  franjaHoraria: [
                  { apertura: "7:00" , cierre: "17:00"},
                  ]
-                 }
+                }
             ],
             contacto: {
                 whatsapp: "2914191224",
@@ -119,28 +120,66 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         {
-
             nombre: "Catarsis Moda Circular",
-            rubro: "indumentaria",
+            rubro: "Indumentaria", // Corregido con Mayúscula para que coincida con el objeto de iconos
             descripcion: "Espacio dedicado a la moda circular y al consumo consciente, donde encontrás prendas únicas seleccionadas con estilo.",
             sucursales: [
                 {
                  direccion: "Alberdi 1729",
                  horario:"Lunes a viernes 9:30 a 12:30hs y de 16:30 a 19:30hs",
-                 dias: [ 1,2,3,4,5],
+                 dias: [1,2,3,4,5],
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "12:30"},
                  { apertura: "16:30" , cierre: "19:30"}
                  ]
-                 }
+                }
             ],
             contacto: {
-                instagram: "catarsis.bbca" ,
+                instagram: "catarsis.bbca",
                 facebook: "https://www.facebook.com/profile.php?id=61591973338783"
             }
+        },
+        {
+            nombre: "La Esquinita",
+            rubro: "Fiambrería",
+            descripcion: "Nos especializamos en la venta de fiambres y quesos seleccionados de primera calidad. Vení a buscar lo rico para picar o resolver tus compras diarias.",
+            sucursales: [
+                {
+                 direccion: "Alberdi 1691",
+                 horario:"Lunes a viernes 9:30 a 13:00hs y de 16:30 a 19:30hs | Domingo 10:00 a 13:00hs",
+                 dias: [1,2,3,4,5,6,0], // Corregido: el 7 no existe, el domingo es 0 en JavaScript
+                 franjaHoraria: [
+                 { apertura: "9:30" , cierre: "13:00"},
+                 { apertura: "16:30" , cierre: "19:30"},
+                 { apertura: "10:00" , cierre: "13:00"}
+                 ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2916494992",
+                instagram: "fiambrerialaesquinita" 
             }
-    
-      
+        },
+        {
+            nombre: "Âme Cocot",
+            rubro: "Indumentaria",
+            descripcion: "Te acompañamos en cada temporada ofreciéndote productos cómodos y de excelente calidad para toda la familia. Contamos con una gran variedad en ropa interior para hombres, mujeres y niños/as, además de pijamas, mallas, indumentaria deportiva y prendas térmicas.",
+            sucursales: [   
+                {
+                 direccion: "Rivadavia 1910",
+                 horario: "Lunes a Sábado 9:30 a 13:30 y de 16:00 a 20:00hs",
+                 dias: [1,2,3,4,5,6],
+                 franjaHoraria: [
+                 { apertura: "9:30" , cierre: "13:30"},
+                 { apertura: "16:00" , cierre: "20:00"},
+                 ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2914186436",
+                instagram: "ame.cocot" 
+            }
+        }
     ];
 
     const contenedorComercios = document.getElementById("contenedor-comercios");
@@ -225,7 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
-           
 
             const tarjetaHTML = `
                 <span class="rubro">
@@ -234,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </span>
                 <h3>${comercio.nombre}</h3>
                 <p class="descripcion">${comercio.descripcion}</p>
-                        
+                    
                 <div class="contenedor-sucursales">
                     ${listaSucursalesHTML}
                 </div>
@@ -289,25 +327,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-
 function Abierto(sucursal) {
     const ahora = new Date();
     const diaActual = ahora.getDay();
     const horaActual = ahora.getHours();
     const minutosActuales = ahora.getMinutes();
 
-    // 1. Si hoy no abre, retorna false de inmediato
     if (!sucursal.dias.includes(diaActual)) {
         return false;
     }
 
-    const minutosTotalesActuales = (horaActual * 60) + minutosActuales; // Se pasa la hora actual a minutos
-    
+    const minutosTotalesActuales = (horaActual * 60) + minutosActuales; 
     let estaAbierto = false;
     
     sucursal.franjaHoraria.forEach((franja) => {
-        const [horaApertura, minApertura] = franja.apertura.split(":").map(Number); // Corta la hora y la pasa a número
-        const [horaCierre, minCierre] = franja.cierre.split(":").map(Number); // Corta el cierre y lo pasa a número
+        const [horaApertura, minApertura] = franja.apertura.split(":").map(Number);
+        const [horaCierre, minCierre] = franja.cierre.split(":").map(Number);
 
         const minutosAperturaTotal = (horaApertura * 60) + minApertura;
         const minutosCierreTotal = (horaCierre * 60) + minCierre;
@@ -319,4 +354,3 @@ function Abierto(sucursal) {
 
     return estaAbierto;
 }
-   
