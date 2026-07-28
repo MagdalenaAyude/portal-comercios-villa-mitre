@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Polirrubro y Servicios": "fa-solid fa-store",
         "Indumentaria": "fa-solid fa-shirt",
         "Fiambrería": "fa-solid fa-cheese",
+        "Actividad Física": "fas fa-person-running",
+        "Dietética y Especias": "fas fa-seedling",
     };
 
     const comercios = [
@@ -84,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Washington 676",
-                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs | Sábados 10:00 a 13:30hs y de 16:30 a 20:00hs",
+                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs | Sábado 10:00 a 13:30hs y de 16:30 a 20:00hs",
                             
                  dias: [1,2,3,4,5,6],
                  franjaHoraria:[
@@ -121,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             nombre: "Catarsis Moda Circular",
-            rubro: "Indumentaria", // Corregido con Mayúscula para que coincida con el objeto de iconos
+            rubro: "Indumentaria", 
             descripcion: "Espacio dedicado a la moda circular y al consumo consciente, donde encontrás prendas únicas seleccionadas con estilo.",
             sucursales: [
                 {
@@ -147,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                  direccion: "Alberdi 1691",
                  horario:"Lunes a viernes 9:30 a 13:00hs y de 16:30 a 19:30hs | Domingo 10:00 a 13:00hs",
-                 dias: [1,2,3,4,5,6,0], // Corregido: el 7 no existe, el domingo es 0 en JavaScript
+                 dias: [1,2,3,4,5,6,0], 
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "13:00"},
                  { apertura: "16:30" , cierre: "19:30"},
@@ -179,8 +181,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2914186436",
                 instagram: "ame.cocot" 
             }
+        },
+        {
+            nombre: "Oxana",
+            rubro: "Actividad Física",
+            descripcion: "Estudio de Pilates Reformer, un entrenamiento integral para ganar fuerza, corregir la postura y mejorar tu movilidad. Ideal para sentirte bien todos los días.",
+            sucursales: [
+                {
+                    direccion: "Washington 510",
+                    horario: "Martes y Jueves de 7:00 a 21:00",
+                    dias: [1,2,3,4],
+                    franjaHoraria: [
+                        { apertura: "7:00" , cierre: "21:00" }
+                    ]
+                },
+                {
+                    direccion: "Remedios de Escalada 1043",
+                    horario: "Lunes a Viernes 8:00 a 21:00 ",
+                    dias: [1,2,3,4,5],
+                    franjaHoraria: [
+                        { apertura:"8:00" , cierre:"21:00" }
+                    ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2914416837",
+                instagram: "oxanapilates"
+            }
+        },
+        {
+            nombre: "La Casa de las Especias",
+            rubro: "Dietética y Especias",
+            descripcion: "Empresa familiar con más de 100 años de tradición en Villa Mitre, lo mejor en especias nacionales e importadas de la ciudad.",
+            sucursales: [
+                {
+                    direccion: "Drago 1698",
+                    horario: "Lunes a Viernes de 8:00 a 16:00 hs | Sábado de 8:30 a 12:30 hs",
+                    dias: [1, 2, 3, 4, 5, 6],
+                    franjaHoraria: [
+                        { apertura: "8:00", cierre: "16:00" },
+                        { apertura: "8:30", cierre: "12:30" }
+                    ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2915236678",
+                instagram: "lacasadelasespeciasbb" 
+
+            }
         }
     ];
+        
+      
 
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const buscadorInput = document.querySelector(".buscador-comercio");
