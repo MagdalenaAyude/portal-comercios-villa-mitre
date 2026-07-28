@@ -189,9 +189,10 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Washington 510",
-                    horario: "Martes y Jueves de 7:00 a 21:00",
+                    horario: "Lunes a Viernes 8:00 a 21:00 | Martes y Jueves 7:00 a 21:00",
                     dias: [1,2,3,4],
                     franjaHoraria: [
+                        { apertura: "8:00" , cierre: "21:00" },
                         { apertura: "7:00" , cierre: "21:00" }
                     ]
                 },
