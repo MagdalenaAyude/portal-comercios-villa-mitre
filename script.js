@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Fiambrería": "fa-solid fa-cheese",
         "Actividad Física": "fas fa-person-running",
         "Dietética y Especias": "fas fa-seedling",
+        "Peluquería": "fas fa-scissors",
     };
 
     const comercios = [
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                 direccion: "Garibaldi 243",
-                horario: "Lunes a Viernes 9:00 a 12:30hs y de 16:00 a 20:00hs",
+                horario: "Lunes a Viernes 9:00 a 12:30hs <br> 16:00 a 20:00hs",
                 dias: [1,2,3,4,5],
                 franjaHoraria: [
                     { apertura: "9:00" , cierre: "12:30" },
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Washington 676",
-                 horario: "Lunes a Viernes 9:30 a 13:00hs y de 16:30 a 20:00hs | Sábado 10:00 a 13:30hs y de 16:30 a 20:00hs",
+                 horario: "Lunes a Viernes 9:30 a 13:00hs <br> 16:30 a 20:00hs <br> Sábado 10:00 a 13:30hs y <br> 16:30 a 20:00hs",
                             
                  dias: [1,2,3,4,5,6],
                  franjaHoraria:[
@@ -128,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Alberdi 1729",
-                 horario:"Lunes a viernes 9:30 a 12:30hs y de 16:30 a 19:30hs",
+                 horario:"Lunes a viernes 9:30 a 12:30hs <br> 16:30 a 19:30hs",
                  dias: [1,2,3,4,5],
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "12:30"},
@@ -148,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Alberdi 1691",
-                 horario:"Lunes a viernes 9:30 a 13:00hs y de 16:30 a 19:30hs | Domingo 10:00 a 13:00hs",
+                 horario:"Lunes a viernes 9:30 a 13:00hs <br> 16:30 a 19:30hs <br> Domingo 10:00 a 13:00hs",
                  dias: [1,2,3,4,5,6,0], 
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "13:00"},
@@ -169,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [   
                 {
                  direccion: "Rivadavia 1910",
-                 horario: "Lunes a Sábado 9:30 a 13:30 y de 16:00 a 20:00hs",
+                 horario: "Lunes a Sábado 9:30 a 13:30 hs <br> 16:00 a 20:00hs",
                  dias: [1,2,3,4,5,6],
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "13:30"},
@@ -189,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Washington 510",
-                    horario: "Lunes a Viernes 8:00 a 21:00 | Martes y Jueves 7:00 a 21:00",
+                    horario: "Lunes a Viernes 8:00 a 21:00 <br> Martes y Jueves 7:00 a 21:00",
                     dias: [1,2,3,4],
                     franjaHoraria: [
                         { apertura: "8:00" , cierre: "21:00" },
@@ -217,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Drago 1698",
-                    horario: "Lunes a Viernes de 8:00 a 16:00 hs | Sábado de 8:30 a 12:30 hs",
+                    horario: "Lunes a Viernes de 8:00 a 16:00 hs <br> Sábado de 8:30 a 12:30 hs",
                     dias: [1, 2, 3, 4, 5, 6],
                     franjaHoraria: [
                         { apertura: "8:00", cierre: "16:00" },
@@ -230,10 +231,31 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "lacasadelasespeciasbb" 
 
             }
-        }
-    ];
-        
-      
+        },
+    
+        {
+            nombre: "Estilo Diagonal",
+            rubro: "Peluquería",
+            descripcion: " NUEVA APERTURA EN VILLA MITRE <br> <br> Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
+            sucursales: [
+                {
+                    direccion: "Garibaldi 639",
+                    horario: "Lunes a Sábados de 10:00 a 19:00hs",
+                    dias: [1, 2, 3, 4, 5, 6],
+                    franjaHoraria: [
+                        { apertura: "10:00", cierre: "19:00" },
+                    ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2915028928",
+                instagram: "estilodiagonal"
+            }
+        },
+     ];
+    
+     
+    
 
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const buscadorInput = document.querySelector(".buscador-comercio");
@@ -269,8 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 return `
                     <div class="sucursal-bloque">
-                        <p class="sucursal-direccion">📍 <strong>${sucursal.direccion}</strong></p>
-                        <p class="sucursal-horario">${sucursal.horario}</p>
+                        <p class="sucursal-direccion"><i class=" fas fa-map-marker-alt"></i>${sucursal.direccion}</strong></p>
+                        <p class="sucursal-horario"><i class="fas fa-clock"></i>${sucursal.horario}</p>
                         <span class="badge ${estadoClase}">${textoEstado}</span>
                     </div>
                 `;
@@ -333,6 +355,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="comercio-links">
                     ${linksHTML}
                 </div>
+                
+        
+       
             `;
             
             cardComercio.innerHTML = tarjetaHTML;

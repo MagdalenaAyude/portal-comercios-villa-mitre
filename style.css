@@ -439,6 +439,10 @@ header{
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     width: 100%;
+    align-items: start;
+    
+   
+   
 }
 
 
@@ -451,9 +455,16 @@ header{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-   justify-content: space-between;
+    
     text-align: center; 
     transition: var(--transition-smooth);
+    
+
+}
+.comercio-info-principal {
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .comercio-card:hover {
@@ -468,6 +479,7 @@ header{
     font-weight: 700;
     color: var(--text-main);
 }
+
 
 .rubro {
     font-family: var(--font-sans);
@@ -489,25 +501,29 @@ header{
     color: var(--text-muted);
     line-height: 1.5;
     margin: 0;
+    
 }
 
 .contenedor-sucursales {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem; 
-    margin: 0.8rem 0;
+    gap: 1rem; 
+    margin: 1rem 0;
+   
 }
 
 .sucursal-bloque {
     display: flex;
     flex-direction: column;
-    gap: 0.3rem; 
+    gap: 20px; 
 }
 
 .sucursal-direccion {
     font-size: 0.9rem;
     color: var(--text-main);
     margin: 0;
+    display: block;
+    
 }
 
 .sucursal-direccion strong {
@@ -515,22 +531,26 @@ header{
 }
 
 .sucursal-horario {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
-    white-space: pre-line; 
+    gap: 1px;
+    
+}
+.sucursal-bloque i {
+    margin-right: 6px; 
+    color: var(--vm-green); 
 }
 
 .comercio-links {
-    padding-top: 1rem;
-    margin-top: 15px;
+    padding-top: 1,25rem;
+    margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     flex-wrap: wrap;
-    
     gap: 10px;
-
+   
 }
 
 .comercio-links a {
@@ -598,15 +618,9 @@ header{
     border-color: rgba(248, 113, 113, 0.3);
 
 }
-
-
-
-
-
-
-
-
-
+.sucursal-bloque i {
+    margin-right: 6px; 
+}
 
 .sumar-section {
     padding: 60px 20px;
