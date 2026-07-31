@@ -152,11 +152,11 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                  direccion: "Alberdi 1691",
-                 horario:"Lunes a viernes 9:30 a 13:00hs <br> 16:30 a 19:30hs <br> Domingo 10:00 a 13:00hs",
+                 horario:"Lunes a viernes 9:30 a 13:00hs <br> 17:00 a 20:30hs <br> Domingo 10:00 a 13:00hs",
                  dias: [1,2,3,4,5,6,0], 
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "13:00"},
-                 { apertura: "16:30" , cierre: "19:30"},
+                 { apertura: "17:00" , cierre: "20:30"},
                  { apertura: "10:00" , cierre: "13:00"}
                  ]
                 }
