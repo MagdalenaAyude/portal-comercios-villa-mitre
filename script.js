@@ -29,6 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Actividad Física": "fas fa-person-running",
         "Dietética y Especias": "fas fa-seedling",
         "Peluquería": "fas fa-scissors",
+        "Heladería": "fa-solid fa-ice-cream",
+        "Petshop": "fa-solid fa-paw",
+        
     };
 
     const comercios = [
@@ -170,11 +173,11 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [   
                 {
                  direccion: "Rivadavia 1910",
-                 horario: "Lunes a Sábado 9:30 a 13:30 hs <br> 16:00 a 20:00hs",
+                 horario: "Lunes a Sábado 9:30 a 13:30hs <br> 16:00 a 20:00hs",
                  dias: [1,2,3,4,5,6],
                  franjaHoraria: [
                  { apertura: "9:30" , cierre: "13:30"},
-                 { apertura: "16:00" , cierre: "20:00"},
+                 { apertura: "16:00" , cierre: "20:00"}
                  ]
                 }
             ],
@@ -190,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Washington 510",
-                    horario: "Lunes a Viernes 8:00 a 21:00 <br> Martes y Jueves 7:00 a 21:00",
+                    horario: "Lunes a Viernes 8:00 a 21:00hs <br> Martes y Jueves 7:00 a 21:00hs",
                     dias: [1,2,3,4],
                     franjaHoraria: [
                         { apertura: "8:00" , cierre: "21:00" },
@@ -202,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     horario: "Lunes a Viernes 8:00 a 21:00 ",
                     dias: [1,2,3,4,5],
                     franjaHoraria: [
-                        { apertura:"8:00" , cierre:"21:00" }
+                        { apertura:"8:00" , cierre:"21:00" },
                     ]
                 }
             ],
@@ -218,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Drago 1698",
-                    horario: "Lunes a Viernes de 8:00 a 16:00 hs <br> Sábado de 8:30 a 12:30 hs",
+                    horario: "Lunes a Viernes 8:00 a 16:00hs <br> Sábado 8:30 a 12:30hs",
                     dias: [1, 2, 3, 4, 5, 6],
                     franjaHoraria: [
                         { apertura: "8:00", cierre: "16:00" },
@@ -240,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Garibaldi 639",
-                    horario: "Lunes a Sábados de 10:00 a 19:00hs",
+                    horario: "Lunes a Sábados 10:00 a 19:00hs",
                     dias: [1, 2, 3, 4, 5, 6],
                     franjaHoraria: [
                         { apertura: "10:00", cierre: "19:00" },
@@ -252,7 +255,75 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "estilodiagonal"
             }
         },
-     ];
+      {
+            nombre: "Alaia Pilates",
+            rubro: "Actividad Física", 
+            descripcion: "Somos un espacio donde el Pilates y el entrenamiento de fuerza se complementan para ayudarte a desarrollar un cuerpo fuerte, móvil y saludable. Trabajamos con grupos reducidos, lo que nos permite acompañar de forma cercana a cada persona y adaptar cada ejercicio a sus necesidades, objetivos y experiencia.",
+            sucursales: [
+                {
+                direccion: "Estados Unidos 3",
+                horario: "Lunes a Viernes 8:00 a 12:00hs <br> 14:00 a 21:00hs",
+                dias: [1,2,3,4,5],
+                franjaHoraria: [
+                    { apertura: "8:00" , cierre: "12:00" },
+                    { apertura: "14:00" , cierre: "21:00" }
+                ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2915346258",
+                instagram: "alaiapilates"
+            }
+        },
+    {
+    nombre: "Roma Heladería & Pastelería",
+    rubro: "Heladería", 
+    descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
+    sucursales: [
+        {
+            direccion: "Maipú 2266",
+            horario: '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br><i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br><span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br><span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
+            dias: [1,2,3,4,5,6,0],
+            franjaHoraria: [
+                { apertura: "12:00", cierre: "00:00" },
+                { apertura: "17:00", cierre: "22:00" },
+                { apertura: "16:00", cierre: "00:00" },
+                { apertura: "12:00", cierre: "22:00" }
+            ]
+        }
+    ],          
+    contacto: {
+        whatsapp: "2915268456",
+        instagram: "romaheladeriapasteleria"
+    }
+ },
+ {
+    nombre: "Beto Mascotas",
+    rubro: "Petshop", 
+    descripcion: "Todo lo que necesitás para el bienestar y cuidado de tu mascota en un solo lugar. Encontrá una amplia variedad en alimentos de calidad, juguetes y accesorios.",
+    sucursales: [
+        {
+            direccion: "Garibaldi 251",
+            horario: "Lunes a Sábado 9:00 a 13:00hs <br> 17:00hs a 20:30hs.",
+            dias: [1,2,3,4,5,6],
+            franjaHoraria: [
+                { apertura: "9:00", cierre: "13:00" },
+                { apertura: "17:00", cierre: "20:30" }
+            ]
+        }
+    ],          
+    contacto: {
+        whatsapp: "2914130314",
+        instagram: "betomascotas.petshop",
+        facebook: "https://www.facebook.com/BetoMascotasPetshop?locale=es_LA "
+    }
+ }
+];
+ 
+
+
+
+   
     
      
     
