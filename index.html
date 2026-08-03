@@ -2,33 +2,31 @@
 <html lang="es">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS64909MCM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-SS64909MCM');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Portal de Villa Mitre en Bahía Blanca. Historia, comercios locales y clasificados vecinales.">
-<title>Villa Mitre | Comercios, Historia y Clasificados - Bahía Blanca</title>
+      gtag('config', 'G-SS64909MCM');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Portal de Villa Mitre en Bahía Blanca. Historia, comercios locales y clasificados vecinales.">
+    <title>Villa Mitre | Comercios, Historia y Clasificados - Bahía Blanca</title>
 
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        
         <div class="nav-container">
             <div class="brand">
                 <div class="logo-vm">VM</div>
@@ -39,261 +37,315 @@
             </div>
 
             <button class="menu-toggle" aria-label="Abrir menú">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+                <i class="fa-solid fa-bars"></i>
+            </button>
             <nav class="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#historia">Historia</a>
                 <a href="#comercios">Comercios</a>
-                <a href="#clasificados">Emprendimientos</a>
-                <a href="#sumar" class="btn-cta">Sumate a la App</a>
+                <a href="#emprendimientos" style="display: none;">Emprendimientos</a>
+                <a href="#oficios" style="display: none;">Oficios</a>
+                <a href="#consultorios">Consultorios</a>
+                <a href="#profesionales" style="display: none;">Profesionales</a>
             </nav>
+            <div class="btn-primary">
+                <a href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre." class="btn-primary" target="_blank">
+                    Quiero sumar mi negocio <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
     </header>
     
     <main>
-    <section id="inicio" class="hero-section">
-        <div class="hero-content">
-            <div class="badge">
-                <span class="badge-text">Portal de Villa Mitre</span>
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-text">Portal de Villa Mitre</span>
+                </div>
+                
+                <h1>MÁS QUE UN BARRIO,
+                    <span class="highlight">UNA CIUDAD</span>
+                </h1>
+                
+                <p class="lead">
+                    Bienvenidos al portal de Villa Mitre. Un rincón digital dedicado a potenciar los comercios locales que le dan vida a nuestras calles y celebrar un orgullo que trasciende generaciones.
+                </p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>1906</h3>
+                        <p>Origen del Barrio</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 id="stat-total-comercios">4</h3>
+                        <p>Comercios Activos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5</h3>
+                        <p>Esquinas de Historia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Identidad de barrio</p>
+                        <span>De las vías para acá</span>
+                    </div>
+                </div>
             </div>
-            
-            <h1>MÁS QUE UN BARRIO,
-                <span class="highlight">UNA CIUDAD</span>
-            </h1>
-            
-            <p class="lead">
-                Bienvenidos al portal de Villa Mitre. Un rincón digital dedicado a potenciar los comercios locales que le dan vida a nuestras calles y celebrar un orgullo que trasciende generaciones.
-            </p>
-            
-            <div class="hero-actions">
-                <a href="#comercios" class="btn-primary">
-                    <i class="fa-solid fa-shop"></i>
-                    <span>Explorar Comercios</span>
-                </a>
+        </section>
 
-                <a href="#sumar" class="btn-secondary">
-                    <i class="fa-solid fa-plus"></i>
-                    <span>Sumar mi Negocio</span>
-                </a>
+        <section id="historia" class="historia-section">
+            <div class="section-title-wrapper">
+                <div class="badge">
+                    <span class="badge-text">Orígenes y pasión</span>
+                </div>
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="section-subtitle">Desde la llegada de las primeras familias trabajadoras y el ferrocarril, hasta consolidarnos como una "república" con fuerte identidad propia en Bahía Blanca.</p>
+            
+            <div class="timeline">
+                <div class="timeline-container">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <span>1906 - El Origen</span>
+                        <h4>Inicios del Barrio de Obreros</h4>
+                        <p>
+                            Villa Mitre comenzó a poblarse gracias a la expansión ferroviaria británica.
+                            Obreros metalúrgicos, inmigrantes de diversas colectividades y familias criollas
+                            se asentaron levantando las bases de una comunidad con cultura del trabajo y la solidaridad.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-futbol"></i>
+                        </div>
+                        <span>1924 - Pasión Colectiva</span>
+                        <h4>Fundación de Sportivo Villa Mitre</h4>
+                        <p>
+                            El 14 de agosto de 1924 nace el Club Sportivo Villa Mitre, semilla de la principal
+                            institución deportiva del barrio. Años más tarde, la fusión con el Club Deportivo
+                            Alianza aportaría la emblemática camiseta tricolor.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <span>1954 - Corazón de Cemento</span>
+                        <h4>Inauguración de "El Fortín"</h4>
+                        <p>
+                            El 12 de diciembre de 1954 se inaugura oficialmente el mítico estadio de fútbol,
+                            consolidándose como un bastión histórico para el deporte y la vida social del barrio.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span>2020 - Educación y Futuro</span>
+                        <h4>Inauguración del Jardín "La Ciudad"</h4>
+                        <p>
+                            El club inaugura su Jardín de Infantes y Maternal, convirtiéndose en la primera
+                            institución deportiva de Bahía Blanca en integrar la educación formal.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-container">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <span>Presente - Autonomía Comercial</span>
+                        <h4>El motor económico de Villa Mitre</h4>
+                        <p>
+                            Con centros comerciales dinámicos distribuidos alrededor de Plaza Mitre y sus
+                            principales avenidas, Villa Mitre continúa siendo un barrio con identidad,
+                            historia y una fuerte actividad comercial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comercios" class="comercios-section">
+            <div class="section-title-wrapper">
+                <div class="badge">
+                    <span class="badge-text">Nuestros Comercios</span>
+                </div>
+                <h2 class="section-title">Encontrá lo que buscás en un sólo lugar</h2>
+                <p class="section-subtitle">Encontrá tus comercios favoritos en Villa Mitre</p>
             </div>
             
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>1906</h3>
-                    <p>Origen del Barrio</p>
+            <div class="buscador-container">
+                <div class="buscador-wrapper">
+                    <i class="fa-solid fa-magnifying-glass buscador-icono"></i>
+                    <input type="text" class="buscador-comercio" placeholder="Buscar por nombre Ej: Vibra Bonito">
                 </div>
-                <div class="stat-item">
-                    <h3 id="stat-total-comercios">4</h3>
-                    <p>Comercios Activos</p>
-                </div>
-                <div class="stat-item">
-                    <h3>5</h3>
-                    <p>Esquinas de Historia</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Identidad de barrio</p>
-                    <span>De las vías para acá</span>
-                </div>
+            </div> 
+
+            <div class="filtros-container">
+                <button class="btn-filtro active" data-rubro="todos">
+                    <i class="fas fa-th-large"></i> Todos
+                </button>
+                <button class="btn-filtro" data-rubro="Indumentaria Deportiva">
+                    <i class="fas fa-dumbbell"></i> Deportes
+                </button>
+                <button class="btn-filtro" data-rubro="Cosmética y Belleza">
+                    <i class="fas fa-pump-soap"></i> Cosmética
+                </button>
+                <button class="btn-filtro" data-rubro="Regalería y Juguetería">
+                    <i class="fa-solid fa-gift"></i> Regalería
+                </button>
+                <button class="btn-filtro" data-rubro="Polirrubro y Servicios">
+                    <i class="fa-solid fa-store"></i> Polirrubro
+                </button>
+                <button class="btn-filtro" data-rubro="Indumentaria">
+                    <i class="fas fa-tshirt"></i> Indumentaria
+                </button>
+                <button class="btn-filtro" data-rubro="Fiambrería">
+                    <i class="fa-solid fa-cheese"></i> Fiambrería
+                </button>
+                <button class="btn-filtro" data-rubro="Actividad Física">
+                    <i class="fas fa-person-running"></i> Actividad Física
+                </button>
+                <button class="btn-filtro" data-rubro="Dietética y Especias">
+                    <i class="fas fa-seedling"></i> Dietética y Especias
+                </button>
+                <button class="btn-filtro" data-rubro="Peluquería">
+                    <i class="fas fa-scissors"></i> Peluquería
+                </button>
+                <button class="btn-filtro" data-rubro="Heladería">
+                    <i class="fas fa-ice-cream"></i> Heladería
+                </button>
+                <button class="btn-filtro" data-rubro="Petshop">
+                    <i class="fas fa-dog"></i> Petshop
+                </button>
             </div>
+            
+            <div class="comercios-grid" id="contenedor-comercios"></div>
+        </section>
         
-    </section>
-<section id="historia" class="historia-section">
-        <div class="section-title-wrapper">
-            <h2 class="section-title">Nuestra Historia</h2>
-            <p class="section-subtitle">Desde la llegada de las primeras familias trabajadoras y el ferrocarril, hasta consolidarnos como una "república" con fuerte identidad propia en Bahía Blanca.</p>
-        </div>
-        <div class="timeline">
+        <section id="emprendimientos" class="emprendimientos-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Emprendedores del Barrio</h2>
+                <p class="section-subtitle">Proyectos independientes de Villa Mitre</p>
+            </div>
+            <div class="emprendimientos-grid" id="contenedor-emprendimientos"></div>
+        </section>
 
- 
-    <div class="timeline-container">
-        <div class="timeline-content">
-            <div class="timeline-icon">
-                <i class="fa-solid fa-house"></i>
+        <section id="oficios" class="oficios-section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Oficios y Servicios</h2>
+                <p class="section-subtitle">Mano de obra y servicios de confianza cerca de tu casa</p>
+            </div>
+            <div class="oficios-grid" id="contenedor-oficios"></div>
+        </section>
+
+        <section id="consultorios" class="consultorios-section">
+            <div class="section-title-wrapper">
+                <div class="badge">
+                    <span class="badge-text">Espacios Profesionales</span>
+                </div>
+                <h2 class="section-title">Encontranos en nuestras direcciones</h2>
+            </div>
+            
+            <div class="haru-container">
+                <div class="haru-sucursal-card">
+                    <div class="haru-header-card">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <h3>Sucursal Alberdi</h3>
+                    </div>
+                    <p class="haru-direccion">Alberdi 1878</p>
+                </div>
+
+                <div class="haru-sucursal-card">
+                    <div class="haru-header-card">
+                        <i class="fa-solid fa-map-pin"></i>
+                        <h3>Sucursal Necochea</h3>
+                    </div>
+                    <p class="haru-direccion">Necochea 321</p>
+                </div>
+            </div>
+            
+            <div class="haru-info-detalles">
+                <p><i class="fa-regular fa-clock"></i> <strong>Horarios:</strong> Lunes a Sábado de 8:00 a 20:00</p>
+                <p><i class="fa-solid fa-circle-info"></i> Alquiler de módulos de 4 a 6 horas.</p>
             </div>
 
-            <span>1906 - El Origen</span>
+            <div class="haru-contacto-box">
+                <h4>¿Querés alquilar un consultorio o espacio?</h4>
+                <p>Comunicate directamente para coordinar visitas.</p>
+                <div class="haru-botones">
+                    <a href="https://wa.me/5492914251005?text=Hola,%20quiero%20consultar%20por%20el%20alquiler%20de%20consultorios%20en%20Espacio%20Haru." target="_blank" class="btn-haru-wa">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://instagram.com/espacioharu" target="_blank" class="btn-haru-ig">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
 
-            <h4>Inicios del Barrio de Obreros</h4>
+        <section>
 
-            <p>
-                Villa Mitre comenzó a poblarse gracias a la expansión ferroviaria británica.
-                Obreros metalúrgicos, inmigrantes de diversas colectividades y familias criollas
-                se asentaron levantando las bases de una comunidad con cultura del trabajo y la solidaridad.
-            </p>
+        <div class="comercio-card">
+    <span class="rubro">
+        <i class="fas fa-user-md"></i> 
+        Consultorías y Asesorías
+    </span>
+    <h3>Lic. Valentina Croci</h3>
+    <p class="descripcion">Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn. Asesoramiento en Recursos Humanos y desarrollo de carrera.</p>
+        
+    <div class="contenedor-sucursales">
+        <div class="sucursal-bloque">
+            <p class="sucursal-direccion"><i class="fas fa-map-marker-alt"></i> Espacio Haru - Necochea 321</p>
+            <p class="sucursal-horario"><i class="fas fa-clock"></i> Lunes a viernes de 8:00 a 18:00hs</p>
         </div>
     </div>
 
-   
-    <div class="timeline-container">
-        <div class="timeline-content">
-            <div class="timeline-icon">
-                <i class="fa-solid fa-futbol"></i>
-            </div>
-
-            <span>1924 - Pasión Colectiva</span>
-
-            <h4>Fundación de Sportivo Villa Mitre</h4>
-
-            <p>
-                El 14 de agosto de 1924 nace el Club Sportivo Villa Mitre, semilla de la principal
-                institución deportiva del barrio. Años más tarde, la fusión con el Club Deportivo
-                Alianza aportaría la emblemática camiseta tricolor.
-            </p>
-        </div>
+    <div class="comercio-links">
+        <a href="https://wa.me/5492914234619?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://instagram.com/vacro.rrhh" target="_blank" class="btn-instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
     </div>
-
-  
-    <div class="timeline-container">
-        <div class="timeline-content">
-            <div class="timeline-icon">
-                <i class="fa-solid fa-landmark"></i>
-            </div>
-
-            <span>1954 - Corazón de Cemento</span>
-
-            <h4>Inauguración de "El Fortín"</h4>
-
-            <p>
-                El 12 de diciembre de 1954 se inaugura oficialmente el mítico estadio de fútbol,
-                consolidándose como un bastión histórico para el deporte y la vida social del barrio.
-            </p>
-        </div>
-    </div>
-
-
-    <div class="timeline-container">
-        <div class="timeline-content">
-            <div class="timeline-icon">
-                <i class="fa-solid fa-graduation-cap"></i>
-            </div>
-
-            <span>2020 - Educación y Futuro</span>
-
-            <h4>Inauguración del Jardín "La Ciudad"</h4>
-
-            <p>
-                El club inaugura su Jardín de Infantes y Maternal, convirtiéndose en la primera
-                institución deportiva de Bahía Blanca en integrar la educación formal.
-            </p>
-        </div>
-    </div>
-
-    
-    <div class="timeline-container">
-        <div class="timeline-content">
-            <div class="timeline-icon">
-                <i class="fa-solid fa-store"></i>
-            </div>
-
-            <span>Presente - Autonomía Comercial</span>
-
-            <h4>El motor económico de Villa Mitre</h4>
-
-            <p>
-                Con centros comerciales dinámicos distribuidos alrededor de Plaza Mitre y sus
-                principales avenidas, Villa Mitre continúa siendo un barrio con identidad,
-                historia y una fuerte actividad comercial.
-            </p>
-        </div>
-    </div>
-
 </div>
-<section id="comercios" class="comercios-section">
-        <div class="section-title-wrapper">
-            <h2 class="section-title">Comercios Locales</h2>
-            <p class="section-subtitle">Apoyá al comerciante local. Buscá lo que necesités, encontrá su descripción, horario y contacto directo por WhatsApp o Instagram.</p>
-        </div>
-        
-      
-        <div class="buscador-container">
-            <div class="buscador-wrapper">
-                <i class="fa-solid fa-magnifying-glass buscador-icono"></i>
-                <input 
-                    type="text" 
-                    class="buscador-comercio" 
-                    placeholder="Buscar por nombre Ej: Vibra Bonito">
-                   
-                    
-            </div>
-        </div> 
-
-        
-        <div class="filtros-container">
-            <button class="btn-filtro active" data-rubro="todos">
-                <i class="fas fa-th-large"></i> Todos
-            </button>
-            <button class="btn-filtro" data-rubro="Indumentaria Deportiva">
-                <i class="fas fa-dumbbell"></i> Deportes
-            </button>
-            <button class="btn-filtro" data-rubro="Cosmética y Belleza">
-                <i class="fas fa-pump-soap"></i> Cosmética
-            </button>
-            <button class="btn-filtro" data-rubro="Regalería y Juguetería">
-                <i class="fa-solid fa-gift"></i> Regalería
-            </button>
-            <button class="btn-filtro" data-rubro="Polirrubro y Servicios">
-                <i class="fa-solid fa-store"></i> Polirrubro
-            <button class="btn-filtro" data-rubro="Indumentaria">
-                <i class="fas fa-tshirt"></i> Indumentaria</button>
-            </button>
-            <button class="btn-filtro" data-rubro="Fiambrería">
-                <i class="fa-solid fa-cheese"></i> Fiambrería
-            </button>
-            <button class="btn-filtro" data-rubro="Actividad Física">
-                <i class="fas fa-person-running"></i> Actividad Física
-            </button>
-            <button class="btn-filtro" data-rubro="Dietética y Especias">
-                <i class="fas fa-seedling"></i> Dietética y Especias
-            </button>
-            <button class="btn-filtro" data-rubro="Peluquería">
-                <i class="fas fa-scissors"></i> Peluquería
-            </button>
-            <button class="btn-filtro" data-rubro="Heladería">
-                <i class="fas fa-ice-cream"></i> Heladería
-            </button>
-            <button class="btn-filtro" data-rubro="Petshop">
-                <i class="fas fa-dog"></i> Petshop
-            </button>
-            
-         </div>
-        
-      
-        <div class="comercios-grid" id="contenedor-comercios"></div>
-    </section>
-        
-        
-    
-    
-   
-
-   <section class="sumar-section" id="sumar">
-
-    <h2>Sumate a la App Villa Mitre</h2>
-
-    <p>
-     Estamos sumando comercios de Villa Mitre para fortalecer la economía local y acercar sus productos y servicios a más vecinos.
-    </p>
-
-    <ul>
-        <li>✔ Presencia digital en la app</li>
-        <li>✔ Mayor visibilidad en el barrio </li>
-        <li>✔ Llegá a nuevos clientes </li>
-    </ul>
-
- <a
-    href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre."
-    class="btn-whatsapp"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    <i class="fa-brands fa-whatsapp"></i>
-    <span>Quiero sumar mi negocio</span>
-</a>
-
 </section>
-        
+
+        <section class="sumar-section" id="sumar">
+            <div class="sumar-content-wrapper"> 
+                <h2>Sumate a la App Villa Mitre</h2>
+                <p>
+                   Formá parte del directorio digital que potencia los comercios y servicios del barrio. Acercá tus propuestas a más vecinos de manera directa.
+                </p>
+                <ul class="sumar-benefits">
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Presencia digital destacada en la app</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Mayor visibilidad en todo el barrio</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Conexión directa con nuevos clientes</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -308,13 +360,13 @@
                 <p>Un portal independiente nacido en Bahía Blanca para defender nuestra historia y respaldar el comercio del barrio. ¡La Villa es sentimiento!</p>
             </div>
             
-          <div class="footer-bottom">
-            <p>2026 Portal Villa Mitre &bull;Creado por Magdalena Ayude</p>
-            <p>Bahía Blanca, Argentina</p>
+            <div class="footer-bottom">
+                <p>2026 Portal Villa Mitre &bull; Desarrollado por Magdalena Ayude</p>
+                <p>Bahía Blanca, Argentina</p>
+            </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>

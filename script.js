@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
+    const nav = document.querySelector("nav");
+    const section = document.querySelectorAll("main > section");
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
@@ -10,8 +12,23 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         navItems.forEach((item) => {
-            item.addEventListener("click", () => {
+            item.addEventListener("click", (event) => {
                 navLinks.classList.remove("abrir");
+                event.preventDefault();
+
+                const targetId = item.getAttribute("href");
+                console.log("Hiciste clic en:", targetId);
+                
+                if (targetId && targetId.startsWith("#")) {
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        section.forEach((sec) => {
+                            sec.style.display = "none";
+                        });
+                        targetSection.style.display = "block";
+                    }
+                }
             });
         });
     }
@@ -31,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Peluquería": "fas fa-scissors",
         "Heladería": "fa-solid fa-ice-cream",
         "Petshop": "fa-solid fa-paw",
-        
+        "Consultorios": "fas fa-user-md"
     };
 
     const comercios = [
@@ -91,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                  direccion: "Washington 676",
                  horario: "Lunes a Viernes 9:30 a 13:00hs <br> 16:30 a 20:00hs <br> Sábado 10:00 a 13:30hs y <br> 16:30 a 20:00hs",
-                            
                  dias: [1,2,3,4,5,6],
                  franjaHoraria:[
                     { apertura: "9:30" , cierre: "13:00"},
@@ -232,14 +248,12 @@ document.addEventListener("DOMContentLoaded", () => {
             contacto: {
                 whatsapp: "2915236678",
                 instagram: "lacasadelasespeciasbb" 
-
             }
         },
-    
         {
             nombre: "Estilo Diagonal",
             rubro: "Peluquería",
-            descripcion: " NUEVA APERTURA EN VILLA MITRE <br> <br> Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
+            descripcion: "NUEVA APERTURA EN VILLA MITRE <br> <br> Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
             sucursales: [
                 {
                     direccion: "Garibaldi 639",
@@ -255,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "estilodiagonal"
             }
         },
-      {
+        {
             nombre: "Alaia Pilates",
             rubro: "Actividad Física", 
             descripcion: "Somos un espacio donde el Pilates y el entrenamiento de fuerza se complementan para ayudarte a desarrollar un cuerpo fuerte, móvil y saludable. Trabajamos con grupos reducidos, lo que nos permite acompañar de forma cercana a cada persona y adaptar cada ejercicio a sus necesidades, objetivos y experiencia.",
@@ -275,59 +289,95 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "alaiapilates"
             }
         },
-    {
-    nombre: "Roma Heladería & Pastelería",
-    rubro: "Heladería", 
-    descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
-    sucursales: [
         {
-            direccion: "Maipú 2266",
-            horario: '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br><i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br><span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br><span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
-            dias: [1,2,3,4,5,6,0],
-            franjaHoraria: [
-                { apertura: "12:00", cierre: "00:00" },
-                { apertura: "17:00", cierre: "22:00" },
-                { apertura: "16:00", cierre: "00:00" },
-                { apertura: "12:00", cierre: "22:00" }
-            ]
-        }
-    ],          
-    contacto: {
-        whatsapp: "2915268456",
-        instagram: "romaheladeriapasteleria"
-    }
- },
- {
-    nombre: "Beto Mascotas",
-    rubro: "Petshop", 
-    descripcion: "Todo lo que necesitás para el bienestar y cuidado de tu mascota en un solo lugar. Encontrá una amplia variedad en alimentos de calidad, juguetes y accesorios.",
-    sucursales: [
+            nombre: "Roma Heladería & Pastelería",
+            rubro: "Heladería", 
+            descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
+            sucursales: [
+                {
+                    direccion: "Maipú 2266",
+                    horario: '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br><i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br><span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br><span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
+                    dias: [1,2,3,4,5,6,0],
+                    franjaHoraria: [
+                        { apertura: "12:00", cierre: "00:00" },
+                        { apertura: "17:00", cierre: "22:00" },
+                        { apertura: "16:00", cierre: "00:00" },
+                        { apertura: "12:00", cierre: "22:00" }
+                    ]
+                }
+            ],           
+            contacto: {
+                whatsapp: "2915268456",
+                instagram: "romaheladeriapasteleria"
+            }
+        },
         {
-            direccion: "Garibaldi 251",
-            horario: "Lunes a Sábado 9:00 a 13:00hs <br> 17:00hs a 20:30hs.",
-            dias: [1,2,3,4,5,6],
-            franjaHoraria: [
-                { apertura: "9:00", cierre: "13:00" },
-                { apertura: "17:00", cierre: "20:30" }
-            ]
+            nombre: "Beto Mascotas",
+            rubro: "Petshop", 
+            descripcion: "Todo lo que necesitás para el bienestar y cuidado de tu mascota en un solo lugar. Encontrá una amplia variedad en alimentos de calidad, juguetes y accesorios.",
+            sucursales: [
+                {
+                    direccion: "Garibaldi 251",
+                    horario: "Lunes a Sábado 9:00 a 13:00hs <br> 17:00hs a 20:30hs.",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "9:00", cierre: "13:00" },
+                        { apertura: "17:00", cierre: "20:30" }
+                    ]
+                }
+            ],           
+            contacto: {
+                whatsapp: "2914130314",
+                instagram: "betomascotas.petshop",
+                facebook: "https://www.facebook.com/BetoMascotasPetshop?locale=es_LA "
+            }
+        },
+        {
+            nombre: "Mamá Cocina",
+            rubro: "Gastronomía", 
+            descripcion: "Sabor a hogar todos los días. Disfrutá platos elaborados con recetas de antes, ingredientes frescos y ese toque casero que te salva el almuerzo o la cena sin cocinar.",
+            sucursales: [
+                {
+                    direccion: "Washington 377 ",
+                    horario: "Lunes a sábado 10:00 a 14:00hs <br> 19:00 a 23:00hs",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "10:00", cierre: "14:00" },
+                        { apertura: "19:00", cierre: "23:00" }
+                    ]
+                }
+            ],           
+            contacto: {
+                whatsapp: "2915089999",
+                instagram: "mamacocina.villamitre",
+            }
         }
-    ],          
-    contacto: {
-        whatsapp: "2914130314",
-        instagram: "betomascotas.petshop",
-        facebook: "https://www.facebook.com/BetoMascotasPetshop?locale=es_LA "
-    }
- }
-];
+    ];
+
+    const profesionales = [
+        {
+            nombre: "Lic. Valentina Croci",
+            rubro: "Consultorías y Asesorías",
+            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn. Asesoramiento en Recursos Humanos y desarrollo de carrera.",
+            sucursales: [
+                {
+                    direccion: "Espacio Haru - Necochea 321",
+                    horario: "Lunes a viernes de 8:00 a 18:00hs",
+                    dias: [1, 2, 3, 4, 5],
+                    franjaHoraria: [
+                        { apertura: "8:00", cierre: "18:00" }
+                    ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2914234619",
+                instagram: "vacro.rrhh"
+            }
+        }
+    ];
  
 
-
-
    
-    
-     
-    
-
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const buscadorInput = document.querySelector(".buscador-comercio");
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
@@ -362,14 +412,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 return `
                     <div class="sucursal-bloque">
-                        <p class="sucursal-direccion"><i class=" fas fa-map-marker-alt"></i>${sucursal.direccion}</strong></p>
+                        <p class="sucursal-direccion"><i class="fas fa-map-marker-alt"></i>${sucursal.direccion}</p>
                         <p class="sucursal-horario"><i class="fas fa-clock"></i>${sucursal.horario}</p>
                         <span class="badge ${estadoClase}">${textoEstado}</span>
                     </div>
                 `;
             }).join('');
 
-          let linksHTML = '';
+            let linksHTML = '';
 
             if (comercio.contacto.whatsapp) {
                 linksHTML += `
@@ -426,26 +476,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="comercio-links">
                     ${linksHTML}
                 </div>
-                
-        
-       
             `;
             
             cardComercio.innerHTML = tarjetaHTML;
             contenedorComercios.appendChild(cardComercio);
         });
     }
- 
+
     agregarComercios(comercios);
 
     if (buscadorInput) {
         buscadorInput.addEventListener("input", () => {
             const busqueda = buscadorInput.value.toLowerCase().trim(); 
-            
             const comerciosFiltrados = comercios.filter((comercio) => {
                 return comercio.nombre.toLowerCase().includes(busqueda);
             });
-            
             agregarComercios(comerciosFiltrados);
         });
     }
@@ -460,7 +505,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 boton.classList.add("active");
 
                 const rubroSeleccionado = boton.dataset.rubro;
-
                 if (buscadorInput) buscadorInput.value = "";
 
                 if (rubroSeleccionado === "todos") {
@@ -475,6 +519,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+
+
 
 function Abierto(sucursal) {
     const ahora = new Date();
