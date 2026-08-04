@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const navItems = document.querySelectorAll(".nav-links a");
     const nav = document.querySelector("nav");
     const section = document.querySelectorAll("main > section");
+    const profesionalesSection = document.getElementById("contenedor-profesionales");
+    const rubroprofesionales = document.getElementById("rubro-profesionales");
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
@@ -50,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Petshop": "fa-solid fa-paw",
         "Consultorios": "fas fa-user-md"
     };
+
+    
 
     const comercios = [
         {
@@ -353,31 +357,82 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     ];
+    const iconosPorRubroProfesionales = {
+    "Psicología": "fas fa-brain",
+    
+};
+
 
     const profesionales = [
         {
             nombre: "Lic. Valentina Croci",
-            rubro: "Consultorías y Asesorías",
-            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn. Asesoramiento en Recursos Humanos y desarrollo de carrera.",
-            sucursales: [
-                {
-                    direccion: "Espacio Haru - Necochea 321",
-                    horario: "Lunes a viernes de 8:00 a 18:00hs",
-                    dias: [1, 2, 3, 4, 5],
-                    franjaHoraria: [
-                        { apertura: "8:00", cierre: "18:00" }
-                    ]
-                }
-            ],
+            rubro: "Psicologos",
+            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
+            ubicacion: "Espacio Haru - Necochea 321",
+            modalidad: "Atención presencial con turno previo",
             contacto: {
-                whatsapp: "2914234619",
-                instagram: "vacro.rrhh"
-            }
+            whatsapp: "2914234619",
+            instagram: "vacrorrhh"
         }
+    },
     ];
- 
+   function renderizarProfesionales(lista) {
+    const contenedor = document.getElementById("contenedor-profesionales");
+    if (!contenedor) return;
 
-   
+    contenedor.innerHTML = "";
+
+    lista.forEach(prof => {
+        const cardProfesional = document.createElement("div");
+        cardProfesional.classList.add("profesional-card");
+
+        
+        const iconoClase = iconosPorRubroProfesionales[prof.rubro] || "fas fa-user-md";
+
+        let linksHTML = '';
+
+        if (prof.contacto.whatsapp) {
+            linksHTML += `
+                <a href="https://wa.me/549${prof.contacto.whatsapp}?text=Hola%20Lic.%20${encodeURIComponent(prof.nombre)},%20te%20contacto%20desde%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Turnos
+                </a>
+            `;
+        }
+
+        if (prof.contacto.instagram) {
+            linksHTML += `
+                <a href="https://instagram.com/${prof.contacto.instagram}" target="_blank" class="btn-instagram">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            `;
+        }
+
+        const tarjetaHTML = `
+            <span class="rubro">
+                <i class="${iconoClase}"></i> 
+                ${prof.rubro}
+            </span>
+            <h3>${prof.nombre}</h3>
+            <p class="descripcion">${prof.descripcion}</p>
+                
+            <div class="sucursal-bloque">
+                <p class="sucursal-direccion"><i class="fas fa-map-marker-alt"></i> ${prof.ubicacion}</p>
+                <p class="sucursal-horario"><i class="fas fa-user-clock"></i> ${prof.modalidad}</p>
+            </div>
+
+            <div class="comercio-links">
+                ${linksHTML}
+            </div>
+        `;
+        
+        cardProfesional.innerHTML = tarjetaHTML;
+        contenedor.appendChild(cardProfesional);
+    });
+    
+}
+renderizarProfesionales(profesionales);
+
+
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const buscadorInput = document.querySelector(".buscador-comercio");
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
