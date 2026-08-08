@@ -575,9 +575,6 @@ renderizarProfesionales(profesionales);
     }
 });
 
-
-
-
 function Abierto(sucursal) {
     const ahora = new Date();
     const diaActual = ahora.getDay();
@@ -603,5 +600,27 @@ function Abierto(sucursal) {
         }
     });
 
+
+
     return estaAbierto;
 }
+
+const eventDate = new Date("August 17, 2026 00:00:00").getTime();
+
+const updateCountdown = setInterval(() => {
+    const now = new Date().getTime();
+    const timeLeft = eventDate - now;
+
+    if (timeLeft < 0) {
+        clearInterval(updateCountdown);
+        document.getElementById("countdown").innerHTML = "<h3>¡Es Hoy! 🎉</h3>";
+        return;
+    }
+
+    
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) + 2;
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+}, 1000);
