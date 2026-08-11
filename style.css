@@ -933,13 +933,11 @@ footer {
     transition: all 0.4s ease;
 }
 
-
 .circle-box:hover {
     border-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     transform: translateY(-5px);
 }
-
 
 .countdown-number {
     font-family: var(--font-hero);
@@ -948,7 +946,6 @@ footer {
     color: var(--vm-light-gray);
     line-height: 1;
 }
-
 
 .countdown-label {
     font-family: 'Plus Jakarta Sans', sans-serif;

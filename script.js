@@ -355,8 +355,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2915089999",
                 instagram: "mamacocina.villamitre",
             }
+        },
+        {
+            nombre: "Kros Gym",
+            rubro: "Actividad Física", 
+            descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
+            sucursales: [
+                {
+                    direccion: "Washington 567",
+                    horario: "Lunes a Viernes 7:00 a 10:00hs <br> 13:30 a 21:00hs",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "7:00", cierre: "10:00" },
+                        { apertura: "13:30", cierre: "21:00" }
+                    ]
+                }
+            ],           
+            contacto: {
+                whatsapp: "2915334322",
+                instagram: "kros.gym",
+            }
         }
     ];
+    
     const iconosPorRubroProfesionales = {
     "Psicología": "fas fa-brain",
     
@@ -372,7 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
             modalidad: "Atención presencial con turno previo",
             contacto: {
             whatsapp: "2914234619",
-            instagram: "vacrorrhh"
+            instagram: "vacro.psi"
         }
     },
     ];
@@ -393,8 +414,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (prof.contacto.whatsapp) {
             linksHTML += `
-                <a href="https://wa.me/549${prof.contacto.whatsapp}?text=Hola%20Lic.%20${encodeURIComponent(prof.nombre)},%20te%20contacto%20desde%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Turnos
+               <a href="https://wa.me/${prof.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno." target="_blank" class="btn-whatsapp"> 
+                <i class="fab fa-whatsapp"></i> Turnos
                 </a>
             `;
         }
@@ -599,8 +620,6 @@ function Abierto(sucursal) {
             estaAbierto = true; 
         }
     });
-
-
 
     return estaAbierto;
 }
