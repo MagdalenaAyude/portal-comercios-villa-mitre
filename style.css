@@ -969,9 +969,7 @@ footer {
         display: none;
     }
 
-    
-    .nav-links::after {
-        content: "Quiero sumar mi negocio";
+    .nav-links .btn-mobile-sumar {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -982,11 +980,11 @@ footer {
         font-weight: 700;
         font-size: 0.9rem;
         text-align: center;
-   
         margin-top: 1rem;
         width: 100%;
-        cursor: pointer;
+        text-decoration: none;
     }
+
        .menu-toggle {
         display: block;
     }
