@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS64909MCM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -50,29 +51,27 @@
                 <a href="#consultorios">Consultorios</a>
                 <a href="#profesionales">Profesionales</a>
             </nav>
-            <div class="contenedor-btn">
-                <a href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre." 
-                   class="btn-primary" 
-                   target="_blank" 
-                   rel="noopener noreferrer">
+            <div class="btn-primary">
+                <a href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre." class="btn-primary" target="_blank">
                     Quiero sumar mi negocio <i class="fa-brands fa-whatsapp"></i>
                 </a>
-            </div>
-        </div>
+         </div>
     </header>
-
     <main>
-        <!-- Cuenta regresiva y Aniversario -->
-        <div class="anniversary-wrapper" style="text-align: center; padding: 20px 0;">
+    <div id="countdown" class="countdown-grid">
+    <div class="circle-box">
+        <span id="days" class="countdown-number">00</span>
+        <span class="countdown-label">Días</span>
+    </div>
+    </div>
+    <div class="anniversary-wrapper">
             <span class="hero-badge">102° Aniversario de Villa Mitre</span>
-            <div id="countdown" class="countdown-grid" style="display: flex; justify-content: center; margin-top: 10px;">
-                <div class="circle-box">
-                    <span id="days" class="countdown-number">00</span>
-                    <span class="countdown-label">Días</span>
-                </div>
-            </div>
+            
         </div>
 
+    
+        
+    </section>
         <section id="inicio" class="hero-section">
             <div class="hero-content">
                 <div class="badge">
@@ -116,7 +115,6 @@
                 </div>
                 <h2 class="section-title">Nuestra Historia</h2>
                 <p class="section-subtitle">Desde la llegada de las primeras familias trabajadoras y el ferrocarril, hasta consolidarnos como una "república" con fuerte identidad propia en Bahía Blanca.</p>
-            </div>
             
             <div class="timeline">
                 <div class="timeline-container">
@@ -247,9 +245,10 @@
                 <button class="btn-filtro" data-rubro="Petshop">
                     <i class="fas fa-dog"></i> Petshop
                 </button>
-                <button class="btn-filtro" data-rubro="Instituto de Inglés">
-                    <i class="fas fa-graduation-cap"></i> Inglés
+                <button class="btn-filtro" data-rubro="Cafeteria">
+                    <i class="fas fa-mug-hot"></i> Cafeteria
                 </button>
+                
             </div>
             
             <div class="comercios-grid" id="contenedor-comercios"></div>
@@ -315,15 +314,21 @@
                 </div>
             </div>
         </section>
-
-        <section id="profesionales" class="profesionales-section">
+       <section id="profesionales" class="profesionales-section">
             <div class="section-title-wrapper">
                 <div class="badge">
                     <span class="badge-text">Profesionales</span>
                 </div>
+                
             </div>
+            
             <div class="comercios-links" id="contenedor-profesionales"></div>
         </section>
+            
+
+  
+        
+   
 
         <section class="sumar-section" id="sumar">
             <div class="sumar-content-wrapper"> 
