@@ -50,10 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Peluquería": "fas fa-scissors",
         "Heladería": "fa-solid fa-ice-cream",
         "Petshop": "fa-solid fa-paw",
-        "Consultorios": "fas fa-user-md"
-    };
-
-    
+        "Consultorios": "fas fa-user-md",
+        "Instituto de Inglés": "fas fa-graduation-cap"
+    }; 
 
     const comercios = [
         {
@@ -309,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         { apertura: "12:00", cierre: "22:00" }
                     ]
                 }
-            ],           
+            ],          
             contacto: {
                 whatsapp: "2915268456",
                 instagram: "romaheladeriapasteleria"
@@ -329,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         { apertura: "17:00", cierre: "20:30" }
                     ]
                 }
-            ],           
+            ],          
             contacto: {
                 whatsapp: "2914130314",
                 instagram: "betomascotas.petshop",
@@ -350,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         { apertura: "19:00", cierre: "23:00" }
                     ]
                 }
-            ],           
+            ],          
             contacto: {
                 whatsapp: "2915089999",
                 instagram: "mamacocina.villamitre",
@@ -364,25 +363,104 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     direccion: "Washington 567",
                     horario: "Lunes a Viernes 7:00 a 10:00hs <br> 13:30 a 21:00hs",
-                    dias: [1,2,3,4,5,6],
+                    dias: [1,2,3,4,5],
                     franjaHoraria: [
                         { apertura: "7:00", cierre: "10:00" },
                         { apertura: "13:30", cierre: "21:00" }
                     ]
                 }
-            ],           
+            ],          
             contacto: {
                 whatsapp: "2915334322",
                 instagram: "kros.gym",
             }
+        }, 
+        {
+            nombre: "Amanda",
+            rubro: "Lencería", 
+            descripcion: "Lencería, corsetería y mallas para toda la familia.Encontrá bikinis todo el año, modelos reductores y telas anticloro.<br>¡Te acompañamos en cada etapa!",
+            sucursales: [
+                {
+                    direccion: "Falucho 276",
+                    horario: "Lunes a Sábado de 9:00 a 13:00hs <br> 16:30 a 20:30hs",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "9:00", cierre: "13:00" },
+                        { apertura: "16:30", cierre: "20:30" }
+                    ]
+                }
+            ],          
+            contacto: {
+                whatsapp1: "2916499992",
+                whatsapp2: "2915220136", 
+                instagram: "amandalenceria",
+                facebook: "https://www.facebook.com/amanda.corseteria/"
+            }
+        },
+        {
+            nombre: "Big Ben English Institute",
+            rubro: "Instituto de Inglés", 
+            descripcion: "Instituto de inglés para todas las edades. ¡Aprendé inglés en un espacio pensado para vos!",
+            sucursales: [
+               {
+                direccion: "Alberdi 1601",
+                horario: "Lunes a jueves 16:00 a 20:30",
+                dias: [1,2,3,4],
+                franjaHoraria: [
+                    { apertura: "16:00", cierre: "20:30" },
+                ]
+               }
+            ],
+            contacto: {
+                whatsapp: "2915324924",
+                instagram: "bbeibahiablanca"
+            }
+        },
+        {
+            nombre: "Patio Mitre",
+            rubro: "Gastronomía", 
+            descripcion: "Restaurante y parrilla. Un punto de encuentro ideal para disfrutar de los mejores platos a la parrilla y cocina tradicional. Combinamos un ambiente único y acogedor con la mejor atención, perfecto para almuerzos relajados o cenas inolvidables.",
+            sucursales: [
+               {
+                direccion: "Castelar 1401", 
+                horario: "Martes a Domingo 9:30 a 15:00hs <br> 17:30 a 01:00hs",
+                dias: [1,2,3,4,5,6,0],
+                franjaHoraria: [
+                    { apertura: "9:30", cierre: "15:00" },
+                    { apertura: "17:30", cierre: "01:00" }
+                ]
+               }
+            ],
+            contacto: {
+                whatsappReservas: "2915130734",
+                whatsappDelivery: "2915097787",
+                instagram: "patiomitre"
+            }
+        },
+        {
+            nombre: "El Rey del Queso",
+            rubro: "Fiambrería", 
+            descripcion: "Calidad, variedad y buen precio. Ventas directo de fábrica. La mejor selección de quesos, fiambres y productos regionales para tus picadas y el día a día.",
+            sucursales: [
+                {
+                    direccion: "Castelar 1608",
+                    horario: "Lunes a Sábado 8:30 a 20:30hs",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "8:30", cierre: "20:30" },
+                    ]
+                }
+            ],          
+            contacto: {
+                whatsapp: "2914743005",
+                instagram: "elreydelqueso.bb" 
+            }
         }
-    ];
+    ]; 
     
     const iconosPorRubroProfesionales = {
-    "Psicología": "fas fa-brain",
-    
-};
-
+        "Psicología": "fas fa-brain",
+    };
 
     const profesionales = [
         {
@@ -397,62 +475,61 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     },
     ];
-   function renderizarProfesionales(lista) {
-    const contenedor = document.getElementById("contenedor-profesionales");
-    if (!contenedor) return;
 
-    contenedor.innerHTML = "";
+    function renderizarProfesionales(lista) {
+        const contenedor = document.getElementById("contenedor-profesionales");
+        if (!contenedor) return;
 
-    lista.forEach(prof => {
-        const cardProfesional = document.createElement("div");
-        cardProfesional.classList.add("profesional-card");
+        contenedor.innerHTML = "";
 
-        
-        const iconoClase = iconosPorRubroProfesionales[prof.rubro] || "fas fa-user-md";
+        lista.forEach(prof => {
+            const cardProfesional = document.createElement("div");
+            cardProfesional.classList.add("profesional-card");
+            
+            const iconoClase = iconosPorRubroProfesionales[prof.rubro] || "fas fa-user-md";
 
-        let linksHTML = '';
+            let linksHTML = '';
 
-        if (prof.contacto.whatsapp) {
-            linksHTML += `
-               <a href="https://wa.me/${prof.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno." target="_blank" class="btn-whatsapp"> 
-                <i class="fab fa-whatsapp"></i> Turnos
-                </a>
+            if (prof.contacto.whatsapp) {
+                linksHTML += `
+                   <a href="https://wa.me/${prof.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno." target="_blank" class="btn-whatsapp"> 
+                    <i class="fab fa-whatsapp"></i> Turnos
+                    </a>
+                `;
+            }
+           
+            if (prof.contacto.instagram) {
+                linksHTML += `
+                    <a href="https://instagram.com/${prof.contacto.instagram}" target="_blank" class="btn-instagram">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                `;
+            }
+
+            const tarjetaHTML = `
+                <span class="rubro">
+                    <i class="${iconoClase}"></i> 
+                    ${prof.rubro}
+                </span>
+                <h3>${prof.nombre}</h3>
+                <p class="descripcion">${prof.descripcion}</p>
+                    
+                <div class="sucursal-bloque">
+                    <p class="sucursal-direccion"><i class="fas fa-map-marker-alt"></i> ${prof.ubicacion}</p>
+                    <p class="sucursal-horario"><i class="fas fa-user-clock"></i> ${prof.modalidad}</p>
+                </div>
+
+                <div class="comercio-links">
+                    ${linksHTML}
+                </div>
             `;
-        }
-
-        if (prof.contacto.instagram) {
-            linksHTML += `
-                <a href="https://instagram.com/${prof.contacto.instagram}" target="_blank" class="btn-instagram">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-            `;
-        }
-
-        const tarjetaHTML = `
-            <span class="rubro">
-                <i class="${iconoClase}"></i> 
-                ${prof.rubro}
-            </span>
-            <h3>${prof.nombre}</h3>
-            <p class="descripcion">${prof.descripcion}</p>
-                
-            <div class="sucursal-bloque">
-                <p class="sucursal-direccion"><i class="fas fa-map-marker-alt"></i> ${prof.ubicacion}</p>
-                <p class="sucursal-horario"><i class="fas fa-user-clock"></i> ${prof.modalidad}</p>
-            </div>
-
-            <div class="comercio-links">
-                ${linksHTML}
-            </div>
-        `;
-        
-        cardProfesional.innerHTML = tarjetaHTML;
-        contenedor.appendChild(cardProfesional);
-    });
+            
+            cardProfesional.innerHTML = tarjetaHTML;
+            contenedor.appendChild(cardProfesional);
+        });
+    }
     
-}
-renderizarProfesionales(profesionales);
-
+    renderizarProfesionales(profesionales);
 
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const buscadorInput = document.querySelector(".buscador-comercio");
@@ -502,6 +579,34 @@ renderizarProfesionales(profesionales);
                     <a href="https://wa.me/549${comercio.contacto.whatsapp}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
+                `;
+            }
+            if (comercio.contacto.whatsapp1) {
+                linksHTML += `
+                    <a href="https://wa.me/549${comercio.contacto.whatsapp1}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp 1
+                    </a>
+                `;
+            }
+            if (comercio.contacto.whatsapp2) {
+                linksHTML += `
+                    <a href="https://wa.me/549${comercio.contacto.whatsapp2}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre" target="_blank" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp 2
+                    </a>
+                `;
+            }
+            if (comercio.contacto.whatsappReservas) {
+                linksHTML += `
+                <a href="https://wa.me/549${comercio.contacto.whatsappReservas}?text=Hola!%20Quisiera%20hacer%20una%20reserva" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Reservas
+                </a>
+                `;
+            }
+            if (comercio.contacto.whatsappDelivery) {
+                linksHTML += `
+                <a href="https://wa.me/549${comercio.contacto.whatsappDelivery}?text=Hola!%20Quisiera%20hacer%20un%20pedido" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Delivery
+                </a>
                 `;
             }
 
@@ -635,7 +740,6 @@ const updateCountdown = setInterval(() => {
         document.getElementById("countdown").innerHTML = "<h3>¡Es Hoy! 🎉</h3>";
         return;
     }
-
     
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) + 2;
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
