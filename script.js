@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             contacto: {
                 whatsapp: "2914416837",
-                instagram: "oxanapilates"
+                instagram:  "oxanapilates_"
             }
         },
         {
@@ -289,7 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ],
             contacto: {
                 whatsapp: "2915346258",
-                instagram: "alaiapilates"
+                instagram: "alaia.pilates"
             }
         },
         {
@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Washington 377 ",
-                    horario: "Lunes a sábado 10:00 a 14:00hs <br> 19:00 a 23:00hs",
+                    horario: "Lunes a Sábado 10:00 a 14:00hs <br> 19:00 a 23:00hs",
                     dias: [1,2,3,4,5,6],
                     franjaHoraria: [
                         { apertura: "10:00", cierre: "14:00" },
@@ -352,11 +352,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ],          
             contacto: {
                 whatsapp: "2915089999",
-                instagram: "mamacocina.villamitre",
+                instagram: "mamacocina.vm",
             }
         },
         {
-            nombre: "Kros Gym",
+            nombre: "Kros",
             rubro: "Actividad Física", 
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
@@ -455,17 +455,39 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2914743005",
                 instagram: "elreydelqueso.bb" 
             }
+        },
+         {
+            nombre: "Rock Bahia",
+            rubro: "Indumentaría", 
+            descripcion: "Local especializado en indumentaria urbana y rockera. Encontrá una amplia variedad de remeras, buzos y camperas con los mejores diseños de bandas y estilo clásicos.", 
+            sucursales: [
+                {
+                    direccion: "Castelar 2281",
+                    horario: "Lunes a Sábado 14:00 a 20:00hs",
+                    dias: [1,2,3,4,5,6],
+                    franjaHoraria: [
+                        { apertura: "14:00", cierre: "20:00" },
+                    ]
+                }
+            ],          
+            contacto: {
+                whatsapp: "2914293286",
+                instagram: "remeras.rock.bahia" 
+            }
         }
-    ]; 
+        ];
+     
     
     const iconosPorRubroProfesionales = {
         "Psicología": "fas fa-brain",
+        "Psicopedagoga": "fas fa-chalkboard-teacher",
+       
     };
 
     const profesionales = [
         {
             nombre: "Lic. Valentina Croci",
-            rubro: "Psicologos",
+            rubro: "Psicologo",
             descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
             ubicacion: "Espacio Haru - Necochea 321",
             modalidad: "Atención presencial con turno previo",
@@ -474,7 +496,19 @@ document.addEventListener("DOMContentLoaded", () => {
             instagram: "vacro.psi"
         }
     },
+        {
+        nombre: "Lic. Paloma Cornejo",
+        rubro: "Psicopedagogía",
+        descripcion: "Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje, acompañamiento psicopedagógico para niños, adultos y jóvenes",
+        ubicacion: "Espacio Haru – Alberdi 1878",
+        modalidad: "Lunes a jueves 16:00 a 21:00hs.<br>Tratamientos particulares y obras sociales (CUD)",
+        contacto: {
+            whatsapp: "2915115710",
+            instagram: "Palo.psp"
+        }
+    }
     ];
+    
 
     function renderizarProfesionales(lista) {
         const contenedor = document.getElementById("contenedor-profesionales");
