@@ -972,11 +972,11 @@ footer {
 }
 @media (max-width: 768px) {
     
-    header .btn-primary {
-        display: none;
+    header .nav-container .btn-primary {
+        display:flex;
     }
 
-    .nav-links .btn-mobile-sumar {
+    .nav-links .btn-primary {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -992,7 +992,20 @@ footer {
         text-decoration: none;
     }
 
-       .menu-toggle {
+    .nav-links .btn-primary:hover {
+        background-color: var(--vm-green-hover);
+        color: var(--vm-light-gray);
+    }
+    .nav-links .btn-primary:active {
+        background-color: var(--vm-green-active);
+        color: var(--vm-light-gray);
+    }
+    .nav-links .btn-primary svg {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+    }
+
+    .menu-toggle {
         display: block;
     }
 

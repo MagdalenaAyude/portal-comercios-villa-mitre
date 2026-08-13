@@ -8,20 +8,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const profesionalesSection = document.getElementById("contenedor-profesionales");
     const rubroprofesionales = document.getElementById("rubro-profesionales");
 
-    if (menuToggle && navLinks) {
+   if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("abrir");
         });
 
         navItems.forEach((item) => {
             item.addEventListener("click", (event) => {
-                navLinks.classList.remove("abrir");
-                event.preventDefault();
-
                 const targetId = item.getAttribute("href");
-                console.log("Hiciste clic en:", targetId);
-                
+
+                // Si es un enlace interno de la SPA (empieza con #)
                 if (targetId && targetId.startsWith("#")) {
+                    event.preventDefault(); 
+                    navLinks.classList.remove("abrir");
+
                     const targetSection = document.querySelector(targetId);
                     
                     if (targetSection) {
@@ -30,6 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         });
                         targetSection.style.display = "block";
                     }
+                } else {
+                    
+                    navLinks.classList.remove("abrir");
+                    
                 }
             });
         });
@@ -763,7 +767,7 @@ function Abierto(sucursal) {
     return estaAbierto;
 }
 
-const eventDate = new Date("August 17, 2026 00:00:00").getTime();
+const eventDate = new Date("August 17, 2026 12:00:00").getTime();
 
 const updateCountdown = setInterval(() => {
     const now = new Date().getTime();
@@ -771,13 +775,25 @@ const updateCountdown = setInterval(() => {
 
     if (timeLeft < 0) {
         clearInterval(updateCountdown);
-        document.getElementById("countdown").innerHTML = "<h3>¡Es Hoy! 🎉</h3>";
+        const countdownElement = document.getElementById("countdown");
+        if (countdownElement) {
+            countdownElement.innerHTML = "<h3>¡Es Hoy! 🎉</h3>";
+        }
         return;
     }
     
-    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) + 2;
+  
+    const days = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
+  
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-    document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+    const daysElement = document.getElementById("days");
+    const hoursElement = document.getElementById("hours");
+
+    if (daysElement) {
+        daysElement.innerText = days < 10 ? "0" + days : days;
+    }
+    if (hoursElement) {
+        hoursElement.innerText = hours < 10 ? "0" + hours : hours;
+    }
 }, 1000);
