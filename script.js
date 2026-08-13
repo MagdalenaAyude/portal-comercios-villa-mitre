@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
             item.addEventListener("click", (event) => {
                 const targetId = item.getAttribute("href");
 
-                // Si es un enlace interno de la SPA (empieza con #)
                 if (targetId && targetId.startsWith("#")) {
                     event.preventDefault(); 
                     navLinks.classList.remove("abrir");
@@ -478,8 +477,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2914293286",
                 instagram: "remeras.rock.bahia" 
             }
+        },
+          {
+            nombre: "Luz & Armonía",
+            rubro: "Piedras Naturales", 
+            descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.", 
+            sucursales: [
+                {
+                    direccion: "Washington 181",
+                    horario: "Martes a Viernes 9:00 a 12:00hs <br> 16:00 a 20:00hs",
+                    dias: [2,3,4,5],
+                    franjaHoraria: [
+                        { apertura: "9:00", cierre: "12:00" },
+                        { apertura: "16:00", cierre: "20:00" }
+                    ]
+                }
+            ],          
+            contacto: {
+                whatsapp: "2914731497", 
+                instagram: "luz_y_armonia.bb" 
+            }
         }
-        ];
+    ];
+        
      
     
     const iconosPorRubroProfesionales = {
