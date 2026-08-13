@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Heladería": "fa-solid fa-ice-cream",
         "Petshop": "fa-solid fa-paw",
         "Consultorios": "fas fa-user-md",
-        "Instituto de Inglés": "fas fa-graduation-cap"
+        "Instituto de Inglés": "fas fa-graduation-cap",
+        "Accesorios": "fa-solid fa-gem",
     }; 
 
     const comercios = [
@@ -480,7 +481,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
           {
             nombre: "Luz & Armonía",
-            rubro: "Piedras Naturales", 
+            rubro: "Accesorios", 
             descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.", 
             sucursales: [
                 {
