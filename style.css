@@ -291,13 +291,14 @@ header{
 
 .section-title {
   font-family:var(--font-hero);
+
   line-height: 1.1;
   text-align: center;
-  font-weight: 700;
+  font-weight: 600;
   padding: 20px;
-  font-size: 2.2rem;
-  color: var(--text-main);
-  margin-bottom: 15px;
+  font-size: 2rem;
+  color:var(--text-muted);
+  margin-bottom: 10px;
   
 }
 
@@ -477,8 +478,10 @@ header{
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 1.75rem;
+    align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem;
     transition: var(--transition-smooth);
 }
@@ -500,6 +503,14 @@ header{
     font-weight: 700;
     color: var(--text-main);
     
+}
+
+.comercio-logo {
+  width: 80px;     
+  height: 80px; 
+  margin-top: 15px; 
+  border-radius: 50%; 
+  object-fit: cover;  
 }
 
 
@@ -540,7 +551,11 @@ header{
 .sucursal-bloque {
     display: flex;
     flex-direction: column;
-    gap: 4px; 
+    padding: 14px 16px;
+   
+    border-radius: 12px;
+    gap: 10px; 
+   
 }
 
 .sucursal-direccion {
@@ -605,6 +620,7 @@ header{
     margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
    
@@ -612,11 +628,14 @@ header{
 
 .comercio-links a {
     text-decoration: none;
-    flex: 1;
-    min-width: 100px;
+
+   
+   
+  
     text-align: center;
-    padding: 8px 12px;
-    border-radius: 8px;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 10px;
     font-size: 0.85rem;
     font-weight: 600;
    
@@ -719,6 +738,16 @@ header{
     margin: 0 auto;
     max-width: 900px;
 }
+
+.badge-logo-wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.badge-logo {
+    border-radius: 50%;
+}
+
 
 .haru-container {
     display: grid;

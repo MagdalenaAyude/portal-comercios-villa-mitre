@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Showtime Sport Store",
             rubro: "Indumentaria Deportiva", 
+            logo: "assets/sport.jpg",
             descripcion: "Confección y venta de indumentaria y accesorios deportivos, zapatillas de básquet importadas directo de USA",
             sucursales: [
                 {
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Margarita Store",
             rubro: "Cosmética y Belleza",
+            logo: "assets/margarita.jpg",
             descripcion: "Venta de maquillaje, cuidado facial, cuidado capilar, accesorios de acero, insumos de uñas, pestañas y más",
             sucursales: [
                 {
@@ -110,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Vibra Bonito",
             rubro: "Regalería y Juguetería",
+            logo: "assets/vibrabonito.jpg",
             descripcion: "Regalos que enamoran y juguetes para hacer felices a los más chicos. Todo lo lindo que buscás para regalar y regalarte.",
             sucursales: [
                 {
@@ -132,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Ohana Multikiosco",
             rubro: "Polirrubro y Servicios",
+            logo: "assets/ohana.jpg",
             descripcion: "Tradición familiar y calidez de barrio. Encontrá panificados frescos, fiambres, comidas al paso, kiosco, librería y un servicio oficial exclusivo: somos Unidad Postal 1 de Correo Argentino",
             sucursales: [
                 {
@@ -151,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Catarsis Moda Circular",
             rubro: "Indumentaria", 
+            logo:"assets/catarsis.jpg",
             descripcion: "Espacio dedicado a la moda circular y al consumo consciente, donde encontrás prendas únicas seleccionadas con estilo.",
             sucursales: [
                 {
@@ -171,6 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "La Esquinita",
             rubro: "Fiambrería",
+            logo:"assets/laesquinita.jpg",
             descripcion: "Nos especializamos en la venta de fiambres y quesos seleccionados de primera calidad. Vení a buscar lo rico para picar o resolver tus compras diarias.",
             sucursales: [
                 {
@@ -192,6 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Âme Cocot",
             rubro: "Indumentaria",
+            logo:"assets/cocot.jpg",
             descripcion: "Te acompañamos en cada temporada ofreciéndote productos cómodos y de excelente calidad para toda la familia. Contamos con una gran variedad en ropa interior para hombres, mujeres y niños/as, además de pijamas, mallas, indumentaria deportiva y prendas térmicas.",
             sucursales: [   
                 {
@@ -212,6 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Oxana",
             rubro: "Actividad Física",
+            logo:"assets/oxana.jpg",
             descripcion: "Estudio de Pilates Reformer, un entrenamiento integral para ganar fuerza, corregir la postura y mejorar tu movilidad. Ideal para sentirte bien todos los días.",
             sucursales: [
                 {
@@ -240,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "La Casa de las Especias",
             rubro: "Dietética y Especias",
+            logo: "assets/lacasa.jpg",
             descripcion: "Empresa familiar con más de 100 años de tradición en Villa Mitre, lo mejor en especias nacionales e importadas de la ciudad.",
             sucursales: [
                 {
@@ -260,7 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Estilo Diagonal",
             rubro: "Peluquería",
-            descripcion: "NUEVA APERTURA EN VILLA MITRE <br> <br> Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
+            logo: "assets/estilo.jpg",
+            descripcion: "Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
             sucursales: [
                 {
                     direccion: "Garibaldi 639",
@@ -279,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Alaia Pilates",
             rubro: "Actividad Física", 
+            logo: "assets/alaia.jpg",
             descripcion: "Somos un espacio donde el Pilates y el entrenamiento de fuerza se complementan para ayudarte a desarrollar un cuerpo fuerte, móvil y saludable. Trabajamos con grupos reducidos, lo que nos permite acompañar de forma cercana a cada persona y adaptar cada ejercicio a sus necesidades, objetivos y experiencia.",
             sucursales: [
                 {
@@ -299,6 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Roma Heladería & Pastelería",
             rubro: "Heladería", 
+            logo: "assets/roma.jpg",
             descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
             sucursales: [
                 {
@@ -320,7 +332,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             nombre: "Beto Mascotas",
-            rubro: "Petshop", 
+            rubro: "Petshop",
+            logo:"assets/beto.jpg",
             descripcion: "Todo lo que necesitás para el bienestar y cuidado de tu mascota en un solo lugar. Encontrá una amplia variedad en alimentos de calidad, juguetes y accesorios.",
             sucursales: [
                 {
@@ -341,7 +354,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             nombre: "Mamá Cocina",
-            rubro: "Gastronomía", 
+            rubro: "Gastronomía",
+            logo:"assets/mamacocina.jpg", 
             descripcion: "Sabor a hogar todos los días. Disfrutá platos elaborados con recetas de antes, ingredientes frescos y ese toque casero que te salva el almuerzo o la cena sin cocinar.",
             sucursales: [
                 {
@@ -362,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Kros",
             rubro: "Actividad Física", 
+            logo:"assets/kros.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
                 {
@@ -382,6 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Amanda",
             rubro: "Lencería", 
+            logo: "assets/amanda.jpg",
             descripcion: "Lencería, corsetería y mallas para toda la familia.Encontrá bikinis todo el año, modelos reductores y telas anticloro.<br>¡Te acompañamos en cada etapa!",
             sucursales: [
                 {
@@ -404,6 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Big Ben English Institute",
             rubro: "Instituto de Inglés", 
+            logo: "assets/ingles.jpg",
             descripcion: "Instituto de inglés para todas las edades. ¡Aprendé inglés en un espacio pensado para vos!",
             sucursales: [
                {
@@ -423,6 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Patio Mitre",
             rubro: "Gastronomía", 
+            logo: "assets/mitre.jpg",
             descripcion: "Restaurante y parrilla. Un punto de encuentro ideal para disfrutar de los mejores platos a la parrilla y cocina tradicional. Combinamos un ambiente único y acogedor con la mejor atención, perfecto para almuerzos relajados o cenas inolvidables.",
             sucursales: [
                {
@@ -444,6 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "El Rey del Queso",
             rubro: "Fiambrería", 
+            logo:"assets/elrey.jpg",
             descripcion: "Calidad, variedad y buen precio. Ventas directo de fábrica. La mejor selección de quesos, fiambres y productos regionales para tus picadas y el día a día.",
             sucursales: [
                 {
@@ -463,6 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
          {
             nombre: "Rock Bahia",
             rubro: "Indumentaría", 
+            logo: "assets/rock.jpg",
             descripcion: "Local especializado en indumentaria urbana y rockera. Encontrá una amplia variedad de remeras, buzos y camperas con los mejores diseños de bandas y estilo clásicos.", 
             sucursales: [
                 {
@@ -481,7 +501,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
           {
             nombre: "Luz & Armonía",
-            rubro: "Accesorios", 
+            rubro: "Accesorios",
+            logo: "assets/luz.jpg",
             descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.", 
             sucursales: [
                 {
@@ -706,6 +727,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     <i class="${iconoClase}"></i> 
                     ${comercio.rubro}
                 </span>
+                <div class="logo-container">
+                <img src="${comercio.logo}" alt="Logo de ${comercio.nombre}" class="comercio-logo">
+                </div>
                 <h3>${comercio.nombre}</h3>
                 <p class="descripcion">${comercio.descripcion}</p>
                     
