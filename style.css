@@ -916,90 +916,65 @@ footer {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
-.hero-countdown {
-    background-color: transparent;
-    color: var(--vm-light-gray);
-    padding: 60px 20px;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 1px solid var(--vm-dark-gray);
+.comercio-destacado {
+    position: relative;
+    border: 2px solid var(--vm-green);
+    background: linear-gradient(
+        145deg,
+        var(--vm-black),
+        var(--vm-dark-gray)
+    );
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 35px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.hero-countdown .container {
-    max-width: 800px;
-    text-align: center;
-    margin: 0 auto;
+.comercio-destacado:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
 }
 
-.hero-badge {
-    padding: 8px 16px;
-    border-radius: 50px;
-    font-size: 0.64rem;
-    font-weight: 300;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex; 
-    margin-bottom: 5px;
-    width: fit-content;
-    text-transform: uppercase;
-    color: var(--vm-light-gray);
-    background-color: var(--vm-green);
-    letter-spacing: 1px;
-   
+.comercio-destacado::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--vm-yellow);
 }
 
-.countdown-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-    padding: 20px;
+.badge-estrella {
+    display: inline-block;
+    font-size: 0.95rem;
+    color: var(--vm-yellow);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
 }
 
-.circle-box {
+.comercio-destacado h2 {
+    font-size: 1.7rem;
+    margin: 10px 0;
+}
+
+.comercio-destacado .logo-container {
     width: 120px;
     height: 120px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2); 
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-    background: transparent;
-    transition: all 0.4s ease;
+    margin: 10px auto 15px;
 }
 
-.circle-box:hover {
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px);
+.comercio-destacado .comercio-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.countdown-number {
-    font-family: var(--font-hero);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--vm-light-gray);
-    line-height: 1;
-}
 
-.countdown-label {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 4px;
-}
 
-.countdown-label {
-    display: block;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-top: 5px;
-}
 @media (max-width: 768px) {
     
     header .nav-container .btn-primary {

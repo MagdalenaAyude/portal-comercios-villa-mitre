@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Showtime Sport Store",
             rubro: "Indumentaria Deportiva", 
-            logo: "assets/sport.jpg",
+            logo: "assets/time.jpg",
             descripcion: "Confección y venta de indumentaria y accesorios deportivos, zapatillas de básquet importadas directo de USA",
             sucursales: [
                 {
@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Margarita Store",
             rubro: "Cosmética y Belleza",
+            destacado: true,
             logo: "assets/margarita.jpg",
             descripcion: "Venta de maquillaje, cuidado facial, cuidado capilar, accesorios de acero, insumos de uñas, pestañas y más",
             sucursales: [
@@ -112,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Vibra Bonito",
             rubro: "Regalería y Juguetería",
-            logo: "assets/vibrabonito.jpg",
+            logo: "assets/vibra.jpg",
             descripcion: "Regalos que enamoran y juguetes para hacer felices a los más chicos. Todo lo lindo que buscás para regalar y regalarte.",
             sucursales: [
                 {
@@ -198,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Âme Cocot",
             rubro: "Indumentaria",
-            logo:"assets/cocot.jpg",
+            logo:"assets/ame.jpg",
             descripcion: "Te acompañamos en cada temporada ofreciéndote productos cómodos y de excelente calidad para toda la familia. Contamos con una gran variedad en ropa interior para hombres, mujeres y niños/as, además de pijamas, mallas, indumentaria deportiva y prendas térmicas.",
             sucursales: [   
                 {
@@ -376,7 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Kros",
             rubro: "Actividad Física", 
-            logo:"assets/kros.jpg",
+            logo:"assets/kross.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
                 {
@@ -420,7 +421,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Big Ben English Institute",
             rubro: "Instituto de Inglés", 
-            logo: "assets/ingles.jpg",
+            logo: "assets/big.jpg",
             descripcion: "Instituto de inglés para todas las edades. ¡Aprendé inglés en un espacio pensado para vos!",
             sucursales: [
                {
@@ -440,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Patio Mitre",
             rubro: "Gastronomía", 
-            logo: "assets/mitre.jpg",
+            logo: "assets/patiomitre.jpg",
             descripcion: "Restaurante y parrilla. Un punto de encuentro ideal para disfrutar de los mejores platos a la parrilla y cocina tradicional. Combinamos un ambiente único y acogedor con la mejor atención, perfecto para almuerzos relajados o cenas inolvidables.",
             sucursales: [
                {
@@ -812,33 +813,3 @@ function Abierto(sucursal) {
     return estaAbierto;
 }
 
-const eventDate = new Date("August 17, 2026 12:00:00").getTime();
-
-const updateCountdown = setInterval(() => {
-    const now = new Date().getTime();
-    const timeLeft = eventDate - now;
-
-    if (timeLeft < 0) {
-        clearInterval(updateCountdown);
-        const countdownElement = document.getElementById("countdown");
-        if (countdownElement) {
-            countdownElement.innerHTML = "<h3>¡Es Hoy! 🎉</h3>";
-        }
-        return;
-    }
-    
-  
-    const days = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
-  
-    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-    const daysElement = document.getElementById("days");
-    const hoursElement = document.getElementById("hours");
-
-    if (daysElement) {
-        daysElement.innerText = days < 10 ? "0" + days : days;
-    }
-    if (hoursElement) {
-        hoursElement.innerText = hours < 10 ? "0" + hours : hours;
-    }
-}, 1000);
