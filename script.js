@@ -3,10 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
     const navItems = document.querySelectorAll(".nav-links a");
-    const nav = document.querySelector("nav");
     const section = document.querySelectorAll("main > section");
-    const profesionalesSection = document.getElementById("contenedor-profesionales");
-    const rubroprofesionales = document.getElementById("rubro-profesionales");
+    const contenedorComercios = document.getElementById("contenedor-comercios");
+    const contenedorDestacados = document.getElementById("contenedor-destacados");
+
+   
+    
 
    if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
@@ -56,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Consultorios": "fas fa-user-md",
         "Instituto de Inglés": "fas fa-graduation-cap",
         "Accesorios": "fa-solid fa-gem",
+        "Lencería": "fas fa-heart"
     }; 
 
     const comercios = [
@@ -120,12 +123,32 @@ document.addEventListener("DOMContentLoaded", () => {
                  direccion: "Washington 676",
                  horario: "Lunes a Viernes 9:30 a 13:00hs <br> 16:30 a 20:00hs <br> Sábado 10:00 a 13:30hs y <br> 16:30 a 20:00hs",
                  dias: [1,2,3,4,5,6],
-                 franjaHoraria:[
-                    { apertura: "9:30" , cierre: "13:00"},
-                    { apertura: "16:30" , cierre: "20:00"},
-                    { apertura: "10:00" , cierre: "13:30"},
-                    { apertura: "16:30" , cierre: "20:00"}
-                 ]
+                 horariosPorDia: {
+                        1: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ],
+                        2: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ],
+                        3: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ],
+                        4: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ],
+                        5: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ],
+                        6: [
+                            { apertura: "10:00", cierre: "13:30" },
+                            { apertura: "16:30", cierre: "20:00" }
+                        ]
+                    }
                 }
             ],
             contacto: {
@@ -184,14 +207,34 @@ document.addEventListener("DOMContentLoaded", () => {
                  direccion: "Alberdi 1691",
                  horario:"Lunes a viernes 9:30 a 13:00hs <br> 17:00 a 20:30hs <br> Domingo 10:00 a 13:00hs",
                  dias: [1,2,3,4,5,6,0], 
-                 franjaHoraria: [
-                 { apertura: "9:30" , cierre: "13:00"},
-                 { apertura: "17:00" , cierre: "20:30"},
-                 { apertura: "10:00" , cierre: "13:00"}
-                 ]
+                 horariosPorDia: {
+                        1: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "17:00", cierre: "20:30" }
+                        ],
+                        2: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "17:00", cierre: "20:30" }
+                        ],
+                        3: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "17:00", cierre: "20:30" }
+                        ],
+                        4: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "17:00", cierre: "20:30" }
+                        ],
+                        5: [
+                            { apertura: "9:30", cierre: "13:00" },
+                            { apertura: "17:00", cierre: "20:30" }
+                        ],
+                        0: [
+                            { apertura: "10:00", cierre: "13:00" }
+                        ]
+                    }
                 }
             ],
-            contacto: {
+                contacto: {
                 whatsapp: "2916494992",
                 instagram: "fiambrerialaesquinita" 
             }
@@ -226,11 +269,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 {
                     direccion: "Washington 510",
                     horario: "Lunes a Viernes 8:00 a 21:00hs <br> Martes y Jueves 7:00 a 21:00hs",
-                    dias: [1,2,3,4],
-                    franjaHoraria: [
-                        { apertura: "8:00" , cierre: "21:00" },
-                        { apertura: "7:00" , cierre: "21:00" }
-                    ]
+                    dias: [1,2,3,4,5],
+                    horariosPorDia: {
+                        1: [
+                            { apertura: "8:00", cierre: "21:00" }
+                        ],
+                        2: [
+                            { apertura: "7:00", cierre: "21:00" }
+                        ],
+                        3: [
+                            { apertura: "8:00", cierre: "21:00" }
+                        ],
+                        4: [
+                            { apertura: "7:00", cierre: "21:00" }
+                        ],
+                        5: [
+                            { apertura: "8:00", cierre: "21:00" }
+                        ]
+                    }
                 },
                 {
                     direccion: "Remedios de Escalada 1043",
@@ -249,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "La Casa de las Especias",
             rubro: "Dietética y Especias",
+            destacado: true,
             logo: "assets/lacasa.jpg",
             descripcion: "Empresa familiar con más de 100 años de tradición en Villa Mitre, lo mejor en especias nacionales e importadas de la ciudad.",
             sucursales: [
@@ -256,10 +313,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     direccion: "Drago 1698",
                     horario: "Lunes a Viernes 8:00 a 16:00hs <br> Sábado 8:30 a 12:30hs",
                     dias: [1, 2, 3, 4, 5, 6],
-                    franjaHoraria: [
-                        { apertura: "8:00", cierre: "16:00" },
-                        { apertura: "8:30", cierre: "12:30" }
-                    ]
+                    horariosPorDia: {
+                        1: [
+                            { apertura: "8:00", cierre: "16:00" }
+                        ],
+                        2: [
+                            { apertura: "8:00", cierre: "16:00" }
+                        ],
+                        3: [
+                            { apertura: "8:00", cierre: "16:00" }
+                        ],
+                        4: [
+                            { apertura: "8:00", cierre: "16:00" }
+                        ],
+                        5: [
+                            { apertura: "8:00", cierre: "16:00" }
+                        ],
+                        6: [
+                            { apertura: "8:30", cierre: "12:30" }
+                        ]
+                    }
                 }
             ],
             contacto: {
@@ -316,16 +389,38 @@ document.addEventListener("DOMContentLoaded", () => {
             sucursales: [
                 {
                     direccion: "Maipú 2266",
-                    horario: '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br><i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br><span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br><span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
+                     horario:
+                        '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br>' +
+                        '<i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br>' +
+                        '<span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br>' +
+                        '<span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
+
                     dias: [1,2,3,4,5,6,0],
-                    franjaHoraria: [
-                        { apertura: "12:00", cierre: "00:00" },
-                        { apertura: "17:00", cierre: "22:00" },
-                        { apertura: "16:00", cierre: "00:00" },
-                        { apertura: "12:00", cierre: "22:00" }
-                    ]
+                    horariosPorDia: {
+                        1: [
+                            { apertura: "12:00", cierre: "00:00" }
+                        ],
+                        2: [
+                            { apertura: "12:00", cierre: "00:00" }
+                        ],
+                        3: [
+                            { apertura: "12:00", cierre: "00:00" }
+                        ],
+                        4: [
+                            { apertura: "12:00", cierre: "00:00" }
+                        ],
+                        5: [
+                            { apertura: "12:00", cierre: "00:00" }
+                        ],
+                        6: [
+                            { apertura: "16:00", cierre: "00:00" }
+                        ],
+                        0: [
+                            { apertura: "12:00", cierre: "22:00" }
+                        ]
+                    }
                 }
-            ],          
+            ],   
             contacto: {
                 whatsapp: "2915268456",
                 instagram: "romaheladeriapasteleria"
@@ -377,6 +472,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Kros",
             rubro: "Actividad Física", 
+            destacado: true,
             logo:"assets/kross.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
@@ -482,7 +578,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
          {
             nombre: "Rock Bahia",
-            rubro: "Indumentaría", 
+            rubro: "Indumentaria", 
             logo: "assets/rock.jpg",
             descripcion: "Local especializado en indumentaria urbana y rockera. Encontrá una amplia variedad de remeras, buzos y camperas con los mejores diseños de bandas y estilo clásicos.", 
             sucursales: [
@@ -527,14 +623,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const iconosPorRubroProfesionales = {
         "Psicología": "fas fa-brain",
-        "Psicopedagoga": "fas fa-chalkboard-teacher",
+        "Psicopedagogía": "fas fa-chalkboard-teacher",
        
     };
 
     const profesionales = [
         {
             nombre: "Lic. Valentina Croci",
-            rubro: "Psicologo",
+            rubro: "Psicología",
             descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
             ubicacion: "Espacio Haru - Necochea 321",
             modalidad: "Atención presencial con turno previo",
@@ -612,32 +708,48 @@ document.addEventListener("DOMContentLoaded", () => {
     
     renderizarProfesionales(profesionales);
 
-    const contenedorComercios = document.getElementById("contenedor-comercios");
+    
     const buscadorInput = document.querySelector(".buscador-comercio");
     const botonesFiltro = document.querySelectorAll(".btn-filtro");
 
-    function agregarComercios(listaComercios) {
-        if (!contenedorComercios) return;
-        contenedorComercios.innerHTML = ""; 
-        
-        const statComercios = document.getElementById("stat-total-comercios");
-        if (statComercios) {
-            statComercios.textContent = listaComercios.length;
-        }
+     function agregarComercios(listaComercios) {
+    if (!contenedorComercios || !contenedorDestacados) return;
 
-        if (listaComercios.length === 0) {
-            const mensaje = document.createElement("p");
-            mensaje.textContent = "No se encontraron comercios en este rubro. ¡Sumá el tuyo!"; 
-            mensaje.classList.add("lead", "no-resultados"); 
-            contenedorComercios.appendChild(mensaje);
-            return;
-        }
+    contenedorComercios.innerHTML = "";
+    contenedorDestacados.innerHTML = "";
 
-        listaComercios.forEach((comercio) => {
-            const cardComercio = document.createElement("div");
-            cardComercio.classList.add("comercio-card");
+    const statComercios = document.getElementById("stat-total-comercios");
 
-            const iconoClase = iconosPorRubro[comercio.rubro] || "fas fa-store";
+    if (statComercios) {
+        statComercios.textContent = listaComercios.length;
+    }
+
+    if (listaComercios.length === 0) {
+        const mensaje = document.createElement("p");
+        mensaje.textContent = "No se encontraron comercios en este rubro. ¡Sumá el tuyo!";
+        mensaje.classList.add("lead", "no-resultados");
+        contenedorComercios.appendChild(mensaje);
+        return;
+    }
+
+    const comerciosDestacados = listaComercios.filter(
+        comercio => comercio.destacado === true
+    );
+
+    const comerciosComunes = listaComercios.filter(
+        comercio => comercio.destacado !== true
+    );
+
+    const listaOrdenada = [
+        ...comerciosDestacados,
+        ...comerciosComunes
+    ];
+
+    listaOrdenada.forEach((comercio) => {
+
+        const cardComercio = document.createElement("div");
+        cardComercio.classList.add("comercio-card");
+        const iconoClase = iconosPorRubro[comercio.rubro] || "fas fa-store";
 
             const listaSucursalesHTML = comercio.sucursales.map(sucursal => {
                 const estaAbierto = Abierto(sucursal);
@@ -744,9 +856,15 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             
             cardComercio.innerHTML = tarjetaHTML;
+               if (comercio.destacado === true) {
+            contenedorDestacados.appendChild(cardComercio);
+        } else {
             contenedorComercios.appendChild(cardComercio);
-        });
-    }
+        }
+    });
+}
+        
+    
 
     agregarComercios(comercios);
 
@@ -785,7 +903,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function Abierto(sucursal) {
+    function Abierto(sucursal) {
     const ahora = new Date();
     const diaActual = ahora.getDay();
     const horaActual = ahora.getHours();
@@ -795,21 +913,33 @@ function Abierto(sucursal) {
         return false;
     }
 
-    const minutosTotalesActuales = (horaActual * 60) + minutosActuales; 
+    const minutosTotalesActuales = (horaActual * 60) + minutosActuales;
+
+    let franjas = [];
+
+    if (sucursal.franjaHoraria) {
+        franjas = sucursal.franjaHoraria;
+    } 
+    else if (sucursal.horariosPorDia) {
+        franjas = sucursal.horariosPorDia[diaActual] || [];
+    }
+
     let estaAbierto = false;
-    
-    sucursal.franjaHoraria.forEach((franja) => {
+
+    franjas.forEach((franja) => {
         const [horaApertura, minApertura] = franja.apertura.split(":").map(Number);
         const [horaCierre, minCierre] = franja.cierre.split(":").map(Number);
 
         const minutosAperturaTotal = (horaApertura * 60) + minApertura;
         const minutosCierreTotal = (horaCierre * 60) + minCierre;
 
-        if (minutosTotalesActuales >= minutosAperturaTotal && minutosTotalesActuales <= minutosCierreTotal) {
-            estaAbierto = true; 
+        if (
+            minutosTotalesActuales >= minutosAperturaTotal &&
+            minutosTotalesActuales <= minutosCierreTotal
+        ) {
+            estaAbierto = true;
         }
     });
 
     return estaAbierto;
 }
-

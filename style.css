@@ -222,8 +222,8 @@ header{
     text-decoration: none;
     align-items: center;
     justify-content: center;
-    background-color: var(--vm-green);
-    color: var(--vm-light-gray);
+    background-color:#25D366; 
+    color:var(--text-main);
     border-radius: 20px;
     font-weight: 700;
     padding: 0.4rem 0.8rem;
@@ -916,64 +916,81 @@ footer {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
-.comercio-destacado {
+.seccion-destacados {
+    margin: 25px 0 50px;
+}
+.seccion-destacados h2 {
+    text-align: center;
+    margin-bottom: 34px;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.seccion-destacados .comercios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.seccion-destacados .comercio-card {
     position: relative;
     border: 2px solid var(--vm-green);
-    background: linear-gradient(
-        145deg,
-        var(--vm-black),
-        var(--vm-dark-gray)
-    );
-    border-radius: 18px;
-    padding: 25px;
-    margin-bottom: 35px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    padding-top: 48px;
+    transform: none;
 }
 
-.comercio-destacado:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
-}
-
-.comercio-destacado::before {
-    content: "";
+.seccion-destacados .comercio-card::before {
+    content: "⭐ DESTACADO";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--vm-yellow);
+    top: 12px;
+    left: 12px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    z-index: 2;
+}
+.seccion-destacados .comercio-logo {
+    max-height: 130px;
+}
+.sumate-comercio {
+    max-width: 850px;
+    margin: 70px auto 30px;
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.badge-estrella {
+.sumate-comercio h2 {
+    margin: 0 0 15px;
+    color:var(--text-main);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.sumate-comercio p {
+    margin: 0 auto 25px;
+    max-width: 600px;
+    color:var(--text-main);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+.btn-sumate {
     display: inline-block;
-    font-size: 0.95rem;
-    color: var(--vm-yellow);
+    padding: 14px 26px;
+    border-radius: 50px;
+    background: #25D366;
+    color:var(--text-main);
+    text-decoration: none;
     font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
 }
 
-.comercio-destacado h2 {
-    font-size: 1.7rem;
-    margin: 10px 0;
+.btn-sumate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
-
-.comercio-destacado .logo-container {
-    width: 120px;
-    height: 120px;
-    margin: 10px auto 15px;
-}
-
-.comercio-destacado .comercio-logo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-
 
 @media (max-width: 768px) {
     
@@ -1051,17 +1068,41 @@ footer {
         gap: 8px;
         text-align: center;
     }
-   .circle-box {
-        width: 90px;
-        height: 90px;
+
+    .seccion-destacados .comercios-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-    .countdown-number {
-        font-size: 1.2rem;
+
+    .seccion-destacados .comercio-card {
+        width: 100%;
+        box-sizing: border-box;
     }
-    .countdown-label {
-        font-size: 0.5rem;
+
+    .seccion-destacados .comercio-logo {
+        max-height: 110px;
+    }
+    
+    .sumate-comercio {
+        margin: 50px 15px 25px;
+        padding: 30px 20px;
+    }
+
+    .sumate-comercio h2 {
+        font-size: 1.4rem;
+    }
+
+    .sumate-comercio p {
+        font-size: 0.95rem;
+    }
+
+    .btn-sumate {
+        width: 100%;
+        box-sizing: border-box;
     }
 }
+   
+
 
 
 
