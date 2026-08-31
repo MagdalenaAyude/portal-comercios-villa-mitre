@@ -230,7 +230,6 @@ header{
     border: none;
     cursor: pointer;
     gap: 0.5rem;
-    
     font-size: 0.85rem;
     transition: var(--transition-smooth);
  
@@ -240,8 +239,6 @@ header{
     background-color: var(--vm-green-hover);
     color: var(--vm-light-gray);
 }
-
-
 
 .stats-grid {
    display: grid;
@@ -270,6 +267,7 @@ header{
  letter-spacing: 0.15em;
  color: var(--text-muted);
 }
+
 .stat-item span {
     font-size: 0.75rem;
     color: var(--text-muted);
@@ -291,7 +289,6 @@ header{
 
 .section-title {
   font-family:var(--font-hero);
-
   line-height: 1.1;
   text-align: center;
   font-weight: 600;
@@ -305,16 +302,11 @@ header{
 .section-subtitle {
   font-size: 1rem;
   text-align: center;
- 
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
 }
 
-
-
-
- 
 .timeline {
     display: flex;
     flex-direction: column;
@@ -333,8 +325,8 @@ header{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    
 }
+
 .timeline-content span {
     font-size: 0.85rem;
     color: var(--vm-green);
@@ -373,8 +365,8 @@ header{
     color: var(--text-muted);
     line-height: 1.7;
     max-width: 600px;
-    
 }
+
 .comercios-section {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -417,6 +409,7 @@ header{
     border-color: var(--vm-green);
     box-shadow: 0 0 0 3px var(--vm-green-glow);
 }
+
 .filtros-container {
     display: flex;
     justify-content: flex-start;
@@ -429,22 +422,27 @@ header{
     -webkit-overflow-scrolling: touch; 
     scrollbar-width: none;
 }
+
 .filtros-container::-webkit-scrollbar {
     display: none;
 }
+
 .filtros-container button {
     flex-shrink: 0; 
 }
+
 .filtros-container button:hover,
 .filtros-container button.active {
     background-color: var(--vm-green);
     border-color: var(--vm-green);
     color: var(--vm-light-gray);    
 }
+
 .btn-filtro i {
     font-size: 0.85rem;
     color: var(--text-muted); 
 }
+
 .filtros-container button:hover i,
 .filtros-container button.active i {
     color: var(--vm-light-gray);
@@ -467,9 +465,10 @@ header{
 
 #contenedor-comercios {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     width: 100%;
+    
 }
 
 .comercio-card {
@@ -477,14 +476,26 @@ header{
     background-color: var(--vm-dark-gray);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    padding: 1.75rem;
+    padding: 1.5rem;
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    box-sizing: border-box;
     gap: 1rem;
     transition: var(--transition-smooth);
 }
+
+.comercio-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex: 1;
+    width: 100%;
+    
+   
+    
+}
+
 .comercio-info-principal {
     display: flex;
     flex-direction: column;
@@ -502,7 +513,6 @@ header{
     font-size: 1.3rem;
     font-weight: 700;
     color: var(--text-main);
-    
 }
 
 .comercio-logo {
@@ -512,7 +522,6 @@ header{
   border-radius: 50%; 
   object-fit: cover;  
 }
-
 
 .rubro {
     font-family: var(--font-sans);
@@ -533,16 +542,17 @@ header{
 .descripcion {
     font-size: 0.9rem;
     color: var(--text-muted);
-    
-    
 }
 
 .contenedor-sucursales {
     display: flex;
     flex-direction: column;
-   gap: 12px; 
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px; 
     margin: 0.5rem 0;
-    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    box-sizing: border-box;
     padding: 12px;
     border-radius: 8px;
    
@@ -551,42 +561,45 @@ header{
 .sucursal-bloque {
     display: flex;
     flex-direction: column;
-    padding: 14px 16px;
+    flex: 1;
+    width: 100%;
    
+    background-color: var(--vm-dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 14px 12px;
     border-radius: 12px;
-    gap: 10px; 
+    gap: 10px;
+
    
+    box-sizing: border-box;
+    transition: var(--transition-smooth);
 }
 
 .sucursal-direccion {
     font-size: 0.85rem;
     color: var(--text-main);
     margin: 0;
-   
-    
 }
 
 .sucursal-direccion strong {
     font-weight: 600;
 }
+
 .sucursal-horario {
-   
     font-size: 0.75rem;
     color: var(--text-muted);
 }
-
-
 
 .sucursal-horario-wrapper i {
     color: var(--vm-green);
     margin-top: 2px; 
 }
 
-
 .sucursal-bloque i {
     margin-right: 6px; 
     color: var(--vm-green); 
 }
+
 .comercio-card .badge {
     display: inline-block;
     padding: 4px 10px;
@@ -601,8 +614,6 @@ header{
     border: 1px solid transparent;
 }
 
-
-
 .badge.abierto {
     background-color: rgba(15, 81, 50, 0.4);
     color: #4ade80;
@@ -613,35 +624,27 @@ header{
     background-color: rgba(220, 38, 38, 0.15);
     color: #f87171;
     border-color: rgba(248, 113, 113, 0.3);
-
 }
+
 .comercio-links {
-    padding-top: 2rem;
+    padding-top: 1rem;
     margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 8px;
-   
 }
 
 .comercio-links a {
     text-decoration: none;
-
-   
-   
-  
     text-align: center;
     gap: 8px;
     padding: 8px 16px;
     border-radius: 10px;
     font-size: 0.85rem;
     font-weight: 600;
-   
 }
-
-
 
 .btn-whatsapp {
     color: var(--vm-green);
@@ -654,39 +657,53 @@ header{
     border: 1px solid rgba(225, 48, 108, 0.2);
     background: rgba(225, 48, 108, 0.05);
 }
+
 .btn-web {
    color:#7c3aed;
    border: 1px solid rgba(115, 10, 201, 0.479);
    background: rgba(167, 139, 250, 0.05);
 }
+
 .btn-email {
     color: #ea4335;
     border: 1px solid rgba(234, 67, 53, 0.2);
     background: rgba(234, 67, 53, 0.05);
 }
+
 .btn-facebook {
     color: #1877f2;
     border: 1px solid rgba(6, 85, 204, 0.4);
     background: rgba(24, 119, 242, 0.05);
 }
+
+.btn-maps {
+    text-decoration: none;
+    text-align: center;
+    color: var(--text-muted);
+    margin-top: 15px;
+}
+
 .comercio-links a:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: var(--text-main);
     background: rgba(255, 255, 255, 0.1);
 }
+
 .sumar-section {
     padding: 80px 20px;
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
 }
+
 .sumar-section h2 {
     font-family: var(--font-display);
     font-size: 2.2rem;
     font-weight: 700;
     margin-bottom: 15px;
 }
+
 .sumar-section p {
     font-size: 1rem;
     color: var(--text-muted);
@@ -747,8 +764,6 @@ header{
 .badge-logo {
     border-radius: 50%;
 }
-
-
 .haru-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -764,6 +779,7 @@ header{
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     padding: 20px;
+    margin-top: 20px;
     transition: var(--transition-smooth);
 }
 
@@ -772,8 +788,8 @@ header{
     flex-direction: column;
     align-items: center;
     color: var(--vm-green);
-    gap: 17px;
-    margin-bottom: 15px;
+    gap: 20px;
+    
     font-size: 1.1rem;
 }
 
@@ -783,6 +799,7 @@ header{
     background: var(--vm-black);
     color: var(--text-main);
 }
+
 .haru-info-detalles p {
     display: flex;
     align-items: center;
@@ -843,6 +860,7 @@ header{
     background: rgba(255, 255, 255, 0.05);
     transition: var(--transition-smooth);
 }
+
 .profesionales-section {
     padding: 20px 40px;
     margin: 0 auto;
@@ -896,15 +914,18 @@ footer {
     flex-direction: column;
     align-items: flex-start;
 }
+
 .footer-info .brand {
     margin-bottom: 1rem;
 }
+
 .footer-info p {
     color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 320px;
 }
+
 .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -916,9 +937,11 @@ footer {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
+
 .seccion-destacados {
     margin: 25px 0 50px;
 }
+
 .seccion-destacados h2 {
     text-align: center;
     margin-bottom: 34px;
@@ -928,8 +951,8 @@ footer {
 
 .seccion-destacados .comercios-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
 }
 
 .seccion-destacados .comercio-card {
@@ -950,9 +973,11 @@ footer {
     font-weight: 800;
     z-index: 2;
 }
+
 .seccion-destacados .comercio-logo {
     max-height: 130px;
 }
+
 .sumate-comercio {
     max-width: 850px;
     margin: 70px auto 30px;
@@ -977,6 +1002,7 @@ footer {
     font-size: 1.05rem;
     line-height: 1.6;
 }
+
 .btn-sumate {
     display: inline-block;
     padding: 14px 26px;
