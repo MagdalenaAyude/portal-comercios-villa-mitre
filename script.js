@@ -699,37 +699,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const iconosPorRubroProfesionales = {
         "Psicología": "fas fa-brain",
         "Psicopedagogía": "fas fa-chalkboard-teacher",
+        "Nutrición": "fas fa-apple-alt",
+        "Kinesiología": "fas fa-running"
        
     };
 
     const profesionales = [
+       
         {
-            nombre: "Lic. Valentina Croci",
+            nombre: "Lic. Claribel Springer",
             rubro: "Psicología",
-            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
-            ubicacion: "Espacio Haru - Necochea 321",
-            modalidad: "Atención presencial con turno previo",
-            contacto: {
-            whatsapp: "2914234619",
-            instagram: "vacro.psi"
-        }
-    },
-        {
-        nombre: "Lic. Paloma Cornejo",
-        rubro: "Psicopedagogía",
-        descripcion: "Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje, acompañamiento psicopedagógico para niños, adultos y jóvenes",
-        ubicacion: "Espacio Haru – Alberdi 1878",
-        modalidad: "Lunes a jueves 16:00 a 21:00hs.<br>Tratamientos particulares y obras sociales (CUD)",
-        contacto: {
-            whatsapp: "2915115710",
-            instagram: "Palo.psp"
-        }
-    },
-    {
-    nombre: "Lic. Claribel Springer",
-    rubro: "Psicología",
-    descripcion: "Atención a adolescentes y adultos desde una orientación psicoanalítica.",
-    ubicacion: [
+            matricula:"MP 2667",
+            descripcion: "Atención a adolescentes y adultos desde una orientación psicoanalítica.",
+            ubicacion: [
         {
             nombre: "Espacio Haru",
             direccion: "Necochea 321",
@@ -740,15 +722,115 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: "Centro Deportivo Club Villa Mitre",
             direccion: "Garibaldi 149",
             dias: "Viernes",
-            horario: "10:00 a 12:00hs o a convenir"
+            horario: "10:00 a 12:00hs o a convenir",
         }
     ],
-    contacto: {
+        contacto: {
         whatsapp: "2915208890",
         instagram: "psico.clarispringer"
     }
-}
+},
+        {
+        nombre: "Lic. Paloma Cornejo",
+        rubro: "Psicopedagogía",
+        descripcion:"Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje, acompañamiento psicopedagógico para niños, adolescentes y adultos · Tratamientos particulares y obras sociales (CUD)", 
+        ubicacion: [
+            {
+              nombre:"Espacio Haru",
+              direccion: "Alberdi 1878",
+              dias: "Lunes y jueves",
+              horario: "16:00 a 21:00hs",
+            }
+        ],
+        contacto: {
+            whatsapp: "2915115710",
+           }
+    },
+    {
+    nombre: "Lic. Johanna De la Canal",
+    rubro: "Psicopedagogía",
+    matricula: "MP 198051",
+    descripcion: "Evaluación, diagnóstico y tratamiento, atención particular y obras sociales OSECAC y DOSEM · Prestadora directa | Otras · Reintegro",
+    ubicacion: [
+        {
+            nombre: "Espacio Haru",
+            direccion: "Alberdi 1878",
+            dias: "Lunes y jueves",
+            horario: "17:00 a 21:00hs"
+        },
+       ],
+    contacto: {
+        whatsapp: "2914054187",
+        email: "johanna0197@hotmail.com",
+    }
+},
+     {
+    nombre: "Lic. Candela Zalazar",
+    rubro: "Kinesiología",
+    matricula: "MP 10675",
+    descripcion: "Rehabilitación traumatológica y neurorehabilitación en adultos. Rehabilitación de la marcha, acondicionamiento físico del adulto mayor y drenaje linfático manual.",
+    
+    atencionDomicilio: true,
+    
+    ubicacion: [
+      {
+            nombre: "Espacio Haru",
+            direccion: "Necochea 321",
+           },
+        {
+            nombre: "Eki Kinesiología",
+            direccion: "Necochea 774",
+           }
+    ],
+    contacto: {
+        whatsapp: "2915127024",
+       }
+},
+    
+    
+
+ {
+    nombre: "Lic. Gimena Andriach",
+    rubro: "Nutrición",
+    matricula: "MP 8085",
+    descripcion: "Atención nutricional integral con enfoque no pesocentrista. Formación en enfermedad celíaca, intolerancia al gluten y SIBO.",
+    ubicacion: [
+        {
+            nombre: "Espacio Haru",
+            direccion: "Alberdi 1878",
+            dias: "Sábado",
+            horario: "08:00 a 14:00hs"
+        }
+    ],
+    contacto: {
+        whatsapp: "2915046476",
+        instagram: "lic.gimenaandriach"
+    }
+},
+  {
+            nombre: "Lic. Valentina Croci",
+            rubro: "Psicología",
+            matricula: "MP 2591",
+            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
+            ubicacion: [
+                {
+                    nombre: "Espacio Haru",
+                    direccion: "Necochea 321",
+                    dias: "Atención presencial con turno previo"
+                }
+            ],
+            contacto: {
+                whatsapp: "2914234619",
+                instagram: "vacro.psi"
+        }
+    },
+    
     ];
+    
+    
+    
+
+    
     
        
 
@@ -784,6 +866,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
+            if (prof.contacto.email) {
+                linksHTML += `
+                    <a href="mailto:${prof.contacto.email}" target="_blank" class="btn-email">
+                        <i class="fas fa-envelope"></i> Email  
+                    </a>
+                `;
+            }
 
             const tarjetaHTML = `
                 <span class="rubro">
@@ -792,30 +881,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 </span>
                 <h3>${prof.nombre}</h3>
                 <p class="descripcion">${prof.descripcion}</p>
-                <div class="sucursal-bloque">
-                ${Array.isArray(prof.ubicacion)
-                ? prof.ubicacion.map(ubicacion => `
-                <div class="ubicacion-profesional">
-                <p class="sucursal-nombre"><strong>${ubicacion.nombre}</strong></p>
-                <p class="sucursal-direccion">
-                    <i class="fas fa-map-marker-alt"></i> ${ubicacion.direccion}
-                </p>
+                ${prof.atencionDomicilio ? `
+    <p class="atencion-domicilio">
+        <i class="fas fa-home"></i> Atención a domicilio
+    </p>
+` : ''}
+
+<div class="ubicaciones-profesional">
+    ${Array.isArray(prof.ubicacion)
+    ? prof.ubicacion.map(ubicacion => `
+        <div class="ubicacion-profesional">
+
+            <p class="sucursal-nombre">
+                <strong>${ubicacion.nombre}</strong>
+            </p>
+
+            <p class="sucursal-direccion">
+                <i class="fas fa-map-marker-alt"></i> ${ubicacion.direccion}
+            </p>
+
+            ${ubicacion.dias && ubicacion.horario ? `
                 <p class="sucursal-horario">
                     <i class="fas fa-user-clock"></i> ${ubicacion.dias} de ${ubicacion.horario}
                 </p>
-            </div>
-        `).join('')
-        : `
+            ` : ''}
+
+        </div>
+    `).join('')
+    : `
+        <div class="ubicacion-profesional">
+
             <p class="sucursal-direccion">
                 <i class="fas fa-map-marker-alt"></i> ${prof.ubicacion}
             </p>
+
             <p class="sucursal-horario">
                 <i class="fas fa-user-clock"></i> ${prof.modalidad}
             </p>
-        `
-    }
+
+        </div>
+    `}
 </div>
-                    
+                
+                
+                 
             
 
                 <div class="comercio-links">
@@ -1130,5 +1239,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return estaAbierto;
 }
 });
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+            .then(registration => {
+                console.log("Service Worker registrado:", registration);
+            })
+            .catch(error => {
+                console.error("Error al registrar Service Worker:", error);
+            });
+    });
+}
 
 

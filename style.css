@@ -3,15 +3,15 @@
 --vm-green: #008542;
 --vm-green-glow: rgba(0, 133, 66, 0.15);
 --vm-black: #121212;
---vm-dark-gray: #1a1a1a;
+--vm-dark-gray: #1c1e1d;
 --vm-light-gray: #f4f6f4;
 --vm-accent: #fbbf24;
 --vm-accent-glow: rgba(251, 191, 36, 0.1);
---text-main: #f4f6f4;
---text-muted: #9ca3af;
+--text-main: #f1f3f1;
+--text-muted: #a3aaa5;
 --max-width: 1200px;
 --font-sans: 'Plus Jakarta Sans', sans-serif;
---font-display: 'Archivo Black', sans-serif;
+--font-display: 'Space Grotesk', sans-serif;
 --font-hero: 'Space Grotesk', sans-serif;
 --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -393,7 +393,7 @@ header{
     color: var(--vm-green);
 }
 
-.buscador-comercio{
+.buscador-comercio {
     width: 100%;
     padding: 0.75rem 0.75rem 0.75rem 2.75rem;
     border-radius: 10px;
@@ -404,7 +404,7 @@ header{
     transition: var(--transition-smooth);
 }
 
-.buscador-comercio:focus{
+.buscador-comercio:focus {
     outline: none;
     border-color: var(--vm-green);
     box-shadow: 0 0 0 3px var(--vm-green-glow);
@@ -519,53 +519,119 @@ header{
 }
 
 .rubro {
-    font-family: var(--font-sans);
-    align-self: flex-start;
-    align-items: center;
-    color:var(--text-muted);
-    font-size: 0.65rem;
-    
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-muted);
+    font-weight: 700;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    align-self: flex-start;
+   transition: var(--transition-smooth);
 }
 
 .descripcion {
     font-size: 0.9rem;
     color: var(--text-muted);
 }
-
 .contenedor-sucursales {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 0.5rem 0;
-    
-    
-    
-   
 }
-
 .sucursal-bloque {
     display: flex;
     flex-direction: column;
-   
     justify-content: center;
-   
     background-color: var(--vm-dark-gray);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 10px 12px;
     border-radius: 12px;
     gap: 7px;
-
-   
     box-sizing: border-box;
     transition: var(--transition-smooth);
 }
+
+.sucursal-bloque:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 133, 66, 0.5);
+    box-shadow: 0 12px 24px var(--vm-green-glow);
+}
+#contenedor-profesionales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.profesional-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--vm-dark-gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 22px;
+    gap: 14px;
+    transition: var(--transition-smooth);
+}
+
+.profesional-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: var(--vm-black);
+    color: var(--text-main);
+}
+.profesional-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-main);
+    margin: 0;
+}
+.ubicaciones-profesional {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.ubicacion-profesional {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 10px 12px;
+}
+.sucursal-nombre {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0 0 4px;
+}
+.atencion-domicilio {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 0;
+}
+.atencion-domicilio i {
+    color: var(--vm-green);
+    font-size: 0.85rem;
+}
+
+
+
+
 
 .sucursal-direccion {
     font-size: 0.85rem;
@@ -587,9 +653,10 @@ header{
     margin-top: 2px; 
 }
 
-.sucursal-bloque i {
-    margin-right: 6px; 
-    color: var(--vm-green); 
+.sucursal-bloque i,
+.ubicacion-profesional i {
+    margin-right: 6px;
+    color: var(--vm-green);
 }
 
 .comercio-card .badge {
@@ -860,35 +927,18 @@ header{
     max-width: 1200px; 
 }
 
-#contenedor-profesionales {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
 
-.profesional-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--vm-dark-gray);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    gap: 15px;
-    transition: var(--transition-smooth);
-}
 
-.profesional-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    background: var(--vm-black);
-    color: var(--text-main);
-}
+
+    
+
+
 
 
 footer {
     background-color: var(--vm-black);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 4rem 1rem 2rem 1rem; 
+    padding: 4rem 1rem 2rem; 
     margin-top: 4rem;
 }
 
@@ -896,9 +946,9 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 20px 20px;
+    padding: 20px;
 }
 
 .footer-info {
@@ -913,6 +963,7 @@ footer {
 
 .footer-info p {
     color: var(--text-muted);
+    font-family: var(--font-sans);
     font-size: 0.9rem;
     line-height: 1.6;
     max-width: 320px;
@@ -923,9 +974,9 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 1.5rem 1rem 0 1rem;
-    max-width: var(--max-width);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 20px auto 0;
+    padding: 1.5rem 1rem 1rem;
+    font-family: var(--font-sans);
     font-size: 0.85rem;
     color: var(--text-muted);
 }
@@ -1132,7 +1183,48 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
+    #contenedor-profesionales {
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+    }
+     footer {
+        padding: 3rem 1rem 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .footer-info {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info p {
+        max-width: 300px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        margin-top: 15px;
+        padding-top: 1.25rem;
+    }
 }
+
+    
+
+        
+        
+
+
+
+
    
 
 
