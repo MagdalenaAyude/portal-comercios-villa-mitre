@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const section = document.querySelectorAll("main > section");
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const contenedorDestacados = document.getElementById("contenedor-destacados");
+    const contenedorNovedades = document.getElementById("contenedor-novedades");
 
    
     
@@ -74,12 +75,35 @@ document.addEventListener("DOMContentLoaded", () => {
         "Lencería": "fas fa-heart"
     }; 
 
+    const novedades = [
+        {
+            categoria: "Arte en el Barrio",
+            titulo: "¡Más color para nuestro barrio!",
+            descripcion: "Entre todos podemos hacerlo posible",
+            imagen: "assets/pintura.jpg",
+            
+        },
+        
+        ];
+
+        contenedorNovedades.innerHTML = novedades.map(novedad => `
+            <div class="novedad">
+                <img src="${novedad.imagen}" alt="${novedad.titulo}">
+                <span class="novedad-categoria">${novedad.categoria}</span>
+                <h3>${novedad.titulo}</h3>
+                <p>${novedad.descripcion}</p>
+            </div>
+        `).join("");
+
+
+
+
     const comercios = [
         
         {
             nombre: "Margarita Store",
             rubro: "Cosmética y Belleza",
-            destacado: true,
+           
             logo: "assets/margarita.jpg",
             descripcion: "Venta de maquillaje, cuidado facial, cuidado capilar, accesorios de acero, insumos de uñas, pestañas y más",
             sucursales: [
@@ -103,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: "Ohana Multikiosco",
             rubro: "Polirrubro y Servicios",
             logo: "assets/ohana.jpg",
+            
             descripcion: "Tradición familiar y calidez de barrio. Encontrá panificados frescos, fiambres, comidas al paso, kiosco, librería y un servicio oficial exclusivo: somos Unidad Postal 1 de Correo Argentino",
             sucursales: [
                 {
@@ -123,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Estilo Diagonal",
             rubro: "Peluquería",
+            destacado: true,
             logo: "assets/estilo.jpg",
             descripcion: "Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
             sucursales: [
@@ -143,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             nombre: "Mamá Cocina",
+            destacado: true,
             rubro: "Gastronomía",
             logo:"assets/mamacocina.jpg", 
             descripcion: "Sabor a hogar todos los días. Disfrutá platos elaborados con recetas de antes, ingredientes frescos y ese toque casero que te salva el almuerzo o la cena sin cocinar.",
@@ -166,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "La Casa de las Especias",
             rubro: "Dietética y Especias",
-            destacado: true,
+            
             logo: "assets/lacasa.jpg",
             descripcion: "Empresa familiar con más de 100 años de tradición en Villa Mitre, lo mejor en especias nacionales e importadas de la ciudad.",
             sucursales: [
@@ -205,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Roma Heladería & Pastelería",
             rubro: "Heladería", 
+            destacado: true,
             logo: "assets/roma.jpg",
             descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
             sucursales: [
@@ -251,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             nombre: "Kros",
             rubro: "Actividad Física", 
-            destacado: true,
+            
             logo:"assets/kross.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
@@ -321,7 +349,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Rock Bahia",
             rubro: "Indumentaria", 
-            logo: "assets/rock.jpg",
+            logo: "assets/rockbahia.jpg",
             descripcion: "Local especializado en indumentaria urbana y rockera. Encontrá una amplia variedad de remeras, buzos y camperas con los mejores diseños de bandas y estilo clásicos.", 
             sucursales: [
                 {
