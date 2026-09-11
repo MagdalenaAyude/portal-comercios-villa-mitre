@@ -465,11 +465,13 @@ header{
 
 #contenedor-comercios {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    width: 100%;
     
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
+    
+    
+
 
 .comercio-card {
     font-family: var(--font-sans);
@@ -565,10 +567,13 @@ header{
     box-shadow: 0 12px 24px var(--vm-green-glow);
 }
 #contenedor-profesionales {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  
+       display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+    
+
 
 .profesional-card {
     display: flex;
@@ -614,6 +619,7 @@ header{
     color: var(--text-muted);
     margin: 0 0 4px;
 }
+.atencion-online,
 .atencion-domicilio {
     display: flex;
     align-items: center;
@@ -624,14 +630,16 @@ header{
     color: var(--text-muted);
     margin: 0;
 }
+
 .atencion-domicilio i {
     color: var(--vm-green);
     font-size: 0.85rem;
 }
 
-
-
-
+.atencion-online i {
+    color: var(--vm-green);
+    font-size: 0.75rem;
+}
 
 .sucursal-direccion {
     font-size: 0.85rem;
@@ -922,7 +930,6 @@ header{
 
 .profesionales-section {
     padding: 20px 40px;
-    
     width: 100%;
     max-width: 1200px; 
 }
@@ -975,6 +982,23 @@ span.novedad-categoria {
     margin: 12px;
     display: inline-block;
 }
+.emprendimientos-section {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+#contenedor-emprendimientos .comercio-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+#contenedor-emprendimientos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
 
 
 
@@ -1134,6 +1158,19 @@ footer {
 }
 
 
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 600px) {
@@ -1148,7 +1185,9 @@ footer {
 
     .novedad img {
         height: 230px;
-    }}
+    }
+}
+
 
 @media (max-width: 768px) {
     
@@ -1227,7 +1266,7 @@ footer {
         text-align: center;
     }
 
-  .seccion-destacados .comercios-grid {
+    .seccion-destacados .comercios-grid {
         display: flex;
         gap: 12px;
         overflow-x: auto;
@@ -1246,7 +1285,7 @@ footer {
     }
 
     .seccion-destacados .comercio-card {
-        width: 100%;
+        
         box-sizing: border-box;
     }
 
@@ -1271,12 +1310,18 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
+    
+    #contenedor-comercios {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
     #contenedor-profesionales {
         grid-template-columns: 1fr;
         gap: 20px;
-
     }
-     footer {
+
+    footer {
         padding: 3rem 1rem 1.5rem;
         margin-top: 3rem;
     }

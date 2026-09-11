@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const contenedorDestacados = document.getElementById("contenedor-destacados");
     const contenedorNovedades = document.getElementById("contenedor-novedades");
+    const Emprendimientos = document.getElementById("contenedor-emprendimientos");
 
    
     
@@ -94,9 +95,82 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>${novedad.descripcion}</p>
             </div>
         `).join("");
+        
+        const emprendedores = [
+    {
+        nombre: "Creaciones DinaRaquel",
+        descripcion: "Accesorios para el cabello confeccionados a mano y con diseños propios para niñas y todas las edades. Vinchas, agarrapelos y pincitas para bebés desde el nacimiento. Realiza pedidos personalizados para sesiones de fotografía, bautismos, presentaciones, cumpleaños, quinceañeras y bodas. También cuenta con una Línea Tricolor de Villa Mitre con accesorios para el cabello, llaveros, charms y prendedores, además de prendedores patrios con diseños propios sobre Malvinas, Mujeres de la Historia y Madres de la Patria, una línea Deco-Hogar y adornos navideños.",
+        horario: "A convenir",
+        contacto: {
+            whatsapp: "2915110333",
+            instagram: "creaciones_dinaraquel"
+        }
+    },
+
+    {
+        nombre: "Luz & Armonía",
+        descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.",
+        horario: "A convenir",
+        contacto: {
+            whatsapp: "2914731497",
+            instagram: "luz_y_armonia.bb"
+        }
+    }
+];
+
+      
+ Emprendimientos.innerHTML = emprendedores.map(emprendedor => `
+    <div class="comercio-card">
+
+        <h3>${emprendedor.nombre}</h3>
+
+        <p>${emprendedor.descripcion}</p>
+
+        <p>
+            <i class="fas fa-clock"></i>
+            ${emprendedor.horario || "A convenir"}
+        </p>
+
+        <div class="comercio-links">
+
+            ${emprendedor.contacto.whatsapp ? `
+                <a href="https://wa.me/549${emprendedor.contacto.whatsapp}?text=Hola!%20Vi%20tu%20perfil%20en%20la%20App%20de%20Villa%20Mitre"
+                   target="_blank"
+                   class="btn-whatsapp"
+                   onclick="registrarClick('${emprendedor.nombre}', 'whatsapp')">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            ` : ""}
+
+            ${emprendedor.contacto.instagram ? `
+                <a href="https://instagram.com/${emprendedor.contacto.instagram}"
+                   target="_blank"
+                   class="btn-instagram"
+                   onclick="registrarClick('${emprendedor.nombre}', 'instagram')">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            ` : ""}
+
+        </div>
+
+    </div>
+`).join("");
 
 
+       
 
+   
+
+        
+
+        
+
+
+    
+    
+
+
+ 
 
     const comercios = [
         
@@ -406,28 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "elreydelqueso.bb" 
             }
         },
-        {
-            nombre: "Luz & Armonía",
-            rubro: "Accesorios",
-            logo: "assets/luz.jpg",
-            descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.", 
-            sucursales: [
-                {
-                    direccion: "Washington 181",
-                    maps: "https://www.google.com/maps/dir//Luz+y+Armon%C3%ADa,+Washington+181,+B8001+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2279568,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda3006a328507:0x90ca57de825bdd94!2m2!1d-62.2469386!2d-38.7309537?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Martes a Viernes 9:00 a 12:00hs <br> 16:00 a 20:00hs",
-                    dias: [2,3,4,5],
-                    franjaHoraria: [
-                        { apertura: "9:00", cierre: "12:00" },
-                        { apertura: "16:00", cierre: "20:00" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2914731497", 
-                instagram: "luz_y_armonia.bb" 
-            }
-        },
+       
         {
             nombre: "Catarsis Moda Circular",
             rubro: "Indumentaria", 
@@ -716,19 +769,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     ];
-
- 
-    
-    
-    
-        
-     
     
     const iconosPorRubroProfesionales = {
-        "Psicología": "fas fa-brain",
-        "Psicopedagogía": "fas fa-chalkboard-teacher",
-        "Nutrición": "fas fa-apple-alt",
-        "Kinesiología": "fas fa-running"
+    "Psicología": "fas fa-brain",
+    "Psicopedagogía": "fas fa-chalkboard-teacher",
+    "Nutrición": "fas fa-apple-alt",
+    "Kinesiología": "fas fa-running",
+    "Bienestar y Coaching": "fas fa-spa",
+    "Fonoaudiología": "fas fa-comments",
+
        
     };
 
@@ -761,7 +810,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
         nombre: "Lic. Paloma Cornejo",
         rubro: "Psicopedagogía",
-        descripcion:"Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje, acompañamiento psicopedagógico para niños, adolescentes y adultos · Tratamientos particulares y obras sociales (CUD)", 
+        descripcion:"Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje. Acompañamiento psicopedagógico para niños, adolescentes y adultos.<br>• Atención particular y obras sociales<br>• CUD",
         ubicacion: [
             {
               nombre:"Espacio Haru",
@@ -778,7 +827,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nombre: "Lic. Johanna De la Canal",
     rubro: "Psicopedagogía",
     matricula: "MP 198051",
-    descripcion: "Evaluación, diagnóstico y tratamiento, atención particular y obras sociales OSECAC y DOSEM · Prestadora directa | Otras · Reintegro",
+    descripcion: "Evaluación y diagnóstico.<br>• Atención particular y obras sociales: OSECAC y DOSEM (prestadora directa)<br>• Otras obras sociales: reintegro",
     ubicacion: [
         {
             nombre: "Espacio Haru",
@@ -852,8 +901,68 @@ document.addEventListener("DOMContentLoaded", () => {
                 instagram: "vacro.psi"
         }
     },
-    
+    {
+            nombre: "Antonella Cáceres Lucero",
+            rubro: "Bienestar y Coaching",
+            atencionOnline: true,
+            descripcion: "Soy Coach de Bienestar Personal y Deportivo. Acompaño a personas y deportistas a gestionar el estrés y las emociones, fortalecer su confianza y encontrar mayor claridad para afrontar sus desafíos, tanto en la vida cotidiana como en la actividad deportiva.",
+            ubicacion: [
+                {
+                    nombre: "Espacio Haru",
+                    direccion: "Necochea 321",
+                    dias: "Jueves",
+                    horario: "8:00 a 12:00hs"
+                }
+            ],
+            contacto: {
+                whatsapp: "2915667574",
+                instagram: "ser.nella"
+        }
+    },
+    {
+            nombre:"Lic. María de los Ángeles Pérez",
+            rubro: "Psicología",
+            matricula: "MP 2160",
+            descripcion: "Atención psicológica a adolescentes y adultos.",
+            ubicacion: [
+                {
+                    nombre: "Consultorio Garibaldi",
+                    direccion: "Garibaldi 454",
+                    dias: "Lunes a Jueves",
+                    horario: "15:00 a 20:00hs"
+                }
+            ],
+            contacto: {
+                whatsapp: "2914439782",
+                email: "mariadelosangelesperez.psi@gmail.com"
+        }
+    },
+    {
+            nombre:"Lic. Romina Belen Sanchez",
+            rubro: "Fonoaudiología",
+            matricula: "MP 7115",
+            descripcion:"Atención a niños y adolescentes con dificultades en el habla y la comunicación, deglución y respiración.<br>• Atención particular y CUD",
+            ubicacion: [
+                {
+                    nombre: "Espacio Haru",
+                    direccion: "Necochea 321",
+                    dias: "Martes , Jueves y Viernes",
+                    horario: "17:00 a 21:00hs"
+                }
+            ],
+            contacto: {
+                whatsapp: "2915208707",
+                email: "romisanchez.fo@gmail.com"
+            }
+        }
     ];
+
+     
+
+    
+
+    
+
     
     
     
@@ -901,19 +1010,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
-
+            
             const tarjetaHTML = `
-                <span class="rubro">
+            <span class="rubro">
                     <i class="${iconoClase}"></i> 
                     ${prof.rubro}
                 </span>
                 <h3>${prof.nombre}</h3>
                 <p class="descripcion">${prof.descripcion}</p>
                 ${prof.atencionDomicilio ? `
-    <p class="atencion-domicilio">
-        <i class="fas fa-home"></i> Atención a domicilio
-    </p>
-` : ''}
+                <p class="atencion-domicilio">
+                <i class="fas fa-home"></i> Atención a domicilio
+                </p>
+                ` : ''}
+                ${prof.atencionOnline ? `
+                <p class="atencion-online">
+                <i class="fas fa-video"></i> Atención online
+                </p>
+                ` : ''}
+     
 
 <div class="ubicaciones-profesional">
     ${Array.isArray(prof.ubicacion)
@@ -951,11 +1066,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `}
 </div>
                 
-                
-                 
-            
-
-                <div class="comercio-links">
+            <div class="comercio-links">
                     ${linksHTML}
                 </div>
             `;
@@ -969,7 +1080,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     const buscadorInput = document.querySelector(".buscador-comercio");
-    const botonesFiltro = document.querySelectorAll(".btn-filtro");
+ 
 
      function agregarComercios(listaComercios) {
     if (!contenedorComercios || !contenedorDestacados) return;
@@ -980,7 +1091,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statComercios = document.getElementById("stat-total-comercios");
 
     if (statComercios) {
-        statComercios.textContent = comercios.length + profesionales.length + 1;
+        statComercios.textContent = comercios.length + profesionales.length + emprendedores.length + 1;
     }
 
     if (listaComercios.length === 0) {
