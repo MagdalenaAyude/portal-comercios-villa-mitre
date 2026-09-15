@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedorComercios = document.getElementById("contenedor-comercios");
     const contenedorDestacados = document.getElementById("contenedor-destacados");
     const contenedorNovedades = document.getElementById("contenedor-novedades");
-    const Emprendimientos = document.getElementById("contenedor-emprendimientos");
+    const contenedorVariete= document.getElementById("contenedor-variete");
 
    
     
@@ -96,10 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `).join("");
         
-        const emprendedores = [
+        const feriantes = [
     {
         nombre: "Creaciones DinaRaquel",
-        descripcion: "Accesorios para el cabello confeccionados a mano y con diseños propios para niñas y todas las edades. Vinchas, agarrapelos y pincitas para bebés desde el nacimiento. Realiza pedidos personalizados para sesiones de fotografía, bautismos, presentaciones, cumpleaños, quinceañeras y bodas. También cuenta con una Línea Tricolor de Villa Mitre con accesorios para el cabello, llaveros, charms y prendedores, además de prendedores patrios con diseños propios sobre Malvinas, Mujeres de la Historia y Madres de la Patria, una línea Deco-Hogar y adornos navideños.",
+        modalidad: "Artesano",
+        participanteActivo: true,
+
+        descripcion: "Accesorios para el cabello confeccionados a mano: vinchas, agarrapelos y pincitas para bebés y todas las edades. También realiza pedidos personalizados para ocasiones especiales. Cuenta además con una Línea Tricolor de Villa Mitre, con llaveros, charms y prendedores; prendedores patrios con diseños propios; productos Deco-Hogar y adornos navideños.",
         horario: "A convenir",
         contacto: {
             whatsapp: "2915110333",
@@ -109,45 +112,155 @@ document.addEventListener("DOMContentLoaded", () => {
 
     {
         nombre: "Luz & Armonía",
+        modalidad: "Artesano",
         descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.",
         horario: "A convenir",
         contacto: {
             whatsapp: "2914731497",
             instagram: "luz_y_armonia.bb"
         }
+    },
+    {
+        nombre: "Lei Artesanias",
+        modalidad: "Artesano",
+        participanteActivo: true,
+        descripcion: "Creaciones artesanales pintadas a mano, desde macetas de barro cocido y pies nórdicos hasta sets de Nacimientos, souvenirs, cajas de té y urnas para eventos. También realiza trabajos personalizados.", 
+        horario: "A convenir",
+        contacto: {
+            whatsapp: "2914295161",
+            instagram: "leiartesanias",
+            facebook: "https://www.facebook.com/LeiArtesanias?locale=es_LA"
+            
+        }
+    },
+    {
+        nombre: "AquaZen By CG",
+        modalidad: "Reventa",
+        participanteActivo: true,
+        descripcion: "Artículos para el cuidado personal y el baño, cosmética artesanal, productos para la relajación y decoración estilo Zen.",
+        horario: "10:00 a 18:00hs",
+        contacto: {
+            whatsapp: "2915067800",
+            instagram: "aquazen.cg"
+          
+        }
+    },
+    {
+        nombre: "FreeBar",
+        modalidad: "Artesano",
+        descripcion: "Creaciones artesanales de cookies, alfajores, barritas y otros snacks ricos y caseros. Una propuesta para disfrutar algo rico y sentirse bien, sin dejar de darse un gusto.",
+        horario: "8:00 a 13:00hs",
+        contacto: {
+            whatsapp: "2915233025",
+            instagram: "freebar_bb"
+          
+        }
+    },
+    {
+        nombre: "Dulce Lupe",
+        modalidad: "Reventa",
+        participanteActivo: true,
+        descripcion: "Bolsitas de golosinas, boxes de golosinas, peluches y mucho más.",
+        horario: "9:00 a 20:00hs",
+        contacto: {
+            whatsapp: "2914166639",
+            instagram: "dulce_lupebb"
+          
+        }
+    },
+    {
+        nombre: "Hibiscus",
+        modalidad: "Artesano",
+        participanteActivo: true,
+        descripcion: "Marroquinería y accesorios: carteras, materas, riñoneras y mucho más.",
+        horario: "16:00 a 20:00hs",
+        contacto: {
+            whatsapp: "2916459659",
+            instagram: "hibiscus.bb"
+          
+        }
+    },
+    {
+        nombre: "Juani",
+        modalidad: "Reventa",
+        descripcion: "Distribuidora de productos Biogreen: aromatizantes de ambientes y textiles, difusores, perfumes personales, cosmética, productos de limpieza, aceites esenciales y mucho más. Calidad, seguridad y compromiso ambiental y social.",
+        horario: "9:00 a 19:00hs",
+        contacto: {
+            whatsapp: "2915660703",
+            instagram: "juanibiogreen"
+          
+        }
+    },
+    {
+        nombre: "Detalles Bonitos",
+        modalidad: "Reventa",
+        participanteActivo: true,
+        descripcion: "Bijou en acero quirúrgico y dorado: dijes, cadenas, pulseras, aros y anillos. Relojes para grandes y chicos, chockers, pulseras de hilo, chuflines, lapiceras, llaveros, vinchas y mucho más.",
+        horario: "9:00 a 21:00hs",
+        contacto: {
+            whatsapp: "2914222709",
+            instagram: "db_detallesbonitos"
+          
+        }
     }
+
 ];
 
+
+
+
+
+
+
+
       
- Emprendimientos.innerHTML = emprendedores.map(emprendedor => `
-    <div class="comercio-card">
+ contenedorVariete.innerHTML = feriantes.map(feriante => `
+    <div class="feriante-card">
+       
+        <span class="feriante-badge">
+        ${feriante.modalidad}
+        </span>
+         
+        ${feriante.participanteActivo ? `
+        <span class="feriante-estado">
+            <i class="fas fa-heart"></i> Participante activo
+        </span>
+    ` : ""}
 
-        <h3>${emprendedor.nombre}</h3>
+        <h3>${feriante.nombre}</h3>
 
-        <p>${emprendedor.descripcion}</p>
+        <p>${feriante.descripcion}</p>
 
         <p>
             <i class="fas fa-clock"></i>
-            ${emprendedor.horario || "A convenir"}
+            ${feriante.horario || "A convenir"}
         </p>
 
         <div class="comercio-links">
 
-            ${emprendedor.contacto.whatsapp ? `
-                <a href="https://wa.me/549${emprendedor.contacto.whatsapp}?text=Hola!%20Vi%20tu%20perfil%20en%20la%20App%20de%20Villa%20Mitre"
+            ${feriante.contacto.whatsapp ? `
+                <a href="https://wa.me/549${feriante.contacto.whatsapp}?text=Hola!%20Vi%20tu%20perfil%20en%20la%20App%20de%20Villa%20Mitre"
                    target="_blank"
                    class="btn-whatsapp"
-                   onclick="registrarClick('${emprendedor.nombre}', 'whatsapp')">
+                   onclick="registrarClick('${feriante.nombre}', 'whatsapp')">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
             ` : ""}
 
-            ${emprendedor.contacto.instagram ? `
-                <a href="https://instagram.com/${emprendedor.contacto.instagram}"
+            ${feriante.contacto.instagram ? `
+                <a href="https://instagram.com/${feriante.contacto.instagram}"
                    target="_blank"
                    class="btn-instagram"
-                   onclick="registrarClick('${emprendedor.nombre}', 'instagram')">
+                   onclick="registrarClick('${feriante.nombre}', 'instagram')">
                     <i class="fab fa-instagram"></i> Instagram
+                </a>
+                ` : ""}
+             ${feriante.contacto.facebook ? `
+                <a href="${feriante.contacto.facebook}"
+                   target="_blank"
+                   class="btn-facebook"
+                   onclick="registrarClick('${feriante.nombre}', 'facebook')">
+                    <i class="fab fa-facebook"></i> Facebook
                 </a>
             ` : ""}
 
@@ -354,7 +467,7 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: "Kros",
             rubro: "Actividad Física", 
             
-            logo:"assets/kross.jpg",
+            logo:"assets/kros.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
                 {
@@ -954,8 +1067,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 whatsapp: "2915208707",
                 email: "romisanchez.fo@gmail.com"
             }
-        }
-    ];
+        },
+        {
+           nombre:"Lic. Guadalupe Arango Martinez",
+            rubro: "Psicología",
+            matricula: "MP: 2676",
+            descripcion: "Psicología clínica a adolescentes, jóvenes y adultos.",
+            atencionOnline: true,
+            horario: "Mañana y Tarde - a Coordinar",
+            contacto: {
+                whatsapp: "2915068197",
+                email: "guadalupearango07@gmail.com",
+            } 
+        },
+        {
+            nombre:"Lic. Mara Alvarez Garza · Profesora de Educación Física",
+            rubro: "Nutrición",
+            matricula: "MP: 3793",
+            descripcion: "Tratamiento nutricional y asesoramiento en actividad física. Recetarios, seguimiento personalizado mediante App, rutinas para realizar en casa o gimnasio y antropometría.",
+            ubicacion: [
+                {
+                    nombre: "Mara Nuticionista",
+                    direccion: "Chiclana 1602",
+                    dias: "Lunes a Viernes",
+                    horario: "9:00 a 12:00hs y 17:00 a 20:00hs  "
+                }
+            ],
+            contacto: {
+                sitioWeb: "https://maranutricionactiva.tuland.com.ar/",
+                whatsapp: "2914044109",
+                instagram: "maranutricionactiva"
+                
+            }
+        },
+        ];
+        
+    
+
+    
+  
+
+    
+       
+    
 
      
 
@@ -1010,63 +1164,81 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                 `;
             }
+            if (prof.contacto.sitioWeb) {
+                linksHTML += `
+                    <a href="${prof.contacto.sitioWeb}" target="_blank" class="btn-web">
+                        <i class="fas fa-globe"></i> Sitio Web
+                    </a>
+                `;
+            }
             
-            const tarjetaHTML = `
-            <span class="rubro">
-                    <i class="${iconoClase}"></i> 
-                    ${prof.rubro}
-                </span>
-                <h3>${prof.nombre}</h3>
-                <p class="descripcion">${prof.descripcion}</p>
-                ${prof.atencionDomicilio ? `
-                <p class="atencion-domicilio">
-                <i class="fas fa-home"></i> Atención a domicilio
-                </p>
-                ` : ''}
-                ${prof.atencionOnline ? `
-                <p class="atencion-online">
-                <i class="fas fa-video"></i> Atención online
-                </p>
-                ` : ''}
-     
+           const tarjetaHTML = `
+ <span class="rubro">
+        <i class="${iconoClase}"></i> 
+        ${prof.rubro}
+    </span>
 
-<div class="ubicaciones-profesional">
-    ${Array.isArray(prof.ubicacion)
-    ? prof.ubicacion.map(ubicacion => `
-        <div class="ubicacion-profesional">
+    <h3>${prof.nombre}</h3>
 
-            <p class="sucursal-nombre">
-                <strong>${ubicacion.nombre}</strong>
-            </p>
+    <p class="descripcion">${prof.descripcion}</p>
 
-            <p class="sucursal-direccion">
-                <i class="fas fa-map-marker-alt"></i> ${ubicacion.direccion}
-            </p>
+    ${prof.atencionDomicilio ? `
+        <p class="atencion-domicilio">
+            <i class="fas fa-home"></i> Atención a domicilio
+        </p>
+    ` : ''}
+    ${prof.atencionOnline && Array.isArray(prof.ubicacion) ? `
+        <p class="atencion-online">
+            <i class="fas fa-video"></i> Atención online
+        </p>
+    ` : ''}
+    <div class="ubicaciones-profesional">
+        ${
+            Array.isArray(prof.ubicacion)
+            ? prof.ubicacion.map(ubicacion => `
+                <div class="ubicacion-profesional">
 
-            ${ubicacion.dias && ubicacion.horario ? `
-                <p class="sucursal-horario">
-                    <i class="fas fa-user-clock"></i> ${ubicacion.dias} de ${ubicacion.horario}
-                </p>
-            ` : ''}
+                    ${ubicacion.nombre ? `
+                        <p class="sucursal-nombre">
+                            <strong>${ubicacion.nombre}</strong>
+                        </p>
+                    ` : ''}
 
-        </div>
-    `).join('')
-    : `
-        <div class="ubicacion-profesional">
+                    ${ubicacion.direccion ? `
+                        <p class="sucursal-direccion">
+                            <i class="fas fa-map-marker-alt"></i> ${ubicacion.direccion}
+                        </p>
+                    ` : ''}
 
-            <p class="sucursal-direccion">
-                <i class="fas fa-map-marker-alt"></i> ${prof.ubicacion}
-            </p>
+                    ${ubicacion.dias && ubicacion.horario ? `
+                        <p class="sucursal-horario">
+                            <i class="fas fa-user-clock"></i>
+                            ${ubicacion.dias} de ${ubicacion.horario}
+                        </p>
+                    ` : ''}
 
-            <p class="sucursal-horario">
-                <i class="fas fa-user-clock"></i> ${prof.modalidad}
-            </p>
+                </div>
+               `).join('')
+            : prof.atencionOnline ? `
+                <div class="ubicacion-profesional">
 
-        </div>
-    `}
-</div>
-                
-            <div class="comercio-links">
+                    <p class="sucursal-direccion">
+                        <i class="fas fa-video"></i> Atención online
+                    </p>
+
+                    ${prof.horario ? `
+                        <p class="sucursal-horario">
+                            <i class="fas fa-user-clock"></i>
+                            ${prof.horario}
+                        </p>
+                    ` : ''}
+
+                </div>
+            ` : ''
+        }
+    </div>
+
+    <div class="comercio-links">
                     ${linksHTML}
                 </div>
             `;
@@ -1091,7 +1263,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const statComercios = document.getElementById("stat-total-comercios");
 
     if (statComercios) {
-        statComercios.textContent = comercios.length + profesionales.length + emprendedores.length + 1;
+        statComercios.textContent = comercios.length + profesionales.length + feriantes.length + 1;
     }
 
     if (listaComercios.length === 0) {

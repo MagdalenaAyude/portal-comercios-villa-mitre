@@ -141,6 +141,10 @@ header{
     color: var(--text-muted);
 }
 
+.nav-links a i {
+    margin-right: 6px;
+}
+
 .nav-links a:not(.btn-cta) {
     font-size: 0.95rem;
     color: var(--text-muted);
@@ -285,6 +289,7 @@ header{
 
 .section-title-wrapper {
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .section-title {
@@ -306,6 +311,7 @@ header{
   max-width: 600px;
   margin: 0 auto;
 }
+
 
 .timeline {
     display: flex;
@@ -465,10 +471,78 @@ header{
 
 #contenedor-comercios {
     display: grid;
-    
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
+.feriante-card {
+    font-family: var(--font-sans);
+    background: var(--vm-dark-gray);
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid var(--vm-green);
+    gap: 0.6rem;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: var(--transition-smooth);
+}
+.feriante-card > p:last-of-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.feriante-badge {
+    background-color: var(--vm-green);
+    color: var(--vm-light-gray);
+    display: inline-flex;
+    font-size: 0.75rem;
+    align-self: flex-start;
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+}
+.feriante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px var(--vm-green-glow);
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+.feriante-estado {
+    color: var(--vm-green);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.04rem;
+}
+.feriante-estado i {
+    margin-right: 4px;
+}
+.section-subtitle a {
+    color: var(--vm-green);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.section-subtitle a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+   
+
+
+
+
+    
+
+
+
     
     
 
@@ -568,13 +642,11 @@ header{
 }
 #contenedor-profesionales {
   
-       display: grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
     
-
-
 .profesional-card {
     display: flex;
     flex-direction: column;
@@ -827,6 +899,7 @@ header{
    display: flex;
    align-items: center;
    justify-content: center;
+   margin-top: 0.8rem;
 }
 .badge-logo {
     border-radius: 50%;
@@ -988,33 +1061,18 @@ span.novedad-categoria {
     padding: 80px 20px;
 }
 
-#contenedor-emprendimientos .comercio-card p {
-    font-size: 0.9rem;
-    color: var(--text-muted);
+
+ .beneficios-section {
+    padding: 80px 20px;
 }
-#contenedor-emprendimientos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 2rem;
+.beneficios-grid {
     width: 100%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
 
 footer {
     background-color: var(--vm-black);
@@ -1157,38 +1215,6 @@ footer {
     gap: 1.5rem;
 }
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 600px) {
-
-    .novedades-section {
-        margin: 3rem auto;
-    }
-
-    .novedades-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .novedad img {
-        height: 230px;
-    }
-}
-
-
 @media (max-width: 768px) {
     
     header .nav-container .btn-primary {
@@ -1285,7 +1311,6 @@ footer {
     }
 
     .seccion-destacados .comercio-card {
-        
         box-sizing: border-box;
     }
 
@@ -1348,7 +1373,26 @@ footer {
         margin-top: 15px;
         padding-top: 1.25rem;
     }
+    
+    .novedades-section {
+        margin: 3rem auto;
+    }
+
+    .novedades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .novedad img {
+        height: 230px;
+    }
+    
+    #contenedor-variete {
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
+
+}
+
 
     
 
