@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedorDestacados = document.getElementById("contenedor-destacados");
     const contenedorNovedades = document.getElementById("contenedor-novedades");
     const contenedorVariete= document.getElementById("contenedor-variete");
-
+   
    
     
 
@@ -73,8 +73,97 @@ document.addEventListener("DOMContentLoaded", () => {
         "Consultorios": "fas fa-user-md",
         "Instituto de Inglés": "fas fa-graduation-cap",
         "Accesorios": "fa-solid fa-gem",
-        "Lencería": "fas fa-heart"
+        "Lencería": "fas fa-heart",
+        "Manejo Integral de Plagas": "fa-solid fa-bug"
     }; 
+        const beneficios = [
+    {
+        comercio: "Versus (M.I.P.)",
+        descuento: "10%",
+        descripcion: "En el total del trabajo terminado",
+        cupon: "assets/descuento.png",
+    }
+];
+
+ function cargarBeneficios() {
+    const contenedor = document.getElementById("contenedor-beneficios");
+
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    beneficios.forEach((beneficio) => {
+
+        const tarjeta = document.createElement("div");
+        tarjeta.classList.add("comercio-card");
+
+        tarjeta.innerHTML = `
+            <div class="comercio-card-contenido">
+
+                <h3>${beneficio.comercio}</h3>
+
+                <div class="beneficio-descuento">
+                    <strong>${beneficio.descuento} DE DESCUENTO</strong>
+                    <p>${beneficio.descripcion}</p>
+                </div>
+
+                <img 
+                    src="${beneficio.cupon}" 
+                    alt="Cupón de ${beneficio.descuento} de descuento"
+                    class="beneficio-cupon"
+                >
+                <button class= "btn-haru-wa btn-ver-comercio" onclick="irAlComercio('${beneficio.comercio}')">
+                Ver comercio
+                </button>
+
+            </div>
+        `;
+
+        contenedor.appendChild(tarjeta);
+    });
+}
+
+    cargarBeneficios();
+
+    window.irAlComercio = function(nombreComercio) {
+
+    const seccionComercios = document.getElementById("comercios");
+
+    document.querySelectorAll("main > section").forEach(sec => {
+        sec.style.display = "none";
+    });
+
+    if (seccionComercios) {
+        seccionComercios.style.display = "block";
+    }
+
+    setTimeout(() => {
+
+        const tarjetas = document.querySelectorAll(
+            "#contenedor-comercios .comercio-card, #contenedor-destacados .comercio-card"
+        );
+
+        tarjetas.forEach((tarjeta) => {
+
+            const titulo = tarjeta.querySelector("h3");
+
+            if (
+                titulo &&
+                titulo.textContent.trim().toLowerCase() ===
+                nombreComercio.trim().toLowerCase()
+            ) {
+
+                tarjeta.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }
+        });
+
+    }, 100);
+};
+
 
     const novedades = [
         {
@@ -84,16 +173,17 @@ document.addEventListener("DOMContentLoaded", () => {
             imagen: "assets/pintura.jpg",
             
         },
+
         
         ];
 
-        contenedorNovedades.innerHTML = novedades.map(novedad => `
-            <div class="novedad">
-                <img src="${novedad.imagen}" alt="${novedad.titulo}">
-                <span class="novedad-categoria">${novedad.categoria}</span>
-                <h3>${novedad.titulo}</h3>
-                <p>${novedad.descripcion}</p>
-            </div>
+       contenedorNovedades.innerHTML += novedades.map(novedad => `
+        <div class="novedad">
+        <img src="${novedad.imagen}" alt="${novedad.titulo}">
+        <span class="novedad-categoria">${novedad.categoria}</span>
+        <h3>${novedad.titulo}</h3>
+        <p>${novedad.descripcion}</p>
+        </div>
         `).join("");
         
         const feriantes = [
@@ -181,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     },
     {
-        nombre: "Juani",
+        nombre: "Juani Biogreen",
         modalidad: "Reventa",
         descripcion: "Distribuidora de productos Biogreen: aromatizantes de ambientes y textiles, difusores, perfumes personales, cosmética, productos de limpieza, aceites esenciales y mucho más. Calidad, seguridad y compromiso ambiental y social.",
         horario: "9:00 a 19:00hs",
@@ -202,7 +292,20 @@ document.addEventListener("DOMContentLoaded", () => {
             instagram: "db_detallesbonitos"
           
         }
+    },
+  {
+        nombre: "Spika",
+        modalidad: "Artesano",
+        participanteActivo: true,
+        descripcion: "Panificados integrales y caseros, con opciones saludables y simples. También ofrecemos panificados elaborados con harina de almendras, tanto dulces como salados.",
+        horario: "13:00 a 20:00hs",
+        contacto: {
+            whatsapp: "2915021127",
+            instagram: "spika.bb"
+          
+        }
     }
+
 
 ];
 
@@ -356,7 +459,6 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             nombre: "Mamá Cocina",
-            destacado: true,
             rubro: "Gastronomía",
             logo:"assets/mamacocina.jpg", 
             descripcion: "Sabor a hogar todos los días. Disfrutá platos elaborados con recetas de antes, ingredientes frescos y ese toque casero que te salva el almuerzo o la cena sin cocinar.",
@@ -419,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             nombre: "Roma Heladería & Pastelería",
             rubro: "Heladería", 
-            destacado: true,
+            
             logo: "assets/roma.jpg",
             descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
             sucursales: [
@@ -760,7 +862,8 @@ document.addEventListener("DOMContentLoaded", () => {
           
         {
             nombre: "Alaia Pilates",
-            rubro: "Actividad Física", 
+            rubro: "Actividad Física",
+             
             logo: "assets/alaia.jpg",
             descripcion: "Somos un espacio donde el Pilates y el entrenamiento de fuerza se complementan para ayudarte a desarrollar un cuerpo fuerte, móvil y saludable. Trabajamos con grupos reducidos, lo que nos permite acompañar de forma cercana a cada persona y adaptar cada ejercicio a sus necesidades, objetivos y experiencia.",
             sucursales: [
@@ -776,13 +879,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             ],
             contacto: {
-                whatsapp: "2915346258",
+                whatsapp: "2915346259",
                 instagram: "alaia.pilates"
             }
         },
-         
-          
-        
+    {
+            nombre: "Versus (M.I.P.)",
+            rubro: "Manejo Integral de Plagas",
+            destacado: true,
+            logo: "assets/plagas.jpg",
+            descripcion: "Técnico en Manejo Integral de Plagas y Técnico Agropecuario. Brindamos servicios de control de plagas y parquizado/desmalezado.",
+            sucursales: [
+                 {
+                direccion: "Atención a Domicilio",
+                horario: "Lunes a Sábado 8:00 a 18:00hs",
+                dias: [1,2,3,4,5,6],
+                franjaHoraria: [
+                    { apertura: "8:00" , cierre: "18:00" }
+                   
+                ]
+                }
+            ],
+            contacto: {
+                whatsapp: "2915665545",
+                instagram: "versus_mip"
+            }
+        },
+       
+
     {
             nombre: "Showtime Sport Store",
             rubro: "Indumentaria Deportiva", 
@@ -1173,12 +1297,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
            const tarjetaHTML = `
- <span class="rubro">
-        <i class="${iconoClase}"></i> 
-        ${prof.rubro}
-    </span>
+            <span class="rubro">
+            <i class="${iconoClase}"></i> 
+            ${prof.rubro}
+            </span>
 
-    <h3>${prof.nombre}</h3>
+            <h3>${prof.nombre}</h3>
 
     <p class="descripcion">${prof.descripcion}</p>
 
@@ -1298,9 +1422,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 const estadoClase = estaAbierto ? "abierto" : "cerrado";
                 const textoEstado = estaAbierto ? "Abierto" : "Cerrado";
                  
-            const direccionMaps = sucursal.maps;
+           const direccionMaps = sucursal.maps;
 
-            return `
+            const botonMaps = direccionMaps ? `
+            <a 
+                href="${direccionMaps}"
+                class="btn-maps"
+                onclick="registrarClick('${comercio.nombre}', 'maps')">
+                <i class="fas fa-map-marker-alt"></i> Cómo llegar
+            </a>
+        ` : '';
+           
+
+return `
         <div class="sucursal-bloque">
 
         <p class="sucursal-direccion">
@@ -1317,13 +1451,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </div>
 
-        <a 
-            href="${direccionMaps}"
-            class="btn-maps"
-            onclick="registrarClick('${comercio.nombre}', 'maps')">
-            <i class="fas fa-map-marker-alt"></i> Cómo llegar
-
-        </a>
+        
+        ${botonMaps}
 
     </div>
     `;

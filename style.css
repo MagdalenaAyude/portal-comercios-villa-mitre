@@ -530,23 +530,6 @@ p {
     text-decoration: underline;
 }
 
-
-
-
-
-   
-
-
-
-
-    
-
-
-
-    
-    
-
-
 .comercio-card {
     font-family: var(--font-sans);
     background-color: var(--vm-dark-gray);
@@ -764,6 +747,7 @@ p {
     color: #f87171;
     border-color: rgba(248, 113, 113, 0.3);
 }
+
 
 .comercio-links {
     padding-top: 1rem;
@@ -1006,21 +990,22 @@ p {
     width: 100%;
     max-width: 1200px; 
 }
-.novedades-grid {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-   
-  
+#contenedor-profesionales,
+#contenedor-novedades {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
+ 
+
 .novedad {
-    width: 360px;
+    width: 100%;
     background-color: var(--vm-dark-gray);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     overflow: hidden;
     transition: var(--transition-smooth);
+    box-sizing: border-box;
 }
 .novedad img {
     width: calc(100% - 24px);
@@ -1062,7 +1047,7 @@ span.novedad-categoria {
 }
 
 
- .beneficios-section {
+.beneficios-section {
     padding: 80px 20px;
 }
 .beneficios-grid {
@@ -1133,7 +1118,7 @@ footer {
 
 .seccion-destacados .comercios-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(230px));
+    grid-template-columns:repeat(2, minmax(280px, 350px)); 
     justify-content: center;
     gap: 20px;
 }
@@ -1209,11 +1194,30 @@ footer {
 .novedades-section .section-title-wrapper {
     margin-bottom: 4rem;
 }
-.novedades-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+
+
+.beneficio-cupon {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 1rem auto 0;
+    border-radius: 10px;
 }
+#contenedor-beneficios .comercio-card h3 {
+    text-align: center;
+    margin: 0 0 0.8rem;
+}
+html {
+    scroll-behavior: smooth;
+}
+.btn-ver-comercio {
+    margin-top: 20px;
+}
+
+
+
+
 
 @media (max-width: 768px) {
     
@@ -1306,8 +1310,8 @@ footer {
     }
 
     .seccion-destacados .comercio-card {
-        flex: 0 0 220px;
-        width: 220px;
+    flex: 0 0 300px;
+    box-sizing: border-box;
     }
 
     .seccion-destacados .comercio-card {
@@ -1378,9 +1382,7 @@ footer {
         margin: 3rem auto;
     }
 
-    .novedades-grid {
-        grid-template-columns: 1fr;
-    }
+    
 
     .novedad img {
         height: 230px;
@@ -1391,7 +1393,10 @@ footer {
     gap: 12px;
 }
 
+    
 }
+
+
 
 
     
