@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const contenedorDestacados = document.getElementById("contenedor-destacados");
     const contenedorNovedades = document.getElementById("contenedor-novedades");
     const contenedorVariete= document.getElementById("contenedor-variete");
-   
+    
    
     
 
@@ -172,21 +172,102 @@ document.addEventListener("DOMContentLoaded", () => {
             descripcion: "Entre todos podemos hacerlo posible",
             imagen: "assets/pintura.jpg",
             
-        },
+        }
+    ];
+    const contenedorAprende = document.getElementById("contenedor-aprende");
 
-        
-        ];
+   const aprende = [
+    {
+        categoria: "CANTO",
+        titulo: "Alfredo Davies",
+        descripcion: "Clases de canto lírico y popular. Aprendé a acompañar tus canciones con guitarra por acordes o lectura musical.",
+        ubicacion: "Alberdi 1690",
+        horario: "A coordinar",
+        whatsapp: "5492915044894",
+        youtube: "https://youtube.com/@alfredodavies?si=6hCfV9ZUWo6tJB6x",
+    }
+];
 
-       contenedorNovedades.innerHTML += novedades.map(novedad => `
-        <div class="novedad">
+contenedorNovedades.innerHTML += novedades.map(novedad => `
+    <div class="profesional-card">
         <img src="${novedad.imagen}" alt="${novedad.titulo}">
-        <span class="novedad-categoria">${novedad.categoria}</span>
-        <h3>${novedad.titulo}</h3>
-        <p>${novedad.descripcion}</p>
-        </div>
-        `).join("");
         
-        const feriantes = [
+        <span class="rubro">
+            <i class="fas fa-palette"></i>
+            ${novedad.categoria}
+        </span>
+
+        <h3>${novedad.titulo}</h3>
+
+        <p class="descripcion">${novedad.descripcion}</p>
+    </div>
+    `).join("");
+
+
+aprende.forEach(prof => {
+    const cardProfesional = document.createElement("div");
+    cardProfesional.classList.add("profesional-card");
+
+    let linksHTML = '';
+
+    if (prof.whatsapp) {
+        linksHTML += `
+            <a href="https://wa.me/${prof.whatsapp}" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        `;
+    }
+
+    if (prof.youtube) {
+        linksHTML += `
+            <a href="${prof.youtube}" target="_blank" class="btn-web">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        `;
+    }
+
+    const tarjetaHTML = `
+        <span class="rubro">
+            <i class="fas fa-graduation-cap"></i>
+            ${prof.categoria}
+        </span>
+
+        <h3>${prof.titulo}</h3>
+
+        <p class="descripcion">${prof.descripcion}</p>
+
+        ${prof.ubicacion ? `
+            <div class="ubicaciones-profesional">
+                <div class="ubicacion-profesional">
+
+                    <p class="sucursal-direccion">
+                        <i class="fas fa-map-marker-alt"></i>
+                        ${prof.ubicacion}
+                    </p>
+
+                    ${prof.horario ? `
+                        <p class="sucursal-horario">
+                            <i class="fas fa-user-clock"></i>
+                            ${prof.horario}
+                        </p>
+                    ` : ''}
+
+                </div>
+            </div>
+        ` : ''}
+
+        <div class="comercio-links">
+            ${linksHTML}
+        </div>
+    `;
+
+    cardProfesional.innerHTML = tarjetaHTML;
+    contenedorAprende.appendChild(cardProfesional);
+});
+
+
+
+const feriantes = [
     {
         nombre: "Creaciones DinaRaquel",
         modalidad: "Artesano",
