@@ -268,6 +268,19 @@ aprende.forEach(prof => {
 
 
 const feriantes = [
+    
+    {
+        nombre: "Detalles Bonitos",
+        modalidad: "Reventa",
+        participanteActivo: true,
+        descripcion: "Bijou en acero quirúrgico y dorado: dijes, cadenas, pulseras, aros y anillos. Relojes para grandes y chicos, chockers, pulseras de hilo, chuflines, lapiceras, llaveros, vinchas y mucho más.",
+        horario: "9:00 a 21:00hs",
+        contacto: {
+            whatsapp: "2914222709",
+            instagram: "db_detallesbonitos"
+          
+        }
+    },
     {
         nombre: "Creaciones DinaRaquel",
         modalidad: "Artesano",
@@ -362,18 +375,7 @@ const feriantes = [
           
         }
     },
-    {
-        nombre: "Detalles Bonitos",
-        modalidad: "Reventa",
-        participanteActivo: true,
-        descripcion: "Bijou en acero quirúrgico y dorado: dijes, cadenas, pulseras, aros y anillos. Relojes para grandes y chicos, chockers, pulseras de hilo, chuflines, lapiceras, llaveros, vinchas y mucho más.",
-        horario: "9:00 a 21:00hs",
-        contacto: {
-            whatsapp: "2914222709",
-            instagram: "db_detallesbonitos"
-          
-        }
-    },
+    
   {
         nombre: "Spika",
         modalidad: "Artesano",
@@ -385,8 +387,32 @@ const feriantes = [
             instagram: "spika.bb"
           
         }
+    },
+    
+    {
+        nombre: "Una Plantita a la Vez",
+        modalidad: "Artesano",
+        participanteActivo: true,
+        descripcion: "Artesanías en madera reciclada, porta sahumerios, deco para el hogar, macetitas con suculentas y más.",
+        horario: "A convenir",
+        contacto: {
+            sitioWeb:"https://unaplantitaalavez.mitiendanube.com/",
+            instagram: "unaplantitaalavez"
+          
+        }
+    },
+    {
+        nombre: "Kimica 3D",
+        modalidad: "Artesano",
+        participanteActivo: true,
+        descripcion: "Impresión 3D y diseños personalizados. Materializamos tus ideas, una capa a la vez.",
+        horario: "16:00 a 21:00hs",
+        contacto: {
+            Watsapp: "2932554049",
+            instagram: "kimica_3d"
+          
+        }
     }
-
 
 ];
 
@@ -445,6 +471,15 @@ const feriantes = [
                    class="btn-facebook"
                    onclick="registrarClick('${feriante.nombre}', 'facebook')">
                     <i class="fab fa-facebook"></i> Facebook
+                </a>
+            ` : ""}
+
+            ${feriante.contacto.sitioWeb ? `
+                <a href="${feriante.contacto.sitioWeb}"
+                   target="_blank"
+                   class="btn-web"
+                   onclick="registrarClick('${feriante.nombre}', 'sitio-web')">
+                    <i class="fas fa-globe"></i> Sitio Web
                 </a>
             ` : ""}
 
@@ -649,7 +684,6 @@ const feriantes = [
           {
             nombre: "Kros",
             rubro: "Actividad Física", 
-            
             logo:"assets/kros.jpg",
             descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
             sucursales: [
@@ -669,6 +703,31 @@ const feriantes = [
                 instagram: "kros.gym",
             }
         },
+        {
+            nombre: "PyP Forrajeria",
+            rubro: "Petshop", 
+            enviosDomicilio: true,
+            logo:"assets/pyp.jpg",
+            descripcion: "Encontrás todo lo que tu mascota necesita para estar bien y sentirse mimada. Alimento balanceado, accesorios y peluquería canina, en un espacio pensado para cuidar a nuestros compañeros de todos los días.",
+            sucursales: [
+                {
+                    direccion: "Washington 454",
+                    maps: "https://www.google.com/maps/place/Washington+454,+B8001+GZJ,+Provincia+de+Buenos+Aires/@-38.728624,-62.246895,17z/data=!3m1!4b1!4m6!3m5!1s0x95eda33c633683c1:0xd84aa33c755914c5!8m2!3d-38.7286282!4d-62.2443201!16s%2Fg%2F11c5fxgf1x?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+                    horario: "Lunes a Viernes 9:00 a 13:30hs y 16:30 a 20:30hs",
+                    dias: [1,2,3,4,5],
+                    franjaHoraria: [
+                        { apertura: "9:00", cierre: "13:30" },
+                        { apertura: "16:30", cierre: "20:30" }
+                    ]
+                }
+            ],          
+            contacto: {
+                whatsapp: "2915268183",
+                instagram: "pypforrajeria",
+                facebook: "https://www.facebook.com/profile.php?id=61590807844238&locale=es_LA"
+            }
+        },
+
 
 
 
@@ -1671,6 +1730,12 @@ return `
     </div>
 
     <h3>${comercio.nombre}</h3>
+
+    ${comercio.enviosDomicilio ? `
+    <p class="atencion-domicilio">
+        <i class="fas fa-truck"></i> Envíos a domicilio
+    </p>
+` : ''}
 
     <div class="comercio-contenido">
 

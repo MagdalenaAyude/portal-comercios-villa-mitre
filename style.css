@@ -538,6 +538,7 @@ html {
   
 }
 
+
 .filtros-container button:hover i,
 .filtros-container button.active i {
     color: var(--vm-light-gray);
