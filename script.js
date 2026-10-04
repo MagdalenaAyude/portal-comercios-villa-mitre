@@ -12,1785 +12,346 @@ window.registrarClick = function(comercio, tipo) {
     }
 };
 document.addEventListener("DOMContentLoaded", () => {
-    
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-    const navItems = document.querySelectorAll(".nav-links a");
-    const section = document.querySelectorAll("main > section");
-    const contenedorComercios = document.getElementById("contenedor-comercios");
-    const contenedorDestacados = document.getElementById("contenedor-destacados");
-    const contenedorNovedades = document.getElementById("contenedor-novedades");
-    const contenedorVariete= document.getElementById("contenedor-variete");
-    
-   
-    
+    const buscador = document.querySelector(".buscador-comercio");
+    const contenedorResultados = document.getElementById("contenedor-resultados");
+    const seccionResultados = document.getElementById("seccion-resultados");
+  
 
-   if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("abrir");
-        });
-
-        navItems.forEach((item) => {
-            item.addEventListener("click", (event) => {
-                const targetId = item.getAttribute("href");
-
-                if (targetId && targetId.startsWith("#")) {
-                    event.preventDefault(); 
-                    navLinks.classList.remove("abrir");
-
-                    const targetSection = document.querySelector(targetId);
-                    
-                    if (targetSection) {
-                        section.forEach((sec) => {
-                            sec.style.display = "none";
-                        });
-                        targetSection.style.display = "block";
-                    }
-                } else {
-                    
-                    navLinks.classList.remove("abrir");
-                    
-                }
-            });
-        });
-    }
-
-    const iconosPorRubro = {
-        "Indumentaria Deportiva": "fas fa-dumbbell",
-        "Gastronomía": "fas fa-utensils",
-        "Ferretería": "fas fa-hammer",
-        "Almacén": "fas fa-shopping-basket",
-        "Cosmética y Belleza": "fas fa-pump-soap",
-        "Regalería y Juguetería": "fa-solid fa-gift",
-        "Polirrubro y Servicios": "fa-solid fa-store",
-        "Indumentaria": "fa-solid fa-shirt",
-        "Fiambrería": "fa-solid fa-cheese",
-        "Actividad Física": "fas fa-person-running",
-        "Dietética y Especias": "fas fa-seedling",
-        "Peluquería": "fas fa-scissors",
-        "Heladería": "fa-solid fa-ice-cream",
-        "Petshop": "fa-solid fa-paw",
-        "Consultorios": "fas fa-user-md",
-        "Instituto de Inglés": "fas fa-graduation-cap",
-        "Accesorios": "fa-solid fa-gem",
-        "Lencería": "fas fa-heart",
-        "Manejo Integral de Plagas": "fa-solid fa-bug"
-    }; 
-        const beneficios = [
-    {
-        comercio: "Versus (M.I.P.)",
-        descuento: "10%",
-        descripcion: "En el total del trabajo terminado",
-        cupon: "assets/descuento.png",
-    }
-];
-
- function cargarBeneficios() {
-    const contenedor = document.getElementById("contenedor-beneficios");
-
-    if (!contenedor) return;
-
-    contenedor.innerHTML = "";
-
-    beneficios.forEach((beneficio) => {
-
-        const tarjeta = document.createElement("div");
-        tarjeta.classList.add("comercio-card");
-
-        tarjeta.innerHTML = `
-            <div class="comercio-card-contenido">
-
-                <h3>${beneficio.comercio}</h3>
-
-                <div class="beneficio-descuento">
-                    <strong>${beneficio.descuento} DE DESCUENTO</strong>
-                    <p>${beneficio.descripcion}</p>
-                </div>
-
-                <img 
-                    src="${beneficio.cupon}" 
-                    alt="Cupón de ${beneficio.descuento} de descuento"
-                    class="beneficio-cupon"
-                >
-                <button class= "btn-haru-wa btn-ver-comercio" onclick="irAlComercio('${beneficio.comercio}')">
-                Ver comercio
-                </button>
-
-            </div>
-        `;
-
-        contenedor.appendChild(tarjeta);
-    });
-}
-
-    cargarBeneficios();
-
-    window.irAlComercio = function(nombreComercio) {
-
-    const seccionComercios = document.getElementById("comercios");
-
-    document.querySelectorAll("main > section").forEach(sec => {
-        sec.style.display = "none";
-    });
-
-    if (seccionComercios) {
-        seccionComercios.style.display = "block";
-    }
-
-    setTimeout(() => {
-
-        const tarjetas = document.querySelectorAll(
-            "#contenedor-comercios .comercio-card, #contenedor-destacados .comercio-card"
-        );
-
-        tarjetas.forEach((tarjeta) => {
-
-            const titulo = tarjeta.querySelector("h3");
-
-            if (
-                titulo &&
-                titulo.textContent.trim().toLowerCase() ===
-                nombreComercio.trim().toLowerCase()
-            ) {
-
-                tarjeta.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
-        });
-
-    }, 100);
+    const iconosRubros = {
+    "Peluquería": "fas fa-scissors",
+    "Heladería": "fa-solid fa-ice-cream",
+    "Nutrición": "fas fa-apple-alt",
+    "Manejo Integral de Plagas": "fa-solid fa-bug",
+    "Panificados": "fas fa-bread-slice",
+    "Productos Biogreen": "fas fa-leaf",
+    "Psicología": "fas fa-brain"
 };
 
 
-    const novedades = [
-        {
-            categoria: "Arte en el Barrio",
-            titulo: "¡Más color para nuestro barrio!",
-            descripcion: "Entre todos podemos hacerlo posible",
-            imagen: "assets/pintura.jpg",
-            
-        }
-    ];
-    const contenedorAprende = document.getElementById("contenedor-aprende");
+     
+   
 
-   const aprende = [
+    const datos = [
+
+  
     {
-        categoria: "CANTO",
-        titulo: "Alfredo Davies",
+        nombre: "Alfredo Davies",
+      
+        tipo: "aprende",
+        rubro: "Canto",
+        logo: "assets/canto.jpg",
         descripcion: "Clases de canto lírico y popular. Aprendé a acompañar tus canciones con guitarra por acordes o lectura musical.",
         ubicacion: "Alberdi 1690",
+        maps: "https://www.google.com/maps/@-38.7299948,-62.2436883,20a,75y,47.13h,90t/data=!3m7!1e1!3m5!1sxLlc3XPE4qa3cqdAO7oo4Q!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DxLlc3XPE4qa3cqdAO7oo4Q%26yaw%3D47.13!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
         horario: "A coordinar",
-        whatsapp: "5492915044894",
-        youtube: "https://youtube.com/@alfredodavies?si=6hCfV9ZUWo6tJB6x",
-    }
-];
+        contacto: {
+            whatsapp: "5492915044894",
+            youtube: "https://youtube.com/@alfredodavies?si=6hCfV9ZUWo6tJB6x"
+        }
+    },
 
-contenedorNovedades.innerHTML += novedades.map(novedad => `
-    <div class="profesional-card">
-        <img src="${novedad.imagen}" alt="${novedad.titulo}">
+
+
+    {
+        nombre: "Maria Luján Scaioli",
         
-        <span class="rubro">
-            <i class="fas fa-palette"></i>
-            ${novedad.categoria}
-        </span>
-
-        <h3>${novedad.titulo}</h3>
-
-        <p class="descripcion">${novedad.descripcion}</p>
-    </div>
-    `).join("");
-
-
-aprende.forEach(prof => {
-    const cardProfesional = document.createElement("div");
-    cardProfesional.classList.add("profesional-card");
-
-    let linksHTML = '';
-
-    if (prof.whatsapp) {
-        linksHTML += `
-            <a href="https://wa.me/${prof.whatsapp}" target="_blank" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-        `;
-    }
-
-    if (prof.youtube) {
-        linksHTML += `
-            <a href="${prof.youtube}" target="_blank" class="btn-web">
-                <i class="fab fa-youtube"></i> YouTube
-            </a>
-        `;
-    }
-
-    const tarjetaHTML = `
-        <span class="rubro">
-            <i class="fas fa-graduation-cap"></i>
-            ${prof.categoria}
-        </span>
-
-        <h3>${prof.titulo}</h3>
-
-        <p class="descripcion">${prof.descripcion}</p>
-
-        ${prof.ubicacion ? `
-            <div class="ubicaciones-profesional">
-                <div class="ubicacion-profesional">
-
-                    <p class="sucursal-direccion">
-                        <i class="fas fa-map-marker-alt"></i>
-                        ${prof.ubicacion}
-                    </p>
-
-                    ${prof.horario ? `
-                        <p class="sucursal-horario">
-                            <i class="fas fa-user-clock"></i>
-                            ${prof.horario}
-                        </p>
-                    ` : ''}
-
-                </div>
-            </div>
-        ` : ''}
-
-        <div class="comercio-links">
-            ${linksHTML}
-        </div>
-    `;
-
-    cardProfesional.innerHTML = tarjetaHTML;
-    contenedorAprende.appendChild(cardProfesional);
-});
-
-
-
-const feriantes = [
-    
-    {
-        nombre: "Detalles Bonitos",
-        modalidad: "Reventa",
-        participanteActivo: true,
-        descripcion: "Bijou en acero quirúrgico y dorado: dijes, cadenas, pulseras, aros y anillos. Relojes para grandes y chicos, chockers, pulseras de hilo, chuflines, lapiceras, llaveros, vinchas y mucho más.",
-        horario: "9:00 a 21:00hs",
+        tipo: "aprende",
+        rubro: "Canto y apoyo escolar",
+        logo: "assets/lujan.jpg",
+        descripcion: "Clases de canto y apoyo escolar para nivel primario y secundario. También ofrece Flores de Bach.",
+        ubicacion: "Punta Alta 400",
+        maps: "https://www.google.com/maps/@-38.7340317,-62.2380252,17a,75y,307.1h,90t/data=!3m7!1e1!3m5!1suV0JYtIdJlxKVURDX9SXuA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DuV0JYtIdJlxKVURDX9SXuA%26yaw%3D307.1!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+        horario: "A coordinar",
         contacto: {
-            whatsapp: "2914222709",
-            instagram: "db_detallesbonitos"
-          
-        }
-    },
-    {
-        nombre: "Creaciones DinaRaquel",
-        modalidad: "Artesano",
-        participanteActivo: true,
-
-        descripcion: "Accesorios para el cabello confeccionados a mano: vinchas, agarrapelos y pincitas para bebés y todas las edades. También realiza pedidos personalizados para ocasiones especiales. Cuenta además con una Línea Tricolor de Villa Mitre, con llaveros, charms y prendedores; prendedores patrios con diseños propios; productos Deco-Hogar y adornos navideños.",
-        horario: "A convenir",
-        contacto: {
-            whatsapp: "2915110333",
-            instagram: "creaciones_dinaraquel"
+            whatsapp: "2915762317",
+            instagram: "lujanscaioli",
+            youtube: "https://www.youtube.com/@lujanscaioli"
         }
     },
 
-    {
-        nombre: "Luz & Armonía",
-        modalidad: "Artesano",
-        descripcion: "Bijouterie artesanal en piedras naturales. Piezas únicas hechas a mano que combinan diseño, naturaleza y la energía de los cristales.",
-        horario: "A convenir",
-        contacto: {
-            whatsapp: "2914731497",
-            instagram: "luz_y_armonia.bb"
-        }
-    },
-    {
-        nombre: "Lei Artesanias",
-        modalidad: "Artesano",
-        participanteActivo: true,
-        descripcion: "Creaciones artesanales pintadas a mano, desde macetas de barro cocido y pies nórdicos hasta sets de Nacimientos, souvenirs, cajas de té y urnas para eventos. También realiza trabajos personalizados.", 
-        horario: "A convenir",
-        contacto: {
-            whatsapp: "2914295161",
-            instagram: "leiartesanias",
-            facebook: "https://www.facebook.com/LeiArtesanias?locale=es_LA"
-            
-        }
-    },
-    {
-        nombre: "AquaZen By CG",
-        modalidad: "Reventa",
-        participanteActivo: true,
-        descripcion: "Artículos para el cuidado personal y el baño, cosmética artesanal, productos para la relajación y decoración estilo Zen.",
-        horario: "10:00 a 18:00hs",
-        contacto: {
-            whatsapp: "2915067800",
-            instagram: "aquazen.cg"
-          
-        }
-    },
-    {
-        nombre: "FreeBar",
-        modalidad: "Artesano",
-        descripcion: "Creaciones artesanales de cookies, alfajores, barritas y otros snacks ricos y caseros. Una propuesta para disfrutar algo rico y sentirse bien, sin dejar de darse un gusto.",
-        horario: "8:00 a 13:00hs",
-        contacto: {
-            whatsapp: "2915233025",
-            instagram: "freebar_bb"
-          
-        }
-    },
-    {
-        nombre: "Dulce Lupe",
-        modalidad: "Reventa",
-        participanteActivo: true,
-        descripcion: "Bolsitas de golosinas, boxes de golosinas, peluches y mucho más.",
-        horario: "9:00 a 20:00hs",
-        contacto: {
-            whatsapp: "2914166639",
-            instagram: "dulce_lupebb"
-          
-        }
-    },
-    {
-        nombre: "Hibiscus",
-        modalidad: "Artesano",
-        participanteActivo: true,
-        descripcion: "Marroquinería y accesorios: carteras, materas, riñoneras y mucho más.",
-        horario: "16:00 a 20:00hs",
-        contacto: {
-            whatsapp: "2916459659",
-            instagram: "hibiscus.bb"
-          
-        }
-    },
-    {
-        nombre: "Juani Biogreen",
-        modalidad: "Reventa",
-        descripcion: "Distribuidora de productos Biogreen: aromatizantes de ambientes y textiles, difusores, perfumes personales, cosmética, productos de limpieza, aceites esenciales y mucho más. Calidad, seguridad y compromiso ambiental y social.",
-        horario: "9:00 a 19:00hs",
-        contacto: {
-            whatsapp: "2915660703",
-            instagram: "juanibiogreen"
-          
-        }
-    },
-    
-  {
+{
         nombre: "Spika",
+   
+        tipo: "variete",
+        rubro: "Panificados",
+        logo: "assets/spika.jpg",
         modalidad: "Artesano",
         participanteActivo: true,
         descripcion: "Panificados integrales y caseros, con opciones saludables y simples. También ofrecemos panificados elaborados con harina de almendras, tanto dulces como salados.",
-        horario: "13:00 a 20:00hs",
+        horario: "Lunes a Viernes 13:00 a 20:00hs",
         contacto: {
             whatsapp: "2915021127",
             instagram: "spika.bb"
-          
+        }
+    },
+
+    {
+        nombre: "Juani Biogreen",
+
+        tipo: "variete",
+        rubro: "Productos Biogreen",
+        logo: "assets/junai.jpg",
+        modalidad: "Reventa",
+        descripcion: "Distribuidora de productos Biogreen: aromatizantes de ambientes y textiles, difusores, perfumes personales, cosmética, productos de limpieza, aceites esenciales y mucho más. Calidad, seguridad y compromiso ambiental y social.",
+        horario: "Lunes a Viernes 9:00 a 19:00hs",
+        contacto: {
+            whatsapp: "2915660703",
+            instagram: "juanibiogreen"
         }
     },
     
     {
-        nombre: "Una Plantita a la Vez",
-        modalidad: "Artesano",
-        participanteActivo: true,
-        descripcion: "Artesanías en madera reciclada, porta sahumerios, deco para el hogar, macetitas con suculentas y más.",
-        horario: "A convenir",
-        contacto: {
-            sitioWeb:"https://unaplantitaalavez.mitiendanube.com/",
-            instagram: "unaplantitaalavez"
-          
-        }
-    },
-    {
-        nombre: "Kimica 3D",
-        modalidad: "Artesano",
-        participanteActivo: true,
-        descripcion: "Impresión 3D y diseños personalizados. Materializamos tus ideas, una capa a la vez.",
-        horario: "16:00 a 21:00hs",
-        contacto: {
-            Watsapp: "2932554049",
-            instagram: "kimica_3d"
-          
-        }
-    }
+        nombre: "Lic. Claribel Springer",
 
-];
-
-
-
-
-
-
-
-
-      
- contenedorVariete.innerHTML = feriantes.map(feriante => `
-    <div class="feriante-card">
-       
-        <span class="feriante-badge">
-        ${feriante.modalidad}
-        </span>
-         
-        ${feriante.participanteActivo ? `
-        <span class="feriante-estado">
-            <i class="fas fa-heart"></i> Participante activo
-        </span>
-    ` : ""}
-
-        <h3>${feriante.nombre}</h3>
-
-        <p>${feriante.descripcion}</p>
-
-        <p>
-            <i class="fas fa-clock"></i>
-            ${feriante.horario || "A convenir"}
-        </p>
-
-        <div class="comercio-links">
-
-            ${feriante.contacto.whatsapp ? `
-                <a href="https://wa.me/549${feriante.contacto.whatsapp}?text=Hola!%20Vi%20tu%20perfil%20en%20la%20App%20de%20Villa%20Mitre"
-                   target="_blank"
-                   class="btn-whatsapp"
-                   onclick="registrarClick('${feriante.nombre}', 'whatsapp')">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            ` : ""}
-
-            ${feriante.contacto.instagram ? `
-                <a href="https://instagram.com/${feriante.contacto.instagram}"
-                   target="_blank"
-                   class="btn-instagram"
-                   onclick="registrarClick('${feriante.nombre}', 'instagram')">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                ` : ""}
-             ${feriante.contacto.facebook ? `
-                <a href="${feriante.contacto.facebook}"
-                   target="_blank"
-                   class="btn-facebook"
-                   onclick="registrarClick('${feriante.nombre}', 'facebook')">
-                    <i class="fab fa-facebook"></i> Facebook
-                </a>
-            ` : ""}
-
-            ${feriante.contacto.sitioWeb ? `
-                <a href="${feriante.contacto.sitioWeb}"
-                   target="_blank"
-                   class="btn-web"
-                   onclick="registrarClick('${feriante.nombre}', 'sitio-web')">
-                    <i class="fas fa-globe"></i> Sitio Web
-                </a>
-            ` : ""}
-
-        </div>
-
-    </div>
-`).join("");
-
-
-       
-
-   
-
-        
-
-        
-
-
-    
-    
-
-
- 
-
-    const comercios = [
-        
-        {
-            nombre: "Margarita Store",
-            rubro: "Cosmética y Belleza",
-           
-            logo: "assets/margarita.jpg",
-            descripcion: "Venta de maquillaje, cuidado facial, cuidado capilar, accesorios de acero, insumos de uñas, pestañas y más",
-            sucursales: [
-                {
-                direccion: "Castelar 1695",
-                maps: "https://www.google.com/maps/dir//MARGARITA+STORE,+Castelar+1695,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.227839,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda30022e2c84b:0x43725e5f3e31dbaf!2m2!1d-62.2427111!2d-38.7293241?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a Viernes 9:00hs a 20:30hs",
-                dias:[1,2,3,4,5],
-                franjaHoraria:[
-                    { apertura: "9:00" , cierre: "20:30" }
-                ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2915276472",
-                instagram: "margaritastorear",
-                sitioWeb: "https://www.margaritastorear.com/"
-            }
-        },
-        {
-            nombre: "Ohana Multikiosco",
-            rubro: "Polirrubro y Servicios",
-            logo: "assets/ohana.jpg",
-            
-            descripcion: "Tradición familiar y calidez de barrio. Encontrá panificados frescos, fiambres, comidas al paso, kiosco, librería y un servicio oficial exclusivo: somos Unidad Postal 1 de Correo Argentino",
-            sucursales: [
-                {
-                 direccion: "Maipu 1664",
-                 maps: "https://www.google.com/maps/dir//Multikiosco+OHANA+(Correo+Argentino+UP1),+Maip%C3%BA+1664,+B8001AYF+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277949,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda34b75d3cf53:0xfef46b0223f7f09!2m2!1d-62.2468371!2d-38.7320365?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                 horario:"Lunes a viernes 7:00 a 17:00hs",
-                 dias: [1,2,3,4,5],
-                 franjaHoraria: [
-                 { apertura: "7:00" , cierre: "17:00"},
-                 ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2914191224",
-                email: "Ohanamultikiosco@gmail.com"
-            }
-        },
-        {
-            nombre: "Estilo Diagonal",
-            rubro: "Peluquería",
-            destacado: true,
-            logo: "assets/estilo.jpg",
-            descripcion: "Un espacio exclusivo donde el asesoramiento honesto, la sensibilidad y la salud de tu cabello son los protagonistas para reflejar tu verdadera esencia.",
-            sucursales: [
-                {
-                    direccion: "Garibaldi 639",
-                    maps: "https://www.google.com/maps/dir//Estilo+Diagonal,+Garibaldi+638,+B8001GWN+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2281202,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda3d3512f5fbd:0x4c35fcb2a08c1ccc!2m2!1d-62.243889!2d-38.7261487?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábados 10:00 a 19:00hs",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "10:00", cierre: "19:00" },
-                    ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2915028928",
-                instagram: "estilodiagonal"
-            }
-        },
-        {
-            nombre: "Mamá Cocina",
-            rubro: "Gastronomía",
-            logo:"assets/mamacocina.jpg", 
-            descripcion: "Sabor a hogar todos los días. Disfrutá platos elaborados con recetas de antes, ingredientes frescos y ese toque casero que te salva el almuerzo o la cena sin cocinar.",
-            sucursales: [
-                {
-                    direccion: "Washington 377 ",
-                    maps: "https://www.google.com/maps/dir//Mam%C3%A1+Cocina+Villa+Mitre,+Washington+377,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.228228,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda31b2638cc75:0x226f15827c99badb!2m2!1d-62.2449848!2d-38.7294558?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábado 10:00 a 14:00hs <br> 19:00 a 23:00hs",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "10:00", cierre: "14:00" },
-                        { apertura: "19:00", cierre: "23:00" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2915089999",
-                instagram: "mamacocina.vm",
-            }
-        },
-        {
-            nombre: "La Casa de las Especias",
-            rubro: "Dietética y Especias",
-            
-            logo: "assets/lacasa.jpg",
-            descripcion: "Empresa familiar con más de 100 años de tradición en Villa Mitre, lo mejor en especias nacionales e importadas de la ciudad.",
-            sucursales: [
-                {
-                    direccion: "Drago 1698",
-                    maps: "https://www.google.com/maps/dir//La+Casa+De+Las+Especias,+Luis+Mar%C3%ADa+Drago+1698,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277489,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda3251e4afb57:0x934387d3ee5d5017!2m2!1d-62.2482007!2d-38.7335925?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Viernes 8:00 a 16:00hs <br> Sábado 8:30 a 12:30hs",
-                    dias: [1,2,3,4,5,6],
-                    horariosPorDia: {
-                        1: [
-                            { apertura: "8:00", cierre: "16:00" }
-                        ],
-                        2: [
-                            { apertura: "8:00", cierre: "16:00" }
-                        ],
-                        3: [
-                            { apertura: "8:00", cierre: "16:00" }
-                        ],
-                        4: [
-                            { apertura: "8:00", cierre: "16:00" }
-                        ],
-                        5: [
-                            { apertura: "8:00", cierre: "16:00" }
-                        ],
-                        6: [
-                            { apertura: "8:30", cierre: "12:30" }
-                        ]
-                    }
-                }
-            ],
-            contacto: {
-                whatsapp: "2915236678",
-                instagram: "lacasadelasespeciasbb" 
-            }
-        },
-        {
-            nombre: "Roma Heladería & Pastelería",
-            rubro: "Heladería", 
-            
-            logo: "assets/roma.jpg",
-            descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
-            sucursales: [
-                {
-                    direccion: "Maipú 2266",
-                    maps: "https://www.google.com/maps/dir//Roma+Helader%C3%ADa+y+Pasteleria,+Maip%C3%BA+2264,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2281202,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda30068443583:0x28a893611fe961d8!2m2!1d-62.2401938!2d-38.7368413?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario:
-                        '<i class="fas fa-sun" style="margin-right: 6px;"></i>Lunes a Domingo: 12:00 a 00:00hs.<br>' +
-                        '<i class="fas fa-snowflake" style="margin-right: 6px;"></i>Lunes a Viernes: 17:00 a 22:00hs.<br>' +
-                        '<span style="display:inline-block; width:18px;"></span>Sábado: 16:00 a 00:00 hs.<br>' +
-                        '<span style="display:inline-block; width:18px;"></span>Domingo: 12:00 a 22:00hs.',
-
-                    dias: [1,2,3,4,5,6,0],
-                    horariosPorDia: {
-                        1: [
-                            { apertura: "12:00", cierre: "00:00" }
-                        ],
-                        2: [
-                            { apertura: "12:00", cierre: "00:00" }
-                        ],
-                        3: [
-                            { apertura: "12:00", cierre: "00:00" }
-                        ],
-                        4: [
-                            { apertura: "12:00", cierre: "00:00" }
-                        ],
-                        5: [
-                            { apertura: "12:00", cierre: "00:00" }
-                        ],
-                        6: [
-                            { apertura: "16:00", cierre: "00:00" }
-                        ],
-                        0: [
-                            { apertura: "12:00", cierre: "22:00" }
-                        ]
-                    }
-                }
-            ],   
-            contacto: {
-                whatsapp: "2915268456",
-                instagram: "romaheladeriapasteleria"
-            }
-        },
-          {
-            nombre: "Kros",
-            rubro: "Actividad Física", 
-            logo:"assets/kros.jpg",
-            descripcion: "Entrená, movete y disfrutá con actividades para todos.<br>Entrenamiento funcional y personalizado, Ritmos Fit, Aerobox, Bachata y gimnasia para adultos mayores.",
-            sucursales: [
-                {
-                    direccion: "Washington 567",
-                    maps: "https://www.google.com/maps/@-38.7277518,-62.2430833,3a,75y,224.05h,90t/data=!3m7!1e1!3m5!1sS_DXIQSe5VUXiV7tgM4hMA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DS_DXIQSe5VUXiV7tgM4hMA%26yaw%3D224.05!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Viernes 7:00 a 10:00hs <br> 13:30 a 21:00hs",
-                    dias: [1,2,3,4,5],
-                    franjaHoraria: [
-                        { apertura: "7:00", cierre: "10:00" },
-                        { apertura: "13:30", cierre: "21:00" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2915334322",
-                instagram: "kros.gym",
-            }
-        },
-        {
-            nombre: "PyP Forrajeria",
-            rubro: "Petshop", 
-            enviosDomicilio: true,
-            logo:"assets/pyp.jpg",
-            descripcion: "Encontrás todo lo que tu mascota necesita para estar bien y sentirse mimada. Alimento balanceado, accesorios y peluquería canina, en un espacio pensado para cuidar a nuestros compañeros de todos los días.",
-            sucursales: [
-                {
-                    direccion: "Washington 454",
-                    maps: "https://www.google.com/maps/place/Washington+454,+B8001+GZJ,+Provincia+de+Buenos+Aires/@-38.728624,-62.246895,17z/data=!3m1!4b1!4m6!3m5!1s0x95eda33c633683c1:0xd84aa33c755914c5!8m2!3d-38.7286282!4d-62.2443201!16s%2Fg%2F11c5fxgf1x?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Viernes 9:00 a 13:30hs y 16:30 a 20:30hs",
-                    dias: [1,2,3,4,5],
-                    franjaHoraria: [
-                        { apertura: "9:00", cierre: "13:30" },
-                        { apertura: "16:30", cierre: "20:30" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2915268183",
-                instagram: "pypforrajeria",
-                facebook: "https://www.facebook.com/profile.php?id=61590807844238&locale=es_LA"
-            }
-        },
-
-
-
-
-        {
-            nombre: "Vibra Bonito",
-            rubro: "Regalería y Juguetería",
-            logo: "assets/vibra.jpg",
-            descripcion: "Regalos que enamoran y juguetes para hacer felices a los más chicos. Todo lo lindo que buscás para regalar y regalarte.",
-            sucursales: [
-                {
-                 direccion: "Washington 676",
-                 maps: "https://www.google.com/maps/dir//Vibra+bonito,+Washington+676,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277949,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda3c4693eb493:0xf02aa679eeab172f!2m2!1d-62.2422532!2d-38.726929?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                 horario: "Lunes a Viernes 9:30 a 13:00hs <br> 16:30 a 20:00hs <br> Sábado 10:00 a 13:30hs y <br> 16:30 a 20:00hs",
-                 dias: [1,2,3,4,5,6],
-                 horariosPorDia: {
-                        1: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ],
-                        2: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ],
-                        3: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ],
-                        4: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ],
-                        5: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ],
-                        6: [
-                            { apertura: "10:00", cierre: "13:30" },
-                            { apertura: "16:30", cierre: "20:00" }
-                        ]
-                    }
-                }
-            ],
-            contacto: {
-                whatsapp: "2914379375",
-                instagram: "vibrabonito.regaleria"
-            }
-        },
-        {
-            nombre: "Rock Bahia",
-            rubro: "Indumentaria", 
-            logo: "assets/rockbahia.jpg",
-            descripcion: "Local especializado en indumentaria urbana y rockera. Encontrá una amplia variedad de remeras, buzos y camperas con los mejores diseños de bandas y estilo clásicos.", 
-            sucursales: [
-                {
-                    direccion: "Castelar 2281",
-                    maps: "https://www.google.com/maps/@-38.7341031,-62.2363632,3a,75y,315.02h,90t/data=!3m7!1e1!3m5!1s6HxXTjo9Ovb81CCp4wu9UA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3D6HxXTjo9Ovb81CCp4wu9UA%26yaw%3D315.02!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábado 14:00 a 20:00hs",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "14:00", cierre: "20:00" },
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2914293286",
-                instagram: "remeras.rock.bahia" 
-            }
-        },
-        {
-            nombre: "Merlina Beauty",
-            rubro: "Cosmética y Belleza", 
-            logo: "assets/merlina.jpg",
-            descripcion: "Lashista, cosmetóloga y lashmaker. Servicios de belleza personalizados para realzar tu mirada y cuidar tu piel.",
-            sucursales: [
-                {
-                direccion: "Cramer 625 - dep interno",
-                maps: "https://www.google.com/maps/dir//Merlina+beauty,+Cramer+625,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2279568,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda366580abac5:0x46a8df25a634bfb1!2m2!1d-62.2324845!2d-38.7350019?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D", 
-                horario: "Atención con turno previo",
-                dias: [1,2,3,4,5,6],
-                }
-            ],
-            contacto: {
-                Turnos: "https://www.fresha.com/es/a/merlina-beauty-bahia-blanca-cramer-625-q5v3v3h4/booking?menu=true&pId=2525121&dppub=true&fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA85MzY2MTk3NDMzOTI0NTkAAafzI2ifsD3G-mMGopYTQQ_d4PXRMveC6Rmu0oh19LCIVMcgQ8WcLDfKneIDWg_aem_TRuiVz_PuioNFQAzNK9_NQ&utm_source=ig&utm_medium=social&utm_content=link_in_bio&utm_id=97760_v0_s00_e0_tv3&employeeId=4593644&cartId=6fdf7997-51a0-433e-8d6e-0d3409a65589",
-                instagram: "merlinabeautyce"
-            }
-        },
-         {
-            nombre: "El Rey del Queso",
-            rubro: "Fiambrería", 
-            logo:"assets/elrey.jpg",
-            descripcion: "Calidad, variedad y buen precio. Ventas directo de fábrica. La mejor selección de quesos, fiambres y productos regionales para tus picadas y el día a día.",
-            sucursales: [
-                {
-                    direccion: "Castelar 1608",
-                    maps: "https://www.google.com/maps/dir//El+rey+del+Queso,+Castelar+1608,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2279568,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda38a7adc8f87:0xbd9443771ab4cb2!2m2!1d-62.2435565!2d-38.7283163?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábado 8:30 a 20:30hs",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "8:30", cierre: "20:30" },
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2914743005",
-                instagram: "elreydelqueso.bb" 
-            }
-        },
-       
-        {
-            nombre: "Catarsis Moda Circular",
-            rubro: "Indumentaria", 
-            logo:"assets/catarsis.jpg",
-            descripcion: "Espacio dedicado a la moda circular y al consumo consciente, donde encontrás prendas únicas seleccionadas con estilo.",
-            sucursales: [
-                {
-                 direccion: "Alberdi 1729",
-                 maps: "https://www.google.com/maps/dir//Catarsis,+Alberdi+1729,+B8001+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277524,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda30019a70c51:0x24cd8a1053c479d4!2m2!1d-62.2432806!2d-38.7304626?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                 horario:"Lunes a viernes 9:30 a 12:30hs <br> 16:30 a 19:30hs",
-                 dias: [1,2,3,4,5],
-                 franjaHoraria: [
-                 { apertura: "9:30" , cierre: "12:30"},
-                 { apertura: "16:30" , cierre: "19:30"}
-                 ]
-                }
-            ],
-            contacto: {
-                instagram: "catarsis.bbca",
-                facebook: "https://www.facebook.com/profile.php?id=61591973338783"
-            }
-        },
-        {
-            nombre: "La Esquinita",
-            rubro: "Fiambrería",
-            logo:"assets/laesquinita.jpg",
-            descripcion: "Nos especializamos en la venta de fiambres y quesos seleccionados de primera calidad. Vení a buscar lo rico para picar o resolver tus compras diarias.",
-            sucursales: [
-                {
-                 direccion: "Alberdi 1691",
-                 maps: "https://www.google.com/maps/dir//La+esquinita.+Almac%C3%A9n+de+quesos+y+fiambres,+Alberdi+1691+B8001BPK,+B8001BPK+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277524,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda3f3b93a32e3:0x502f71ddd64676ae!2m2!1d-62.2437091!2d-38.7300493?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                 horario:"Lunes a viernes 9:30 a 13:00hs <br> 17:00 a 20:30hs <br> Domingo 10:00 a 13:00hs",
-                 dias: [1,2,3,4,5,6,0], 
-                 horariosPorDia: {
-                        1: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "17:00", cierre: "20:30" }
-                        ],
-                        2: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "17:00", cierre: "20:30" }
-                        ],
-                        3: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "17:00", cierre: "20:30" }
-                        ],
-                        4: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "17:00", cierre: "20:30" }
-                        ],
-                        5: [
-                            { apertura: "9:30", cierre: "13:00" },
-                            { apertura: "17:00", cierre: "20:30" }
-                        ],
-                        0: [
-                            { apertura: "10:00", cierre: "13:00" }
-                        ]
-                    }
-                }
-            ],
-                contacto: {
-                whatsapp: "2916494992",
-                instagram: "fiambrerialaesquinita" 
-            }
-        },
-      
-       
-        {
-            nombre: "Beto Mascotas",
-            rubro: "Petshop",
-            logo:"assets/beto.jpg",
-            descripcion: "Todo lo que necesitás para el bienestar y cuidado de tu mascota en un solo lugar. Encontrá una amplia variedad en alimentos de calidad, juguetes y accesorios.",
-            sucursales: [
-                {
-                    direccion: "Garibaldi 251",
-                    maps: "https://www.google.com/maps/dir//Beto+Mascotas+Petshop,+Garibaldi+251,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2281202,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda38980a9c8fb:0x53c5c9ddf9f6acea!2m2!1d-62.2473298!2d-38.7293471?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábado 9:00 a 13:00hs <br> 17:00hs a 20:30hs.",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "9:00", cierre: "13:00" },
-                        { apertura: "17:00", cierre: "20:30" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp: "2914130314",
-                instagram: "betomascotas.petshop",
-                facebook: "https://www.facebook.com/BetoMascotasPetshop?locale=es_LA "
-            }
-        },
-       
-       
-        {
-            nombre: "Amanda",
-            rubro: "Lencería", 
-            logo: "assets/amanda.jpg",
-            descripcion: "Lencería, corsetería y mallas para toda la familia.Encontrá bikinis todo el año, modelos reductores y telas anticloro.<br>¡Te acompañamos en cada etapa!",
-            sucursales: [
-                {
-                    direccion: "Falucho 276",
-                    maps: "https://www.google.com/maps/place/Amanda/@-38.729615,-62.248799,17z/data=!3m1!4b1!4m6!3m5!1s0x95eda33a5a134865:0x847b8ab3ade3a1f4!8m2!3d-38.729615!4d-62.248799!16s%2Fg%2F11b7hynns9?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Sábado de 9:00 a 13:00hs <br> 16:30 a 20:30hs",
-                    dias: [1,2,3,4,5,6],
-                    franjaHoraria: [
-                        { apertura: "9:00", cierre: "13:00" },
-                        { apertura: "16:30", cierre: "20:30" }
-                    ]
-                }
-            ],          
-            contacto: {
-                whatsapp1: "2916499992",
-                whatsapp2: "2915220136", 
-                instagram: "amandalenceria",
-                facebook: "https://www.facebook.com/amanda.corseteria/"
-            }
-        },
-        {
-            nombre: "Big Ben English Institute",
-            rubro: "Instituto de Inglés", 
-            logo: "assets/big.jpg",
-            descripcion: "Instituto de inglés para todas las edades. ¡Aprendé inglés en un espacio pensado para vos!",
-            sucursales: [
-               {
-                direccion: "Alberdi 1601",
-                maps: "https://www.google.com/maps/dir//Big+Ben+English+Institute,+Alberdi+1601,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277132,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95999e384cfa1deb:0x442f7fd6e84a8090!2m2!1d-62.2446436!2d-38.7293588?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a jueves 16:00 a 20:30",
-                dias: [1,2,3,4],
-                franjaHoraria: [
-                    { apertura: "16:00", cierre: "20:30" },
-                ]
-               }
-            ],
-            contacto: {
-                whatsapp: "2915324924",
-                instagram: "bbeibahiablanca"
-            }
-        },
-        
-       
-          {
-            nombre: "Âme Cocot",
-            rubro: "Indumentaria",
-            logo:"assets/ame.jpg",
-            descripcion: "Te acompañamos en cada temporada ofreciéndote productos cómodos y de excelente calidad para toda la familia. Contamos con una gran variedad en ropa interior para hombres, mujeres y niños/as, además de pijamas, mallas, indumentaria deportiva y prendas térmicas.",
-            sucursales: [   
-                {
-                 direccion: "Rivadavia 1910",
-                 maps: "https://www.google.com/maps/dir//Cocot+Villa+Mitre,+Rivadavia+1910,+B8001BFV+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277524,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda300d1176663:0x5c8f37dcc1f4ba02!2m2!1d-62.24221!2d-38.7325476?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                 horario: "Lunes a Sábado 9:30 a 13:30hs <br> 16:00 a 20:00hs",
-                 dias: [1,2,3,4,5,6],
-                 franjaHoraria: [
-                 { apertura: "9:30" , cierre: "13:30"},
-                 { apertura: "16:00" , cierre: "20:00"}
-                 ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2914186436",
-                instagram: "ame.cocot" 
-            }
-        },
-        
-        
-          
-        {
-            nombre: "Alaia Pilates",
-            rubro: "Actividad Física",
-             
-            logo: "assets/alaia.jpg",
-            descripcion: "Somos un espacio donde el Pilates y el entrenamiento de fuerza se complementan para ayudarte a desarrollar un cuerpo fuerte, móvil y saludable. Trabajamos con grupos reducidos, lo que nos permite acompañar de forma cercana a cada persona y adaptar cada ejercicio a sus necesidades, objetivos y experiencia.",
-            sucursales: [
-                {
-                direccion: "Estados Unidos 3",
-                maps: "https://www.google.com/maps/@-38.7333272,-62.2475348,3a,75y,310.68h,90t/data=!3m7!1e1!3m5!1sJC7jFNdtLPKimmA8CVs_Ig!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DJC7jFNdtLPKimmA8CVs_Ig%26yaw%3D310.68!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a Viernes 8:00 a 12:00hs <br> 14:00 a 21:00hs",
-                dias: [1,2,3,4,5],
-                franjaHoraria: [
-                    { apertura: "8:00" , cierre: "12:00" },
-                    { apertura: "14:00" , cierre: "21:00" }
-                ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2915346259",
-                instagram: "alaia.pilates"
-            }
-        },
-    {
-            nombre: "Versus (M.I.P.)",
-            rubro: "Manejo Integral de Plagas",
-            destacado: true,
-            logo: "assets/plagas.jpg",
-            descripcion: "Técnico en Manejo Integral de Plagas y Técnico Agropecuario. Brindamos servicios de control de plagas y parquizado/desmalezado.",
-            sucursales: [
-                 {
-                direccion: "Atención a Domicilio",
-                horario: "Lunes a Sábado 8:00 a 18:00hs",
-                dias: [1,2,3,4,5,6],
-                franjaHoraria: [
-                    { apertura: "8:00" , cierre: "18:00" }
-                   
-                ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2915665545",
-                instagram: "versus_mip"
-            }
-        },
-       
-
-    {
-            nombre: "Showtime Sport Store",
-            rubro: "Indumentaria Deportiva", 
-            logo: "assets/time.jpg",
-            descripcion: "Confección y venta de indumentaria y accesorios deportivos, zapatillas de básquet importadas directo de USA",
-            sucursales: [
-                {
-                direccion: "Garibaldi 243",
-                maps: "https://www.google.com/maps/dir//SHOWTIME+SPORTS+STORE,+GARIBALDI+243,+Brown+153,+B8001GWE+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.227839,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda33bac19d21f:0xe8de7a9d468fe0b8!2m2!1d-62.2666988!2d-38.7213116?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a Viernes 9:00 a 12:30hs <br> 16:00 a 20:00hs",
-                dias: [1,2,3,4,5],
-                franjaHoraria: [
-                    { apertura: "9:00" , cierre: "12:30" },
-                    { apertura: "16:00" , cierre: "20:00" }
-                ]
-                },
-                {
-                direccion: "Brown 153",
-                maps: "https://www.google.com/maps/dir//SHOWTIME+SPORTS+STORE,+GARIBALDI+243,+Brown+153,+B8001GWE+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.227839,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda33bac19d21f:0xe8de7a9d468fe0b8!2m2!1d-62.2666988!2d-38.7213116?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a Viernes 9:30 a 19:00hs",
-                dias: [1,2,3,4,5],
-                franjaHoraria:[
-                    { apertura:"9:30" , cierre:"19:00" }
-                ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2915709281",
-                instagram: "showtimesportsstore"
-            }
-        },
-        {
-            nombre: "Oxana",
-            rubro: "Actividad Física",
-            logo:"assets/oxana.jpg",
-            descripcion: "Estudio de Pilates Reformer, un entrenamiento integral para ganar fuerza, corregir la postura y mejorar tu movilidad. Ideal para sentirte bien todos los días.",
-            sucursales: [
-                {
-                    direccion: "Washington 510",
-                    maps: "https://www.google.com/maps/place/Oxana+pilates/@-38.7281579,-62.2483484,17z/data=!3m1!4b1!4m6!3m5!1s0x95eda30034a2cc67:0xa5f2c5fbae76943a!8m2!3d-38.7281622!4d-62.243735!16s%2Fg%2F11zgs6dxg1?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Viernes 8:00 a 21:00hs <br> Martes y Jueves 7:00 a 21:00hs",
-                    dias: [1,2,3,4,5],
-                    horariosPorDia: {
-                        1: [
-                            { apertura: "8:00", cierre: "21:00" }
-                        ],
-                        2: [
-                            { apertura: "7:00", cierre: "21:00" }
-                        ],
-                        3: [
-                            { apertura: "8:00", cierre: "21:00" }
-                        ],
-                        4: [
-                            { apertura: "7:00", cierre: "21:00" }
-                        ],
-                        5: [
-                            { apertura: "8:00", cierre: "21:00" }
-                        ]
-                    }
-                },
-                {
-                    direccion: "Remedios de Escalada 1043",
-                    maps: "https://www.google.com/maps/dir//Taller+Overhaulin',+Remedios+de+Escalada+1043,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2279568,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda31617f60851:0x76ce0e04984c0c27!2m2!1d-62.2374941!2d-38.7255694?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
-                    horario: "Lunes a Viernes 8:00 a 21:00 ",
-                    dias: [1,2,3,4,5],
-                    franjaHoraria: [
-                        { apertura:"8:00" , cierre:"21:00" },
-                    ]
-                }
-            ],
-            contacto: {
-                whatsapp: "2914416837",
-                instagram:  "oxanapilates_"
-            }
-        },
-    {
-            nombre: "Patio Mitre",
-            rubro: "Gastronomía", 
-            logo: "assets/patiomitre.jpg",
-            descripcion: "Restaurante y parrilla. Un punto de encuentro ideal para disfrutar de los mejores platos a la parrilla y cocina tradicional. Combinamos un ambiente único y acogedor con la mejor atención, perfecto para almuerzos relajados o cenas inolvidables.",
-            sucursales: [
-               {
-                direccion: "Castelar 1401", 
-                maps: "https://www.google.com/maps/dir//Patio+mitre,+Castelar+1401,+B8001+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2277132,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda30000816aa1:0xe1eda123422cab54!2m2!1d-62.2463292!2d-38.7265484?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D", 
-                horario: "Martes a Domingo 9:30 a 15:00hs <br> 17:30 a 01:00hs",
-                dias: [1,2,3,4,5,6,0],
-                franjaHoraria: [
-                    { apertura: "9:30", cierre: "15:00" },
-                    { apertura: "17:30", cierre: "01:00" }
-                ]
-               }
-            ],
-            contacto: {
-                whatsappReservas: "2915130734",
-                whatsappDelivery: "2915097787",
-                instagram: "patiomitre"
-            }
-        }
-    ];
-    
-    const iconosPorRubroProfesionales = {
-    "Psicología": "fas fa-brain",
-    "Psicopedagogía": "fas fa-chalkboard-teacher",
-    "Nutrición": "fas fa-apple-alt",
-    "Kinesiología": "fas fa-running",
-    "Bienestar y Coaching": "fas fa-spa",
-    "Fonoaudiología": "fas fa-comments",
-
-       
-    };
-
-    const profesionales = [
-       
-        {
-            nombre: "Lic. Claribel Springer",
-            rubro: "Psicología",
-            matricula:"MP 2667",
-            descripcion: "Atención a adolescentes y adultos desde una orientación psicoanalítica.",
-            ubicacion: [
-        {
-            nombre: "Espacio Haru",
-            direccion: "Necochea 321",
-            dias: "Miércoles",
-            horario: "13:00 a 17:00hs"
-        },
-        {
-            nombre: "Centro Deportivo Club Villa Mitre",
-            direccion: "Garibaldi 149",
-            dias: "Viernes",
-            horario: "10:00 a 12:00hs o a convenir",
-        }
-    ],
-        contacto: {
-        whatsapp: "2915208890",
-        instagram: "psico.clarispringer"
-    }
-},
-        {
-        nombre: "Lic. Paloma Cornejo",
-        rubro: "Psicopedagogía",
-        descripcion:"Evaluación, diagnóstico y tratamiento de dificultades en el aprendizaje. Acompañamiento psicopedagógico para niños, adolescentes y adultos.<br>• Atención particular y obras sociales<br>• CUD",
+        tipo: "profesional",
+        rubro: "Psicología",
+        logo: "assets/clari.jpg",
+        matricula: "MP 2667",
+        descripcion: "Atención a adolescentes y adultos desde una orientación psicoanalítica.",
         ubicacion: [
             {
-              nombre:"Espacio Haru",
-              direccion: "Alberdi 1878",
-              dias: "Lunes y jueves",
-              horario: "16:00 a 21:00hs",
+                nombre: "Espacio Haru",
+                direccion: "Necochea 321",
+                maps: "https://www.google.com/maps/@-38.7356218,-62.2378866,18a,75y,130.03h,90t/data=!3m7!1e1!3m5!1sHFysjsxT5VJwHmh8DrI17w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DHFysjsxT5VJwHmh8DrI17w%26yaw%3D130.03!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D",
+                dias: "Miércoles 13:00hs a 17:00hs",
+                
+            },
+            {
+                nombre: "Centro Deportivo Club Villa Mitre",
+                direccion: "Garibaldi 149",
+                maps: "https://www.google.com/maps/@-38.7300482,-62.2484651,19a,75y,152.82h,90t/data=!3m7!1e1!3m5!1sCUH2lXomRAO00OdFdTTG9A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DCUH2lXomRAO00OdFdTTG9A%26yaw%3D152.82!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+                dias: "Viernes 10:00hs a 12:00hs",
+              
             }
         ],
         contacto: {
-            whatsapp: "2915115710",
-           }
-    },
-    {
-    nombre: "Lic. Johanna De la Canal",
-    rubro: "Psicopedagogía",
-    matricula: "MP 198051",
-    descripcion: "Evaluación y diagnóstico.<br>• Atención particular y obras sociales: OSECAC y DOSEM (prestadora directa)<br>• Otras obras sociales: reintegro",
-    ubicacion: [
-        {
-            nombre: "Espacio Haru",
-            direccion: "Alberdi 1878",
-            dias: "Lunes y jueves",
-            horario: "17:00 a 21:00hs"
-        },
-       ],
-    contacto: {
-        whatsapp: "2914054187",
-        email: "johanna0197@hotmail.com",
-    }
-},
-     {
-    nombre: "Lic. Candela Zalazar",
-    rubro: "Kinesiología",
-    matricula: "MP 10675",
-    descripcion: "Rehabilitación traumatológica y neurorehabilitación en adultos. Rehabilitación de la marcha, acondicionamiento físico del adulto mayor y drenaje linfático manual.",
-    
-    atencionDomicilio: true,
-    
-    ubicacion: [
-      {
-            nombre: "Espacio Haru",
-            direccion: "Necochea 321",
-           },
-        {
-            nombre: "Eki Kinesiología",
-            direccion: "Necochea 774",
-           }
-    ],
-    contacto: {
-        whatsapp: "2915127024",
-       }
-},
-    
-    
-
- {
-    nombre: "Lic. Gimena Andriach",
-    rubro: "Nutrición",
-    matricula: "MP 8085",
-    descripcion: "Atención nutricional integral con enfoque no pesocentrista. Formación en enfermedad celíaca, intolerancia al gluten y SIBO.",
-    ubicacion: [
-        {
-            nombre: "Espacio Haru",
-            direccion: "Alberdi 1878",
-            dias: "Sábado",
-            horario: "08:00 a 14:00hs"
-        }
-    ],
-    contacto: {
-        whatsapp: "2915046476",
-        instagram: "lic.gimenaandriach"
-    }
-},
-  {
-            nombre: "Lic. Valentina Croci",
-            rubro: "Psicología",
-            matricula: "MP 2591",
-            descripcion: "Potenciá tu perfil profesional, tu CV y tu presencia en LinkedIn",
-            ubicacion: [
-                {
-                    nombre: "Espacio Haru",
-                    direccion: "Necochea 321",
-                    dias: "Atención presencial con turno previo"
-                }
-            ],
-            contacto: {
-                whatsapp: "2914234619",
-                instagram: "vacro.psi"
+            turnos: "2915208890",
+            instagram: "psico.clarispringer"
         }
     },
     {
-            nombre: "Antonella Cáceres Lucero",
-            rubro: "Bienestar y Coaching",
-            atencionOnline: true,
-            descripcion: "Soy Coach de Bienestar Personal y Deportivo. Acompaño a personas y deportistas a gestionar el estrés y las emociones, fortalecer su confianza y encontrar mayor claridad para afrontar sus desafíos, tanto en la vida cotidiana como en la actividad deportiva.",
-            ubicacion: [
-                {
-                    nombre: "Espacio Haru",
-                    direccion: "Necochea 321",
-                    dias: "Jueves",
-                    horario: "8:00 a 12:00hs"
+        nombre: "Roma Heladería & Pastelería",
+    
+        tipo: "comercio",
+        rubro: "Heladería",
+        logo: "assets/roma.jpg",
+        descripcion: "Especialistas en la venta de helados artesanales, postres y porciones. Además, contamos con tortas enteras por encargue y muchas delicias más para endulzar tus momentos.",
+        sucursales: [
+            {
+                direccion: "Maipú 2266",
+                maps: "https://www.google.com/maps/dir//Roma+Helader%C3%ADa+y+Pasteleria,+Maip%C3%BA+2264,+B8000+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.726934,-62.2281202,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95eda30068443583:0x28a893611fe961d8!2m2!1d-62.2401938!2d-38.7368413?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D",
+                horario:
+                    "Lunes a Domingo 12:00 a 00:00hs.<br>Lunes a Viernes 17:00 a 22:00hs.<br>Sábado 16:00 a 00:00 hs.<br>Domingo 12:00 a 22:00hs.",
+                dias: [1, 2, 3, 4, 5, 6, 0],
+                horariosPorDia: {
+                    1: { apertura: "12:00", cierre: "00:00" },
+                    2: { apertura: "12:00", cierre: "00:00" },
+                    3: { apertura: "12:00", cierre: "00:00" },
+                    4: { apertura: "12:00", cierre: "00:00" },
+                    5: { apertura: "12:00", cierre: "00:00" },
+                    6: { apertura: "16:00", cierre: "00:00" },
+                    0: { apertura: "12:00", cierre: "22:00" }
                 }
-            ],
-            contacto: {
-                whatsapp: "2915667574",
-                instagram: "ser.nella"
-        }
-    },
-    {
-            nombre:"Lic. María de los Ángeles Pérez",
-            rubro: "Psicología",
-            matricula: "MP 2160",
-            descripcion: "Atención psicológica a adolescentes y adultos.",
-            ubicacion: [
-                {
-                    nombre: "Consultorio Garibaldi",
-                    direccion: "Garibaldi 454",
-                    dias: "Lunes a Jueves",
-                    horario: "15:00 a 20:00hs"
-                }
-            ],
-            contacto: {
-                whatsapp: "2914439782",
-                email: "mariadelosangelesperez.psi@gmail.com"
-        }
-    },
-    {
-            nombre:"Lic. Romina Belen Sanchez",
-            rubro: "Fonoaudiología",
-            matricula: "MP 7115",
-            descripcion:"Atención a niños y adolescentes con dificultades en el habla y la comunicación, deglución y respiración.<br>• Atención particular y CUD",
-            ubicacion: [
-                {
-                    nombre: "Espacio Haru",
-                    direccion: "Necochea 321",
-                    dias: "Martes , Jueves y Viernes",
-                    horario: "17:00 a 21:00hs"
-                }
-            ],
-            contacto: {
-                whatsapp: "2915208707",
-                email: "romisanchez.fo@gmail.com"
             }
-        },
-        {
-           nombre:"Lic. Guadalupe Arango Martinez",
-            rubro: "Psicología",
-            matricula: "MP: 2676",
-            descripcion: "Psicología clínica a adolescentes, jóvenes y adultos.",
-            atencionOnline: true,
-            horario: "Mañana y Tarde - a Coordinar",
-            contacto: {
-                whatsapp: "2915068197",
-                email: "guadalupearango07@gmail.com",
-            } 
-        },
-        {
+        ],
+        contacto: {
+            whatsapp: "2915268456",
+            instagram: "romaheladeriapasteleria"
+        }
+    },
+
+    {
+        nombre: "Nativo Barber Cuts",
+       
+        tipo: "comercio",
+        rubro: "Peluquería",
+        logo: "assets/nativo.jpg",
+        descripcion: "Creamos un espacio para que encuentres tu estilo y disfrutes de una buena experiencia. Trabajamos cada look de manera personalizada, con cortes, barba, color, alisados y diferentes servicios pensados para vos. Podés reservar tu turno o acercarte directamente, atendemos también por orden de llegada.",
+        sucursales: [
+            {
+                direccion: "Alberdi 2163",
+                maps: "https://www.google.com/maps/@-38.7338151,-62.2386879,17a,75y,210.84h,90t/data=!3m7!1e1!3m5!1sWwpHNGvPq9dn4ECiu3n8EQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DWwpHNGvPq9dn4ECiu3n8EQ%26yaw%3D210.84!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkyNy4wIKXMDSoASAFQAw%3D%3D",
+                horario: "Lunes a Sábado 10:00 a 20:00hs",
+                dias: [1, 2, 3, 4, 5, 6],
+                franjaHoraria: [
+                    {
+                        apertura: "10:00",
+                        cierre: "20:00"
+                    }
+                ]
+            }
+        ],
+        contacto: {
+            turnos: "2916460779",
+            instagram: "nativobarbercuts"
+        }
+    },
+
+    {
+        nombre: "Versus (M.I.P.)",
+     
+        tipo: "comercio",
+        rubro: "Manejo Integral de Plagas",
+        destacado: true,
+        modalidad: "Servicios",
+        logo: "assets/plagas.jpg",
+        descripcion: "Técnico en Manejo Integral de Plagas y Técnico Agropecuario. Brindamos servicios de control de plagas y parquizado/desmalezado.",
+        sucursales: [
+            {
+                direccion: "Atención a Domicilio",
+                horario: "Lunes a Sábado 8:00 a 18:00hs",
+                dias: [1, 2, 3, 4, 5, 6],
+                franjaHoraria: [
+                    {
+                        apertura: "8:00",
+                        cierre: "18:00"
+                    }
+                ]
+            }
+        ],
+        contacto: {
+            whatsapp: "2915665545",
+            instagram: "versus_mip"
+        }
+    },
+ {
             nombre:"Lic. Mara Alvarez Garza · Profesora de Educación Física",
+     
+            tipo: "profesional",
             rubro: "Nutrición",
-            matricula: "MP: 3793",
+            logo: "assets/mara.jpg",
+            matricula: "MP 3793",
             descripcion: "Tratamiento nutricional y asesoramiento en actividad física. Recetarios, seguimiento personalizado mediante App, rutinas para realizar en casa o gimnasio y antropometría.",
             ubicacion: [
                 {
                     nombre: "Mara Nuticionista",
                     direccion: "Chiclana 1602",
-                    dias: "Lunes a Viernes",
-                    horario: "9:00 a 12:00hs y 17:00 a 20:00hs  "
+                    maps: "https://www.google.com/maps/@-38.7323398,-62.248669,18a,75y,58.11h,90t/data=!3m7!1e1!3m5!1srqaE3QzqHtcawiltXHJD-g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DrqaE3QzqHtcawiltXHJD-g%26yaw%3D58.11!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
+                    dias: "Lunes a Viernes 9:00hs a 12:00hs<br>17:00hs a 20:00hs",
+                   
                 }
             ],
             contacto: {
                 sitioWeb: "https://maranutricionactiva.tuland.com.ar/",
-                whatsapp: "2914044109",
+                turnos: "2914044109",
                 instagram: "maranutricionactiva"
                 
             }
         },
         ];
-        
-    
+   function buscar(texto) {
+    const normalizar = texto =>
+        texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
 
-    
+    const termino = normalizar(texto.trim());
+
+    if (!termino) {
+        return [];
+    }
+
+    return datos.filter(item =>
+        normalizar(item.nombre || "").includes(termino) ||
+        normalizar(item.rubro || "").includes(termino) ||
+        normalizar(item.tipo || "").includes(termino) ||
+        normalizar(item.descripcion || "").includes(termino)
+    );
+}
+
+        function generarLinksContacto(item) {
+        let linksHTML = "";
+
+    if (item.contacto?.whatsapp) {
+        linksHTML += `
+            <a 
+                href="https://wa.me/${item.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar."
+                target="_blank"
+                class="btn-whatsapp"
+                onclick="registrarClick('${item.nombre}', 'whatsapp')"
+            >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        `;
+    }
+
+    if (item.contacto?.instagram) {
+        linksHTML += `
+            <a 
+                href="https://instagram.com/${item.contacto.instagram}"
+                target="_blank"
+                class="btn-instagram"
+                onclick="registrarClick('${item.nombre}', 'instagram')"
+            >
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        `;
+    }
+
+    if (item.contacto?.youtube) {
+        linksHTML += `
+            <a 
+                href="${item.contacto.youtube}"
+                target="_blank"
+                class="btn-web"
+                onclick="registrarClick('${item.nombre}', 'youtube')"
+            >
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        `;
+    }
+
+    if (item.contacto?.turnos) {
+        linksHTML += `
+            <a 
+                href="https://wa.me/${item.contacto.turnos}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno."
+                target="_blank"
+                class="btn-whatsapp"
+                onclick="registrarClick('${item.nombre}', 'turnos')"
+            >
+                <i class="fab fa-whatsapp"></i> Turnos
+            </a>
+        `;
+    }
+
   
 
-    
-       
-    
-
-     
-
-    
-
-    
-
-    
-    
-    
-
-    
-    
-       
-
-
-    
-
-    function renderizarProfesionales(lista) {
-        const contenedor = document.getElementById("contenedor-profesionales");
-        if (!contenedor) return;
-
-        contenedor.innerHTML = "";
-
-        lista.forEach(prof => {
-            const cardProfesional = document.createElement("div");
-            cardProfesional.classList.add("profesional-card");
-            
-            const iconoClase = iconosPorRubroProfesionales[prof.rubro] || "fas fa-user-md";
-
-            let linksHTML = '';
-
-            if (prof.contacto.whatsapp) {
-                linksHTML += `
-                   <a href="https://wa.me/${prof.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno." target="_blank" class="btn-whatsapp"> 
-                    <i class="fab fa-whatsapp"></i> Turnos
-                    </a>
-                `;
-            }
-           
-            if (prof.contacto.instagram) {
-                linksHTML += `
-                    <a href="https://instagram.com/${prof.contacto.instagram}" target="_blank" class="btn-instagram">
-                        <i class="fab fa-instagram"></i> Instagram
-                    </a>
-                `;
-            }
-            if (prof.contacto.email) {
-                linksHTML += `
-                    <a href="mailto:${prof.contacto.email}" target="_blank" class="btn-email">
-                        <i class="fas fa-envelope"></i> Email  
-                    </a>
-                `;
-            }
-            if (prof.contacto.sitioWeb) {
-                linksHTML += `
-                    <a href="${prof.contacto.sitioWeb}" target="_blank" class="btn-web">
-                        <i class="fas fa-globe"></i> Sitio Web
-                    </a>
-                `;
-            }
-            
-           const tarjetaHTML = `
-            <span class="rubro">
-            <i class="${iconoClase}"></i> 
-            ${prof.rubro}
-            </span>
-
-            <h3>${prof.nombre}</h3>
-
-    <p class="descripcion">${prof.descripcion}</p>
-
-    ${prof.atencionDomicilio ? `
-        <p class="atencion-domicilio">
-            <i class="fas fa-home"></i> Atención a domicilio
-        </p>
-    ` : ''}
-    ${prof.atencionOnline && Array.isArray(prof.ubicacion) ? `
-        <p class="atencion-online">
-            <i class="fas fa-video"></i> Atención online
-        </p>
-    ` : ''}
-    <div class="ubicaciones-profesional">
-        ${
-            Array.isArray(prof.ubicacion)
-            ? prof.ubicacion.map(ubicacion => `
-                <div class="ubicacion-profesional">
-
-                    ${ubicacion.nombre ? `
-                        <p class="sucursal-nombre">
-                            <strong>${ubicacion.nombre}</strong>
-                        </p>
-                    ` : ''}
-
-                    ${ubicacion.direccion ? `
-                        <p class="sucursal-direccion">
-                            <i class="fas fa-map-marker-alt"></i> ${ubicacion.direccion}
-                        </p>
-                    ` : ''}
-
-                    ${ubicacion.dias && ubicacion.horario ? `
-                        <p class="sucursal-horario">
-                            <i class="fas fa-user-clock"></i>
-                            ${ubicacion.dias} de ${ubicacion.horario}
-                        </p>
-                    ` : ''}
-
-                </div>
-               `).join('')
-            : prof.atencionOnline ? `
-                <div class="ubicacion-profesional">
-
-                    <p class="sucursal-direccion">
-                        <i class="fas fa-video"></i> Atención online
-                    </p>
-
-                    ${prof.horario ? `
-                        <p class="sucursal-horario">
-                            <i class="fas fa-user-clock"></i>
-                            ${prof.horario}
-                        </p>
-                    ` : ''}
-
-                </div>
-            ` : ''
-        }
-    </div>
-
-    <div class="comercio-links">
-                    ${linksHTML}
-                </div>
-            `;
-            
-            cardProfesional.innerHTML = tarjetaHTML;
-            contenedor.appendChild(cardProfesional);
-        });
-    }
-    
-    renderizarProfesionales(profesionales);
-
-    
-    const buscadorInput = document.querySelector(".buscador-comercio");
- 
-
-     function agregarComercios(listaComercios) {
-    if (!contenedorComercios || !contenedorDestacados) return;
-
-    contenedorComercios.innerHTML = "";
-    contenedorDestacados.innerHTML = "";
-
-    const statComercios = document.getElementById("stat-total-comercios");
-
-    if (statComercios) {
-        statComercios.textContent = comercios.length + profesionales.length + feriantes.length + 1;
-    }
-
-    if (listaComercios.length === 0) {
-        const mensaje = document.createElement("p");
-        mensaje.textContent = "No se encontraron comercios en este rubro. ¡Sumá el tuyo!";
-        mensaje.classList.add("lead", "no-resultados");
-        contenedorComercios.appendChild(mensaje);
-        return;
-    }
-
-    const comerciosDestacados = listaComercios.filter(
-        comercio => comercio.destacado === true
-    );
-
-    const comerciosComunes = listaComercios.filter(
-        comercio => comercio.destacado !== true
-    );
-
-    const listaOrdenada = [
-        ...comerciosDestacados,
-        ...comerciosComunes
-    ];
-
-    listaOrdenada.forEach((comercio) => {
-
-        const cardComercio = document.createElement("div");
-        cardComercio.classList.add("comercio-card");
-        const iconoClase = iconosPorRubro[comercio.rubro] || "fas fa-store";
-
-            const listaSucursalesHTML = comercio.sucursales.map(sucursal => {
-                const estaAbierto = Abierto(sucursal);
-                const estadoClase = estaAbierto ? "abierto" : "cerrado";
-                const textoEstado = estaAbierto ? "Abierto" : "Cerrado";
-                 
-           const direccionMaps = sucursal.maps;
-
-            const botonMaps = direccionMaps ? `
+    if (item.contacto?.sitioWeb) {
+        linksHTML += `
             <a 
-                href="${direccionMaps}"
-                class="btn-maps"
-                onclick="registrarClick('${comercio.nombre}', 'maps')">
-                <i class="fas fa-map-marker-alt"></i> Cómo llegar
-            </a>
-        ` : '';
-           
-
-return `
-        <div class="sucursal-bloque">
-
-        <p class="sucursal-direccion">
-            <i class="fas fa-map-marker-alt"></i>${sucursal.direccion}
-        </p>
-
-        <p class="sucursal-horario">
-            <i class="fas fa-clock"></i>${sucursal.horario}
-        </p>
-
-        <span class="badge ${estadoClase}">
-            ${textoEstado}
-        </span>
-
-        </div>
-
-        
-        ${botonMaps}
-
-    </div>
-    `;
-    }).join('');
-
-            let linksHTML = '';
-            if (comercio.contacto.whatsapp) {
-                linksHTML += `
-                <a href="https://wa.me/549${comercio.contacto.whatsapp}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre"
+                href="${item.contacto.sitioWeb}"
                 target="_blank"
-                class="btn-whatsapp"
-                onclick="registrarClick('${comercio.nombre}', 'whatsapp')">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            `;
-        }
-            
-            if (comercio.contacto.whatsapp1) {
-                linksHTML += `
-                <a href="https://wa.me/549${comercio.contacto.whatsapp1}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre"
+                class="btn-web"
+                onclick="registrarClick('${item.nombre}', 'sitioWeb')"
+            >
+                <i class="fas fa-globe"></i> Sitio Web
+            </a>
+        `;
+    }
+
+    if (item.contacto?.facebook) {
+        linksHTML += `
+            <a 
+                href="${item.contacto.facebook}"
                 target="_blank"
-                class="btn-whatsapp"
-                onclick="registrarClick('${comercio.nombre}', 'whatsapp1')">
-                <i class="fab fa-whatsapp"></i> WhatsApp 1
-                </a>
-            `;
-        }
-
-        if (comercio.contacto.whatsapp2) {
-            linksHTML += `
-            <a href="https://wa.me/549${comercio.contacto.whatsapp2}?text=Hola!%20Lo%20vi%20en%20la%20App%20de%20Villa%20Mitre"
-           target="_blank"
-           class="btn-whatsapp"
-           onclick="registrarClick('${comercio.nombre}', 'whatsapp2')">
-            <i class="fab fa-whatsapp"></i> WhatsApp 2
+                class="btn-facebook"
+                onclick="registrarClick('${item.nombre}', 'facebook')"
+            >
+                <i class="fab fa-facebook"></i> Facebook
             </a>
         `;
-        
-        }
-
-        if (comercio.contacto.whatsappReservas) {
-            linksHTML += `
-            <a href="https://wa.me/549${comercio.contacto.whatsappReservas}?text=Hola!%20Quisiera%20hacer%20una%20reserva"
-           target="_blank"
-           class="btn-whatsapp"
-           onclick="registrarClick('${comercio.nombre}', 'reservas')">
-            <i class="fab fa-whatsapp"></i> Reservas
-            </a>
-        `;
-
-        }
-
-        if (comercio.contacto.whatsappDelivery) {
-            linksHTML += `
-        <a href="https://wa.me/549${comercio.contacto.whatsappDelivery}?text=Hola!%20Quisiera%20hacer%20un%20pedido"
-           target="_blank"
-           class="btn-whatsapp"
-           onclick="registrarClick('${comercio.nombre}', 'delivery')">
-            <i class="fab fa-whatsapp"></i> Delivery
-        </a>
-        `;
-        
-        }
-
-        if (comercio.contacto.instagram) {
-            linksHTML += `
-        <a href="https://instagram.com/${comercio.contacto.instagram}"
-           target="_blank"
-           class="btn-instagram"
-           onclick="registrarClick('${comercio.nombre}', 'instagram')">
-            <i class="fab fa-instagram"></i> Instagram
-        </a>
-        `;
-
-        }
-
-        if (comercio.contacto.sitioWeb) {
-            linksHTML += `
-        <a href="${comercio.contacto.sitioWeb}"
-           target="_blank"
-           class="btn-web"
-           onclick="registrarClick('${comercio.nombre}', 'sitioWeb')">
-            <i class="fas fa-globe"></i> Web
-        </a>
-    `;
-    
     }
 
-    if (comercio.contacto.email) {
-        linksHTML += `
-        <a href="mailto:${comercio.contacto.email}"
-           class="btn-email"
-           onclick="registrarClick('${comercio.nombre}', 'email')">
-            <i class="fas fa-envelope"></i> Email
-        </a>
-    `;
-    
-    }
-
-    if (comercio.contacto.facebook) {
-        linksHTML += `
-        <a href="${comercio.contacto.facebook}"
-           target="_blank"
-           class="btn-facebook"
-           onclick="registrarClick('${comercio.nombre}', 'facebook')">
-            <i class="fab fa-facebook"></i> Facebook
-        </a>
-    `;
-    
-    }
-
-    if (comercio.contacto.Turnos) {
-        linksHTML += `
-        <a href="${comercio.contacto.Turnos}"
-           target="_blank"
-           class="btn-whatsapp"
-           onclick="registrarClick('${comercio.nombre}', 'Turnos')">
-            <i class="fab fa-whatsapp"></i> Turnos
-        </a>
-    `;
-    
-    }
-    
-  const tarjetaHTML = `
-    <span class="rubro">
-        <i class="${iconoClase}"></i> 
-        ${comercio.rubro}
-    </span>
-
-    <div class="logo-container">
-        <img 
-            src="${comercio.logo}" 
-            alt="Logo de ${comercio.nombre}" 
-            class="comercio-logo">
-    </div>
-
-    <h3>${comercio.nombre}</h3>
-
-    ${comercio.enviosDomicilio ? `
-    <p class="atencion-domicilio">
-        <i class="fas fa-truck"></i> Envíos a domicilio
-    </p>
-` : ''}
-
-    <div class="comercio-contenido">
-
-        <p class="descripcion">
-            ${comercio.descripcion}
-        </p>
-
-        <div class="contenedor-sucursales">
-            ${listaSucursalesHTML}
-        </div>
-
-    </div>
-
-    <div class="comercio-links">
-        ${linksHTML}
-    </div>
-`;
-            
-            cardComercio.innerHTML = tarjetaHTML;
-               if (comercio.destacado === true) {
-            contenedorDestacados.appendChild(cardComercio);
-        } else {
-            contenedorComercios.appendChild(cardComercio);
-        }
-    });
+    return linksHTML;
 }
-    agregarComercios(comercios);
-
-   if (buscadorInput) {
-    buscadorInput.addEventListener("input", () => {
-        const busqueda = buscadorInput.value.toLowerCase().trim();
-
-        const comerciosFiltrados = comercios.filter((comercio) => {
-            const nombre = (comercio.nombre || "").toLowerCase();
-            const rubro = (comercio.rubro || "").toLowerCase();
-            const descripcion = (comercio.descripcion || "").toLowerCase();
-
-            return (
-                nombre.includes(busqueda) ||
-                rubro.includes(busqueda) ||
-                descripcion.includes(busqueda)
-            );
-        });
-
-        agregarComercios(comerciosFiltrados);
-    });
-}
-
-    function Abierto(sucursal) {
+function Abierto(sucursal) {
     const ahora = new Date();
     const diaActual = ahora.getDay();
     const horaActual = ahora.getHours();
     const minutosActuales = ahora.getMinutes();
 
-    if (!sucursal.dias.includes(diaActual)) {
+    if (!sucursal.dias?.includes(diaActual)) {
         return false;
     }
 
@@ -1802,7 +363,13 @@ return `
         franjas = sucursal.franjaHoraria;
     } 
     else if (sucursal.horariosPorDia) {
-        franjas = sucursal.horariosPorDia[diaActual] || [];
+        const horario = sucursal.horariosPorDia[diaActual];
+
+        if (horario) {
+            franjas = Array.isArray(horario)
+                ? horario
+                : [horario];
+        }
     }
 
     let estaAbierto = false;
@@ -1814,18 +381,263 @@ return `
         const minutosAperturaTotal = (horaApertura * 60) + minApertura;
         const minutosCierreTotal = (horaCierre * 60) + minCierre;
 
-        if (
-            minutosTotalesActuales >= minutosAperturaTotal &&
-            minutosTotalesActuales <= minutosCierreTotal
-        ) {
-            estaAbierto = true;
+        if (minutosCierreTotal < minutosAperturaTotal) {
+            if (
+                minutosTotalesActuales >= minutosAperturaTotal ||
+                minutosTotalesActuales <= minutosCierreTotal
+            ) {
+                estaAbierto = true;
+            }
+        } 
+        else {
+            if (
+                minutosTotalesActuales >= minutosAperturaTotal &&
+                minutosTotalesActuales <= minutosCierreTotal
+            ) {
+                estaAbierto = true;
+            }
         }
     });
 
     return estaAbierto;
 }
-});
 
+function renderizarResultados(resultados) {
+    contenedorResultados.innerHTML = "";
+
+   
+
+    if (resultados.length === 0) {
+        contenedorResultados.innerHTML = `
+            <p class="no-resultados">
+                No se encontraron resultados.
+            </p>
+        `;
+        return;
+    }
+
+    resultados.forEach(item => {
+
+        const card = document.createElement("div");
+        card.classList.add("resultado-card");
+
+        const icono = iconosRubros[item.rubro] || "fas fa-store";
+
+
+        let ubicaciones = [];
+
+     
+        if (Array.isArray(item.sucursales)) {
+            ubicaciones = item.sucursales;
+        }
+
+      
+        else if (Array.isArray(item.ubicacion)) {
+            ubicaciones = item.ubicacion;
+        }
+
+ 
+        else if (item.ubicacion) {
+            ubicaciones = [
+                {
+                    direccion: item.ubicacion,
+                    horario: item.horario,
+                    maps: item.maps
+                }
+            ];
+        }
+
+        let ubicacionesHTML = "";
+
+        if (ubicaciones.length > 0) {
+
+            ubicacionesHTML = ubicaciones.map(ubicacion => {
+
+                const abierto =
+                    typeof Abierto === "function"
+                        ? Abierto(ubicacion)
+                        : null;
+                const diasTexto = Array.isArray(ubicacion.dias)
+                    ? ubicacion.dias.length === 6
+                        ? "Lunes a Sábado"
+                        : ubicacion.dias.length === 5
+                            ? "Lunes a Viernes"
+                            : ubicacion.dias.length === 7
+                                ? "Lunes a Domingo"
+                                : ubicacion.dias.map(dia => ({
+                                    0: "Domingo",
+                                    1: "Lunes",
+                                    2: "Martes",
+                                    3: "Miércoles",
+                                    4: "Jueves",
+                                    5: "Viernes",
+                                    6: "Sábado"
+                                }[dia] || dia)).join(", ")
+                    : ubicacion.dias || "";
+                const franja = ubicacion.franjaHoraria?.[0];
+                const incluirDias = !ubicacion.horariosPorDia || !ubicacion.horario;
+
+                return `
+                    <div class="resultado-ubicacion">
+
+                        ${ubicacion.nombre ? `
+                            <p class="resultado-nombre-ubicacion">
+                                <strong>${ubicacion.nombre}</strong>
+                            </p>
+                        ` : ""}
+
+                      ${ubicacion.direccion ? `
+    <p class="sucursal-direccion">
+        <i class="fas fa-map-marker-alt"></i>
+        ${ubicacion.maps ? `
+            <a 
+                href="${ubicacion.maps}"
+                target="_blank"
+                rel="noopener noreferrer"
+                onclick="registrarClick('${item.nombre}', 'maps')"
+            >
+                ${ubicacion.direccion}
+            </a>
+        ` : `
+            ${ubicacion.direccion}
+        `}
+    </p>
+` : ""}
+                        ${diasTexto || ubicacion.horario ? `
+                            <p class="sucursal-horario">
+                                <i class="fas fa-clock"></i>
+                                ${incluirDias && diasTexto ? `${diasTexto}${franja || ubicacion.horario ? ": " : ""}` : ""}
+                                ${franja
+                                    ? `de ${franja.apertura}hs a ${franja.cierre}hs`
+                                    : ubicacion.horario || ""}
+                            </p>
+                        ` : ""}
+
+                        ${abierto !== null ? `
+                            <p class="${abierto ? "abierto" : "cerrado"}">
+                               
+                                ${abierto ? "Abierto ahora" : "Cerrado"}
+                            </p>
+                        ` : ""}
+
+                    </div>
+                `
+
+            }).join("");
+
+        }
+ 
+
+
+
+
+   
+ 
+
+
+        const linksContacto = generarLinksContacto(item);
+
+    card.innerHTML = `
+
+            <span class="rubro">
+                <i class="${icono}"></i>
+                ${item.rubro || ""}
+            </span>
+
+            <div class="logo-container">
+                <img
+                    src="${item.logo || ""}"
+                    alt="Logo de ${item.nombre || ""}"
+                    class="comercio-logo"
+                >
+            </div>
+
+            <h3>${item.nombre || ""}</h3>
+
+            ${item.matricula ? `
+                <p class="matricula">
+                    ${item.matricula}
+                </p>
+            ` : ""}
+
+            ${item.modalidad ? `
+                <p class="modalidad">
+                    ${item.modalidad}
+                </p>
+            ` : ""}
+
+            ${item.descripcion ? `
+                <p class="descripcion">
+                    ${item.descripcion}
+                </p>
+            ` : ""}
+
+            ${ubicacionesHTML ? `
+                <div class="resultado-ubicaciones">
+                    ${ubicacionesHTML}
+                </div>
+            ` : ""}
+
+            ${linksContacto ? `
+                <div class="comercio-links">
+                    ${linksContacto}
+                </div>
+            ` : ""}
+
+        `;
+
+        contenedorResultados.appendChild(card);
+    });
+}
+
+
+
+
+
+buscador.addEventListener("input", () => {
+    const texto = buscador.value.trim();
+
+    if (!texto) {
+        seccionResultados.style.display = "none";
+        contenedorResultados.innerHTML = "";
+        return;
+    }
+
+    const resultados = buscar(texto);
+
+    seccionResultados.style.display = "block";
+    renderizarResultados(resultados);
+});
+const btnTodos = document.getElementById("btn-todos");
+
+if (btnTodos) {
+    btnTodos.addEventListener("click", () => {
+        buscador.value = "";
+        seccionResultados.style.display = "block";
+        renderizarResultados(datos);
+    });
+}
+
+
+
+
+const linkHistoria = document.querySelector(".link-historia");
+const historia = document.getElementById("historia");
+
+if (linkHistoria && historia) {
+    linkHistoria.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        historia.style.display = "block";
+
+        setTimeout(() => {
+            historia.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }, 50);
+    });
+}
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("./service-worker.js")
@@ -1837,5 +649,5 @@ if ("serviceWorker" in navigator) {
             });
     });
 }
-
-
+    
+});
