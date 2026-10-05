@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
     const iconosRubros = {
-    "Peluquería": "fas fa-scissors",
+    "Canto":"fa-solid fa-music",
     "Heladería": "fa-solid fa-ice-cream",
     "Nutrición": "fas fa-apple-alt",
     "Manejo Integral de Plagas": "fa-solid fa-bug",
@@ -50,28 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     },
 
-
-
     {
-        nombre: "Maria Luján Scaioli",
-        
-        tipo: "aprende",
-        rubro: "Canto y apoyo escolar",
-        logo: "assets/lujan.jpg",
-        descripcion: "Clases de canto y apoyo escolar para nivel primario y secundario. También ofrece Flores de Bach.",
-        ubicacion: "Punta Alta 400",
-        maps: "https://www.google.com/maps/@-38.7340317,-62.2380252,17a,75y,307.1h,90t/data=!3m7!1e1!3m5!1suV0JYtIdJlxKVURDX9SXuA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DuV0JYtIdJlxKVURDX9SXuA%26yaw%3D307.1!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
-        horario: "A coordinar",
-        contacto: {
-            whatsapp: "2915762317",
-            instagram: "lujanscaioli",
-            youtube: "https://www.youtube.com/@lujanscaioli"
-        }
-    },
-
-{
         nombre: "Spika",
-   
         tipo: "variete",
         rubro: "Panificados",
         logo: "assets/spika.jpg",
@@ -160,32 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     },
 
-    {
-        nombre: "Nativo Barber Cuts",
-       
-        tipo: "comercio",
-        rubro: "Peluquería",
-        logo: "assets/nativo.jpg",
-        descripcion: "Creamos un espacio para que encuentres tu estilo y disfrutes de una buena experiencia. Trabajamos cada look de manera personalizada, con cortes, barba, color, alisados y diferentes servicios pensados para vos. Podés reservar tu turno o acercarte directamente, atendemos también por orden de llegada.",
-        sucursales: [
-            {
-                direccion: "Alberdi 2163",
-                maps: "https://www.google.com/maps/@-38.7338151,-62.2386879,17a,75y,210.84h,90t/data=!3m7!1e1!3m5!1sWwpHNGvPq9dn4ECiu3n8EQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DWwpHNGvPq9dn4ECiu3n8EQ%26yaw%3D210.84!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkyNy4wIKXMDSoASAFQAw%3D%3D",
-                horario: "Lunes a Sábado 10:00 a 20:00hs",
-                dias: [1, 2, 3, 4, 5, 6],
-                franjaHoraria: [
-                    {
-                        apertura: "10:00",
-                        cierre: "20:00"
-                    }
-                ]
-            }
-        ],
-        contacto: {
-            turnos: "2916460779",
-            instagram: "nativobarbercuts"
-        }
-    },
+    
 
     {
         nombre: "Versus (M.I.P.)",
