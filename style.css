@@ -69,14 +69,13 @@ header {
     align-items: center;
     flex-shrink: 0;
     min-width: 0;
-    width: fit-content;
+   
 }
 
 .brand-text {
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   justify-content: center;
 }
 
 .brand-text span {
@@ -144,9 +143,21 @@ header {
     color: var(--vm-green-hover);
 }
 
+
+
+
+
+
+
 #historia {
     display: none;
 }
+
+
+
+
+   
+ 
 
 .brand-text h2 {
   
@@ -154,10 +165,6 @@ header {
     line-height: 1;
     margin: 0;
     color: var(--text-main);
-}
-
-main {
-    width: 100%;
 }
 
 .hero-section {
@@ -168,15 +175,6 @@ main {
     justify-content: center;
     padding: 3rem 1rem;
     text-align: center;
-}
-
-.hero-content {
-    width: min(100%, 900px);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .badge {
@@ -197,13 +195,7 @@ main {
     letter-spacing: 0.05em;
 }
 
-.section-title {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+
 
 .section-title h1 {
     font-family: var(--font-sans);
@@ -211,8 +203,8 @@ main {
     font-weight: 800;
     font-size: clamp(3rem, 8vw, 5rem);
     line-height: 0.95;
+  
     margin: 0;
-    width: 100%;
 }
 
 .section-title h1 span {
@@ -235,13 +227,15 @@ main {
 
 
 .buscador-container {
-    width: min(100%, 540px);
+    width: 100%;
+    max-width: 500px;
     margin: 2rem auto 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    
 }
-
+.buscador-container .link-historia {
+    display: flex;
+    justify-content: flex-end;
+}
 .buscador-wrapper {
     position: relative;
     display: flex;
@@ -255,7 +249,6 @@ main {
     font-size: 0.95rem;
     color: var(--vm-green);
 }
-
 .buscador-comercio {
     width: 100%;
     padding: 16px 20px 16px 48px;
@@ -273,22 +266,25 @@ main {
     border-color: var(--vm-green);
     box-shadow: 0 0 0 3px var(--vm-green-glow);
 }
-
 .link-historia {
-    display: inline-flex;
+   display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 6px;
-    margin-top: 12px;
-    padding-right: 0;
+     margin-top: 10px;
+    padding-right: 95px;
+
+    
+
     color: var(--text-muted);
     font-size: 0.72rem;
     font-weight: 600;
     text-decoration: none;
+
     opacity: 0.75;
     transition: var(--transition-smooth);
-    width: fit-content;
-    align-self: flex-end;
+
+  
 }
 
 .link-historia:hover {
@@ -308,14 +304,13 @@ main {
     transform: translateX(4px);
 }
 
+
 .historia-section {
   text-align: center;
   padding: 80px 20px;
   max-width: var(--max-width);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  
 }
 
 .timeline {
@@ -377,7 +372,6 @@ main {
     line-height: 1.7;
     max-width: 600px;
 }
-
 .resultados-section {
     max-width: 1100px;
 
@@ -386,6 +380,7 @@ main {
     text-align: center;
 }
 
+
 #contenedor-resultados {
   display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -393,7 +388,6 @@ main {
 
 
 }
-
 .no-resultados {
     grid-column: 1 / -1;
     width: 100%;
@@ -403,6 +397,7 @@ main {
     font-weight: 600;
     margin: 30px 0;
 }
+
 
 .resultado-card {
     display: flex;
@@ -416,7 +411,6 @@ main {
     transition: var(--transition-smooth);
    
 }
-
 .resultado-card:hover {
      transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -424,13 +418,13 @@ main {
     color: var(--text-main);
 }
 
+
 .resultado-ubicaciones {
      display: flex;
     flex-direction: column;
     gap: 8px;
     width: 100%;
 }
-
 .resultado-ubicacion{
     background: rgba(255, 255, 255, 0.025);
     border: 1px solid rgba(255, 255, 255, 0.07);
@@ -441,7 +435,6 @@ main {
     gap: 6px;
  
 }
-
 .modalidad {
     background-color: var(--vm-green);
     color: var(--vm-light-gray);
@@ -459,13 +452,13 @@ main {
     color: var(--text-muted);
     margin: 0 0 4px;
 }
+.sucursal-direccion,
 
 .descripcion {
     font-size: 0.85rem;
     color: var(--text-main);
     margin: 0;
 }
-
 .sucursal-horario {
     font-size: 0.75rem;
     color: var(--text-muted);
@@ -505,7 +498,11 @@ main {
     margin: 6px auto;
     width: fit-content;
     padding: 3px 8px;
+    
 }
+
+
+
 
 .rubro {
 
@@ -535,6 +532,7 @@ main {
     
 }
 
+
 .resultado-card h3 {
     font-size: 1.1rem;
     font-weight: 500;
@@ -542,8 +540,8 @@ main {
     color: var(--text-main);
     transition: var(--transition-smooth);
   
+   
 }
-
 .sucursal-direccion i,
 .sucursal-horario i {
     color: var(--vm-green);
@@ -551,7 +549,6 @@ main {
     margin-right: 6px;
 
 }
-
 .sucursal-direccion a {
     color: var(--vm-green);
     font-size: 0.8rem;
@@ -559,7 +556,6 @@ main {
     text-decoration: none;
     transition: var(--transition-smooth);
 }
-
 .sucursal-direccion a:hover {
     text-decoration: underline;
 }
@@ -611,57 +607,58 @@ main {
     border: 1px solid rgba(6, 85, 204, 0.4);
     background: rgba(24, 119, 242, 0.05);
 }
-
 .comercio-links a:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     color: var(--text-main);
     background: rgba(255, 255, 255, 0.1);
 }
-
 .sumarsection {
-    width: min(100%, 700px);
-    margin: 1rem auto 2.5rem;
-    padding: 28px 24px;
+      width: calc(100% - 40px);
+    max-width: 500px;
+   margin: 1rem auto 2.5rem;
+    padding: 20px 24px;
+
     text-align: center;
     border: 2px solid var(--vm-green);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
+    
+
+ 
+    border-radius: 16px;
+
+    
+}
 .sumarsection a i {
     color: var(--vm-accent);
     font-size: 1rem;
 }
 
+
+
+   
+
 .sumarsection h2 {
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-weight: 800;
-    color: var(--text-main);
+      color: var(--text-main);
     margin-bottom: 9px;
     letter-spacing: -0.03em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-}
+    }
+    
 
 .sumarsection p {
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.5;
     margin-bottom: 16px;
-    text-align: center;
 }
-
 .sumarsection h2 i {
     color: var(--vm-green);
     margin-right: 6px;
 }
+
 
 .sumarsection a {
     display: inline-flex;
@@ -700,93 +697,77 @@ footer {
     margin: 0 auto;
     padding: 20px;
 }
-
 .footer-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
-
 .footer-info .brand {
     margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
 }
 
 .footer-info p {
     max-width: 320px;
+
     color: var(--text-muted);
     font-family: var(--font-sans);
     font-size: 0.9rem;
     line-height: 1.6;
+
     text-align: left;
 }
-
 .footer-bottom {
     width: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
+
     padding: 1.5rem 20px 0;
+
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-    text-align: center;
 }
 
 .footer-bottom p {
     margin: 0;
+
     color: var(--text-muted);
     font-family: var(--font-sans);
     font-size: 0.8rem;
+
     text-align: left;
 }
+    @media (max-width: 768px) {
+        footer {
+        padding: 3rem 1rem 1.5rem;
+        margin-top: 3rem;
+    }
 
-@media (max-width: 768px) {
-        
-#contenedor-resultados {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 0 10px;
-}
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
 
-.link-historia {
-    padding-right: 20px;
-    margin-top: 50px;
-    font-size: 0.7rem;
-}
+    .footer-info {
+        align-items: center;
+        text-align: center;
+    }
 
-footer {
-    padding: 3rem 1rem 1.5rem;
-    margin-top: 3rem;
-}
+    .footer-info p {
+        max-width: 300px;
+    }
 
-.footer-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    padding: 10px;
-}
-
-.footer-info {
-    align-items: center;
-    text-align: center;
-}
-
-.footer-info p {
-    max-width: 300px;
-}
-
-.footer-bottom {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-    margin-top: 15px;
-    padding-top: 1.25rem;
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        margin-top: 15px;
+        padding-top: 1.25rem;
     }
     
     
@@ -824,7 +805,11 @@ footer {
 
     
 
-    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
 
     
 
@@ -833,12 +818,40 @@ footer {
     
 
     
+
+    
     
     
 
     
 
-   
+    footer {
+        padding: 3rem 1rem 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .footer-info {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-info p {
+        max-width: 300px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        margin-top: 15px;
+        padding-top: 1.25rem;
+    }
     
     
     

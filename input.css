@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+:root {
+--vm-green-hover: #006832;
+--vm-green: #008542;
+--vm-green-glow: rgba(0, 133, 66, 0.15);
+--vm-black: #121212;
+--vm-dark-gray: #1c1e1d;
+--vm-light-gray: #f4f6f4;
+--vm-accent: #fbbf24;
+--vm-accent-glow: rgba(251, 191, 36, 0.1);
+--text-main: #f1f3f1;
+--text-muted: #a3aaa5;
+--max-width: 1200px;
+--font-sans: 'Manrope', sans-serif;
+--font-display: 'Manrope', sans-serif;
+--transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme {
+    --color-vm-green: var(--vm-green);
+    --color-vm-green-hover: var(--vm-green-hover);
+    --color-vm-black: var(--vm-black);
+    --color-vm-dark-gray: var(--vm-dark-gray);
+    --color-vm-light-gray: var(--vm-light-gray);
+    --color-vm-accent: var(--vm-accent);
+}

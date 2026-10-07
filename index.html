@@ -2,147 +2,205 @@
 <html lang="es">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS64909MCM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+    <meta charset="UTF-8">
 
-        gtag('js', new Date());
-        gtag('config', 'G-SS64909MCM');
-    </script>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Villa Mitre, de las vías para acá. Encontrá comercios, profesionales, servicios, emprendimientos, actividades y todo lo que forma parte del barrio.">
-<meta name="keywords" content="Villa Mitre, Villa Mitre Bahía Blanca, comercios Villa Mitre, profesionales Villa Mitre, servicios Villa Mitre, emprendimientos Villa Mitre, actividades Villa Mitre, negocios Villa Mitre, barrio Villa Mitre">
-<meta name="author" content="Magdalena Ayude">
+    <title>Villa Mitre | Todo lo que buscás, en un solo lugar</title>
 
-<title>Villa Mitre | Todo lo que buscás, en un solo lugar</title>
+    <meta
+        name="description"
+        content="Encontrá comercios, profesionales, servicios, emprendimientos, actividades y todo lo que forma parte de Villa Mitre."
+    >
 
-<meta property="og:title" content="Villa Mitre | Todo lo que buscás, en un solo lugar">
-<meta property="og:description"content="Encontrá comercios, profesionales, servicios, emprendimientos, actividades y todo lo que forma parte de Villa Mitre.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://comercios-villamitre.netlify.app/">
-<meta property="og:image" content="https://comercios-villamitre.netlify.app/assets/icon-512.png">
-<meta property="og:site_name" content="Villa Mitre">
-<meta property="og:locale" content="es_AR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Villa Mitre | Todo lo que buscás, en un solo lugar">
-<meta name="twitter:description" content="Encontrá comercios, profesionales, servicios, emprendimientos, actividades y todo lo que forma parte de Villa Mitre.">
+    <!-- Tailwind generado -->
+    <link rel="stylesheet" href="output.css">
 
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
-<link rel="icon" href="assets/icon-512.png">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#008542">
+    <!-- Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-<link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
 
 
+<body class="min-h-screen bg-vm-black font-sans text-white">
 
-<body>
 
-    <header>
+    <!-- =====================================
+         HEADER
+    ====================================== -->
 
-        <div class="nav-container">
-            
-            <div class="brand">
-                
-                <div class="logo-vm">VM</div>
-                
-                <div class="brand-text">
-                    
-                    <h2>VILLA MITRE</h2>
-                    <span>La Ciudad</span>
+    <header class="border-b border-white/5">
 
+        <div class="mx-auto flex max-w-6xl items-center px-5 py-5 md:px-8">
+
+            <div class="flex items-center gap-3">
+
+                <div
+                    class="flex h-11 w-11 items-center justify-center rounded-xl bg-vm-green text-sm font-extrabold text-white shadow-lg shadow-vm-green/20"
+                >
+                    VM
                 </div>
 
-            </div>
+                <div>
 
-            </div>
+                    <h2 class="text-lg font-extrabold tracking-tight">
+                        VILLA MITRE
+                    </h2>
 
-        </header>
-
-        <main>
-
-
-        <section id="inicio" class="hero-section">
-
-            <div class="hero-content">
-
-                <div class="badge">
-
-                    <span class="badge-text">
-                        De las vías para acá
+                    <span class="text-xs font-medium text-gray-500">
+                        La Ciudad
                     </span>
 
                 </div>
-                
-                <div class="section-title">
 
-                    <h1>
-                        VILLA MITRE
-                        <span>en un solo lugar.</span>
-                    </h1>
+            </div>
 
-                    <p class="section-subtitle">
-                        Buscá todo lo que forma parte de Villa Mitre.
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <main>
+
+        <section class="relative overflow-hidden">
+
+            <!-- brillo decorativo -->
+
+            <div
+                class="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-vm-green/10 blur-3xl"
+            ></div>
+
+
+            <div
+                class="relative mx-auto max-w-5xl px-5 pb-20 pt-20 text-center md:pb-28 md:pt-28"
+            >
+
+                <!-- Badge -->
+
+                <div
+                    class="mb-7 inline-flex items-center gap-2 rounded-full border border-vm-green/30 bg-vm-green/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-vm-green"
+                >
+
+                    <span class="h-1.5 w-1.5 rounded-full bg-vm-green"></span>
+
+                    De las vías para acá
+
+                </div>
+
+
+                <!-- Título -->
+
+                <h1
+                    class="text-5xl font-extrabold leading-[0.9] tracking-[-0.04em] md:text-7xl lg:text-8xl"
+                >
+
+                    VILLA MITRE
+
+                    <span
+                        class="mt-5 block text-2xl font-medium tracking-tight text-gray-400 md:text-4xl"
+                    >
+                        en un solo lugar.
+                    </span>
+
+                </h1>
+
+
+                <!-- Descripción -->
+
+                <p
+                    class="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-gray-400 md:text-lg"
+                >
+                    Buscá comercios, profesionales, servicios,
+                    emprendimientos, actividades y todo lo que forma
+                    parte de Villa Mitre.
+                </p>
+
+
+
+                <!-- =====================================
+                     BUSCADOR
+                ====================================== -->
+
+                <div class="mx-auto mt-10 max-w-3xl">
+
+                    <div
+                        class="flex items-center rounded-2xl border border-white/10 bg-vm-dark-gray p-2 shadow-2xl shadow-black/20 transition focus-within:border-vm-green/50"
+                    >
+
+                        <i
+                            class="fa-solid fa-magnifying-glass ml-4 text-gray-500"
+                        ></i>
+
+
+                 <input
+    type="text"
+    class="buscador-comercio w-full border-0 bg-transparent px-4 py-4 text-base text-white outline-none placeholder:text-gray-500"
+    placeholder="¿Qué estás buscando?"
+    autocomplete="off"
+    aria-label="Buscar en Villa Mitre"
+>
+
+                        <button
+                            id="btn-todos"
+                            class="hidden shrink-0 rounded-xl bg-vm-green px-5 py-3 text-sm font-bold text-white transition hover:bg-vm-green-hover sm:block"
+                        >
+                            Ver todos
+                        </button>
+
+                    </div>
+
+
+                    <!-- ejemplos -->
+
+                    <p
+                        class="mt-4 text-xs text-gray-500"
+                    >
+                        Probá buscar:
+                        <span class="text-gray-400">
+                            Psicóloga · Nutricionista · Clases
+                        </span>
                     </p>
 
                 </div>
 
 
-                <div class="buscador-container">
 
-                    <div class="buscador-wrapper">
+                <!-- Historia -->
 
-                        <i class="fa-solid fa-magnifying-glass buscador-icono"></i>
-
-                        <input
-                            type="text"
-                            class="buscador-comercio"
-                            placeholder="¿Qué estás buscando?"
-                            autocomplete="off"
-                            aria-label="Buscar en Villa Mitre">
-
-                    </div>
-
-
-                    <button
-                        id="btn-todos"
-                        class="btn-todos">
-                        Ver todos
-                    </button>
-
-
-                    <div class="buscador-ejemplos">
-
-                        <span>
-                            Probá buscar: Psicóloga · Nutricionista · Clases
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <a href="#historia" class="link-historia">
+                <a
+                    href="#historia"
+                    class="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-gray-400 transition hover:text-white"
+                >
 
                     Conocé la historia de Villa Mitre
 
-                    <i class="fa-solid fa-arrow-right"></i>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
 
                 </a>
 
@@ -150,167 +208,271 @@
 
         </section>
 
+
+
+        <!-- =====================================
+             RESULTADOS
+        ====================================== -->
+
         <section
             id="seccion-resultados"
-            class="resultados-section">
+            class="border-t border-white/5 px-5 py-16"
+        >
 
-            <div class="resultados-header">
+            <div class="mx-auto max-w-6xl">
 
-                <div id="contenedor-resultados"></div>
+               <div
+    id="contenedor-resultados"
+    class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
+></div>
 
             </div>
 
         </section>
 
+
+
+        <!-- =====================================
+             HISTORIA
+        ====================================== -->
+
         <section
             id="historia"
-            class="historia-section">
+            class="border-t border-white/5 px-5 py-20 md:py-28"
+        >
 
-            <h2 class="section-title">
-                Nuestra Historia
-            </h2>
+            <div class="mx-auto max-w-6xl">
 
-            <p class="section-subtitle">
-                Desde la llegada de las primeras familias trabajadoras
-                y el ferrocarril, hasta consolidarnos como una "república"
-                con fuerte identidad propia en Bahía Blanca.
-            </p>
+                <!-- encabezado -->
 
+                <div class="mx-auto max-w-2xl text-center">
 
-    <div class="timeline">
+                    <span
+                        class="text-xs font-bold uppercase tracking-[0.2em] text-vm-green"
+                    >
+                        Nuestra identidad
+                    </span>
 
-    <div class="timeline-container">
+                    <h2
+                        class="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl"
+                    >
+                        Nuestra Historia
+                    </h2>
 
-        <div class="timeline-content">
-
-            <div class="timeline-icon">
-
-            <i class="fa-solid fa-house"></i>
-
-                        </div>
-
-                        <span>1906 - El Origen</span>
-
-                        <h4>
-                            Inicios del Barrio de Obreros
-                        </h4>
-
-                        <p>
-                            Villa Mitre comenzó a poblarse gracias a la
-                            expansión ferroviaria británica. Obreros
-                            metalúrgicos, inmigrantes de diversas
-                            colectividades y familias criollas se asentaron
-                            levantando las bases de una comunidad con cultura
-                            del trabajo y la solidaridad.
-                        </p>
-
-                    </div>
+                    <p
+                        class="mt-5 text-base leading-relaxed text-gray-400 md:text-lg"
+                    >
+                        Desde la llegada de las primeras familias
+                        trabajadoras y el ferrocarril, hasta consolidarnos
+                        como una "república" con fuerte identidad propia
+                        en Bahía Blanca.
+                    </p>
 
                 </div>
-        
-                <div class="timeline-container">
 
-                    <div class="timeline-content">
 
-                        <div class="timeline-icon">
 
-                            <i class="fa-solid fa-futbol"></i>
+                <!-- Timeline -->
 
-                        </div>
+                <div class="mx-auto mt-16 max-w-4xl space-y-6">
 
-                        <span>1924 - Pasión Colectiva</span>
 
-                        <h4>
-                            Fundación de Sportivo Villa Mitre
-                        </h4>
+                    <!-- 1906 -->
 
-                        <p>
-                            El 14 de agosto de 1924 nace el Club Sportivo
-                            Villa Mitre, semilla de la principal institución
-                            deportiva del barrio. Años más tarde, la fusión
-                            con el Club Deportivo Alianza aportaría la
-                            emblemática camiseta tricolor.
-                        </p>
+                    <article
+                        class="rounded-2xl border border-white/5 bg-vm-dark-gray p-6 transition hover:border-vm-green/30 md:p-8"
+                    >
 
-                    </div>
+                        <div class="flex gap-5">
 
-                </div>
-    
-                <div class="timeline-container">
+                            <div
+                                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-vm-green/10 text-vm-green"
+                            >
+                                <i class="fa-solid fa-house"></i>
+                            </div>
 
-                    <div class="timeline-content">
+                            <div>
 
-                        <div class="timeline-icon">
+                                <span class="text-xs font-bold uppercase tracking-wider text-vm-green">
+                                    1906 · El Origen
+                                </span>
 
-                            <i class="fa-solid fa-landmark"></i>
+                                <h3 class="mt-2 text-xl font-bold">
+                                    Inicios del Barrio de Obreros
+                                </h3>
 
-                        </div>
+                                <p class="mt-3 text-sm leading-relaxed text-gray-400">
+                                    Villa Mitre comenzó a poblarse gracias a la
+                                    expansión ferroviaria británica. Obreros
+                                    metalúrgicos, inmigrantes de diversas
+                                    colectividades y familias criollas se asentaron
+                                    levantando las bases de una comunidad con
+                                    cultura del trabajo y la solidaridad.
+                                </p>
 
-                        <span>1954 - Corazón de Cemento</span>
-
-                        <h4>
-                            Inauguración de "El Fortín"
-                        </h4>
-
-                        <p>
-                            El 12 de diciembre de 1954 se inaugura
-                            oficialmente el mítico estadio de fútbol,
-                            consolidándose como un bastión histórico para
-                            el deporte y la vida social del barrio.
-                        </p>
-
-                    </div>
-
-                </div>
-        
-                <div class="timeline-container">
-
-                    <div class="timeline-content">
-
-                        <div class="timeline-icon">
-
-                            <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
 
                         </div>
 
-                        <span>2020 - Educación y Futuro</span>
+                    </article>
 
-                        <h4>
-                            Inauguración del Jardín "La Ciudad"
-                        </h4>
 
-                        <p>
-                            El club inaugura su Jardín de Infantes y Maternal,
-                            convirtiéndose en la primera institución deportiva
-                            de Bahía Blanca en integrar la educación formal.
-                        </p>
 
-                    </div>
+                    <!-- 1924 -->
 
-                </div>
-                
-                <div class="timeline-container">
+                    <article
+                        class="rounded-2xl border border-white/5 bg-vm-dark-gray p-6 transition hover:border-vm-green/30 md:p-8"
+                    >
 
-                    <div class="timeline-content">
+                        <div class="flex gap-5">
 
-                        <div class="timeline-icon">
+                            <div
+                                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-vm-green/10 text-vm-green"
+                            >
+                                <i class="fa-solid fa-futbol"></i>
+                            </div>
 
-                            <i class="fa-solid fa-store"></i>
+                            <div>
+
+                                <span class="text-xs font-bold uppercase tracking-wider text-vm-green">
+                                    1924 · Pasión Colectiva
+                                </span>
+
+                                <h3 class="mt-2 text-xl font-bold">
+                                    Fundación de Sportivo Villa Mitre
+                                </h3>
+
+                                <p class="mt-3 text-sm leading-relaxed text-gray-400">
+                                    El 14 de agosto de 1924 nace el Club Sportivo
+                                    Villa Mitre, semilla de la principal institución
+                                    deportiva del barrio. Años más tarde, la fusión
+                                    con el Club Deportivo Alianza aportaría la
+                                    emblemática camiseta tricolor.
+                                </p>
+
+                            </div>
 
                         </div>
 
-                        <span>Presente</span>
+                    </article>
 
-                        <h4>Villa Mitre hoy</h4>
 
-                        <p>
-                            Villa Mitre continúa creciendo y construyendo
-                            una identidad propia. Un barrio con historia,
-                            movimiento y una comunidad que mantiene vivo
-                            su sentido de pertenencia.
-                        </p>
 
-                    </div>
+                    <!-- 1954 -->
+
+                    <article
+                        class="rounded-2xl border border-white/5 bg-vm-dark-gray p-6 transition hover:border-vm-green/30 md:p-8"
+                    >
+
+                        <div class="flex gap-5">
+
+                            <div
+                                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-vm-green/10 text-vm-green"
+                            >
+                                <i class="fa-solid fa-landmark"></i>
+                            </div>
+
+                            <div>
+
+                                <span class="text-xs font-bold uppercase tracking-wider text-vm-green">
+                                    1954 · Corazón de Cemento
+                                </span>
+
+                                <h3 class="mt-2 text-xl font-bold">
+                                    Inauguración de "El Fortín"
+                                </h3>
+
+                                <p class="mt-3 text-sm leading-relaxed text-gray-400">
+                                    El 12 de diciembre de 1954 se inaugura
+                                    oficialmente el mítico estadio de fútbol,
+                                    consolidándose como un bastión histórico
+                                    para el deporte y la vida social del barrio.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- 2020 -->
+
+                    <article
+                        class="rounded-2xl border border-white/5 bg-vm-dark-gray p-6 transition hover:border-vm-green/30 md:p-8"
+                    >
+
+                        <div class="flex gap-5">
+
+                            <div
+                                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-vm-green/10 text-vm-green"
+                            >
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <div>
+
+                                <span class="text-xs font-bold uppercase tracking-wider text-vm-green">
+                                    2020 · Educación y Futuro
+                                </span>
+
+                                <h3 class="mt-2 text-xl font-bold">
+                                    Inauguración del Jardín "La Ciudad"
+                                </h3>
+
+                                <p class="mt-3 text-sm leading-relaxed text-gray-400">
+                                    El club inaugura su Jardín de Infantes y
+                                    Maternal, convirtiéndose en la primera
+                                    institución deportiva de Bahía Blanca
+                                    en integrar la educación formal.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- Presente -->
+
+                    <article
+                        class="rounded-2xl border border-vm-green/20 bg-vm-green/5 p-6 md:p-8"
+                    >
+
+                        <div class="flex gap-5">
+
+                            <div
+                                class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-vm-green text-white"
+                            >
+                                <i class="fa-solid fa-store"></i>
+                            </div>
+
+                            <div>
+
+                                <span class="text-xs font-bold uppercase tracking-wider text-vm-green">
+                                    Presente
+                                </span>
+
+                                <h3 class="mt-2 text-xl font-bold">
+                                    Villa Mitre hoy
+                                </h3>
+
+                                <p class="mt-3 text-sm leading-relaxed text-gray-400">
+                                    Villa Mitre continúa creciendo y construyendo
+                                    una identidad propia. Un barrio con historia,
+                                    movimiento y una comunidad que mantiene vivo
+                                    su sentido de pertenencia.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
 
                 </div>
 
@@ -321,74 +483,128 @@
     </main>
 
 
-    <footer>
 
-        <section class="sumarsection">
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
 
-            <h2>
+    <footer class="border-t border-white/5">
 
-                <i class="fas fa-users"></i>
 
-                ¿QUERÉS SER PARTE DE VILLA MITRE?
+        <!-- CTA -->
 
-            </h2>
+        <section class="px-5 py-20">
 
-            <p>
-                Mostrá lo que hacés y hacé que más vecinos puedan descubrirte.
-            </p>
+            <div
+                class="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-vm-dark-gray p-8 text-center md:p-14"
+            >
 
-            <a
-                href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-sumate">
+                <div
+                    class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-vm-green/10 text-xl text-vm-green"
+                >
+                    <i class="fas fa-users"></i>
+                </div>
 
-                <i class="fas fa-handshake"></i>
 
-                QUIERO SUMARME
+                <h2
+                    class="mt-6 text-3xl font-extrabold tracking-tight md:text-4xl"
+                >
+                    ¿Querés ser parte de Villa Mitre?
+                </h2>
 
-            </a>
+
+                <p
+                    class="mx-auto mt-4 max-w-xl text-gray-400"
+                >
+                    Mostrá lo que hacés y hacé que más vecinos
+                    puedan descubrirte.
+                </p>
+
+
+                <a
+                    href="https://wa.me/5492915094533?text=Hola,%20quiero%20sumar%20mi%20negocio%20a%20la%20App%20Villa%20Mitre."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-8 inline-flex items-center gap-2 rounded-xl bg-vm-green px-6 py-3.5 text-sm font-bold text-white transition hover:bg-vm-green-hover"
+                >
+
+                    <i class="fas fa-handshake"></i>
+
+                    QUIERO SUMARME
+
+                </a>
+
+            </div>
 
         </section>
-    
-        <div class="footer-grid">
 
-            <div class="footer-info">
 
-                <div class="brand">
 
-                    <div class="logo-vm">
+        <!-- Footer info -->
+
+        <div
+            class="mx-auto max-w-6xl border-t border-white/5 px-5 py-10"
+        >
+
+            <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+
+                <div class="flex items-center gap-3">
+
+                    <div
+                        class="flex h-10 w-10 items-center justify-center rounded-xl bg-vm-green text-sm font-extrabold"
+                    >
                         VM
                     </div>
 
-                    <div class="brand-text">
+                    <div>
 
-                        <h2>
+                        <h2 class="font-extrabold">
                             VILLA MITRE
                         </h2>
+
+                        <span class="text-xs text-gray-500">
+                            La Ciudad
+                        </span>
 
                     </div>
 
                 </div>
 
 
-                <p>
+                <p
+                    class="max-w-md text-sm leading-relaxed text-gray-500"
+                >
                     Un portal independiente nacido en Bahía Blanca
                     para reunir y visibilizar todo lo que forma parte
-                    de Villa Mitre.</p>
+                    de Villa Mitre.
+                </p>
+
+            </div>
+
+
+            <div
+                class="mt-8 flex flex-col gap-2 border-t border-white/5 pt-6 text-xs text-gray-600 md:flex-row md:justify-between"
+            >
+
+                <p>
+                    2026 Villa Mitre · Desarrollado por Magdalena Ayude
+                </p>
+
+                <p>
+                    Bahía Blanca, Argentina
+                </p>
 
             </div>
 
         </div>
 
-    <div class="footer-bottom">
-            <p>2026 Villa Mitre &bull;
-                Desarrollado por Magdalena Ayude</p>
-            <p>Bahía Blanca, Argentina</p>
-
-        </div>
-
     </footer>
+
+
+
+    <!-- =====================================
+         JS
+    ====================================== -->
 
     <script src="script.js"></script>
 

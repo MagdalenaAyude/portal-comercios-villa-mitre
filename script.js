@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a 
                 href="https://wa.me/${item.contacto.whatsapp}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar."
                 target="_blank"
-                class="btn-whatsapp"
+                class="inline-flex items-center justify-center gap-2 rounded-lg border border-vm-green/30 bg-vm-green/10 px-3 py-2 text-sm font-semibold text-vm-green transition hover:bg-vm-green hover:text-white"
                 onclick="registrarClick('${item.nombre}', 'whatsapp')"
             >
                 <i class="fab fa-whatsapp"></i> WhatsApp
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a 
                 href="https://instagram.com/${item.contacto.instagram}"
                 target="_blank"
-                class="btn-instagram"
+                class="inline-flex items-center justify-center gap-2 rounded-lg bg-pink-500/10 border border-pink-500/30 px-3 py-2 text-sm font-semibold text-pink-400 transition hover:bg-pink-500 hover:text-white"
                 onclick="registrarClick('${item.nombre}', 'instagram')"
             >
                 <i class="fab fa-instagram"></i> Instagram
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a 
                 href="${item.contacto.youtube}"
                 target="_blank"
-                class="btn-web"
+                class="inline-flex items-center justify-center gap-2 rounded-lg border border-red-500/30 bg-red-500/10 px-3 py-2 text-sm font-semibold text-red-400 transition hover:bg-red-500 hover:text-white"
                 onclick="registrarClick('${item.nombre}', 'youtube')"
             >
                 <i class="fab fa-youtube"></i> YouTube
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a 
                 href="https://wa.me/${item.contacto.turnos}?text=Hola%2C%20vi%20tu%20perfil%20en%20Villa%20Mitre%20y%20quisiera%20consultar%20por%20un%20turno."
                 target="_blank"
-                class="btn-whatsapp"
+                class="inline-flex items-center justify-center gap-2 rounded-lg border border-vm-green/30 bg-vm-green/10 px-3 py-2 text-sm font-semibold text-vm-green transition hover:bg-vm-green hover:text-white"
                 onclick="registrarClick('${item.nombre}', 'turnos')"
             >
                 <i class="fab fa-whatsapp"></i> Turnos
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <a 
                 href="${item.contacto.sitioWeb}"
                 target="_blank"
-                class="btn-web"
+class="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-500/10 border border-blue-500/30 px-3 py-2 text-sm font-semibold text-blue-400 transition hover:bg-blue-500 hover:text-white"
                 onclick="registrarClick('${item.nombre}', 'sitioWeb')"
             >
                 <i class="fas fa-globe"></i> Sitio Web
@@ -285,18 +285,6 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
     }
 
-    if (item.contacto?.facebook) {
-        linksHTML += `
-            <a 
-                href="${item.contacto.facebook}"
-                target="_blank"
-                class="btn-facebook"
-                onclick="registrarClick('${item.nombre}', 'facebook')"
-            >
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-        `;
-    }
 
     return linksHTML;
 }
@@ -372,9 +360,23 @@ function renderizarResultados(resultados) {
     }
 
     resultados.forEach(item => {
-
-        const card = document.createElement("div");
-        card.classList.add("resultado-card");
+        const card = document.createElement("article");
+        card.className = `
+    group
+    flex
+    flex-col
+    rounded-2xl
+    border
+    border-white/10
+    bg-vm-dark-gray
+    p-5
+    transition-all
+    duration-300
+    hover:-translate-y-1
+    hover:border-vm-green/40
+    hover:shadow-xl
+    hover:shadow-black/20
+`;
 
         const icono = iconosRubros[item.rubro] || "fas fa-store";
 
@@ -434,53 +436,80 @@ function renderizarResultados(resultados) {
 
                 return `
                     <div class="resultado-ubicacion">
+                    ${ubicacion.nombre ? `
+    <p class="mb-2 text-sm font-semibold text-white">
+        ${ubicacion.nombre}
+    </p>
+` : ""}
 
-                        ${ubicacion.nombre ? `
-                            <p class="resultado-nombre-ubicacion">
-                                <strong>${ubicacion.nombre}</strong>
-                            </p>
-                        ` : ""}
+${ubicacion.direccion ? `
+    <p class="mb-2 flex items-start gap-2 text-sm text-gray-400">
 
-                      ${ubicacion.direccion ? `
-    <p class="sucursal-direccion">
-        <i class="fas fa-map-marker-alt"></i>
+        <i class="fas fa-map-marker-alt mt-0.5 shrink-0 text-vm-green"></i>
+
         ${ubicacion.maps ? `
             <a 
                 href="${ubicacion.maps}"
                 target="_blank"
                 rel="noopener noreferrer"
                 onclick="registrarClick('${item.nombre}', 'maps')"
+                class="transition-colors hover:text-vm-green"
             >
                 ${ubicacion.direccion}
             </a>
         ` : `
-            ${ubicacion.direccion}
+            <span>
+                ${ubicacion.direccion}
+            </span>
         `}
+
     </p>
 ` : ""}
-                        ${diasTexto || ubicacion.horario ? `
-                            <p class="sucursal-horario">
-                                <i class="fas fa-clock"></i>
-                                ${incluirDias && diasTexto ? `${diasTexto}${franja || ubicacion.horario ? ": " : ""}` : ""}
-                                ${franja
-                                    ? `de ${franja.apertura}hs a ${franja.cierre}hs`
-                                    : ubicacion.horario || ""}
-                            </p>
-                        ` : ""}
 
-                        ${abierto !== null ? `
-                            <p class="${abierto ? "abierto" : "cerrado"}">
-                               
-                                ${abierto ? "Abierto ahora" : "Cerrado"}
-                            </p>
-                        ` : ""}
+${diasTexto || ubicacion.horario ? `
+    <p class="mb-2 flex items-start gap-2 text-sm text-gray-400">
 
-                    </div>
-                `
+        <i class="fas fa-clock mt-0.5 shrink-0 text-vm-green"></i>
 
-            }).join("");
+        <span>
+            ${incluirDias && diasTexto
+                ? `${diasTexto}${franja || ubicacion.horario ? ": " : ""}`
+                : ""}
 
+            ${franja
+                ? `de ${franja.apertura}hs a ${franja.cierre}hs`
+                : ubicacion.horario || ""}
+        </span>
+
+    </p>
+` : ""}
+${abierto !== null ? `
+    <div class="flex justify-center">
+        <p class="
+            inline-flex
+            w-fit
+            items-center
+            justify-center
+            rounded-full
+            px-3
+            py-1
+            text-xs
+            font-semibold
+            ${abierto
+                ? "bg-vm-green/10 text-vm-green"
+                : "bg-white/5 text-gray-500"
+            }
+        ">
+            ${abierto ? "Abierto ahora" : "Cerrado"}
+        </p>
+    </div>
+` : ""}
+</div>
+`;
+
+}).join("");
         }
+
  
 
 
@@ -494,57 +523,60 @@ function renderizarResultados(resultados) {
 
     card.innerHTML = `
 
-            <span class="rubro">
-                <i class="${icono}"></i>
-                ${item.rubro || ""}
-            </span>
+           <span class="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-vm-green/20 bg-vm-green/10 px-3 py-1 text-xs font-semibold text-vm-green">
+    <i class="${icono}"></i>
+    ${item.rubro || ""}
+</span>
+        <div class="mb-4 flex items-center gap-4">
+    <div class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2">
+        <img
+            src="${item.logo || ""}"
+            alt="Logo de ${item.nombre || ""}"
+            class="max-h-full max-w-full object-contain"
+        >
+    </div>
 
-            <div class="logo-container">
-                <img
-                    src="${item.logo || ""}"
-                    alt="Logo de ${item.nombre || ""}"
-                    class="comercio-logo"
-                >
-            </div>
+    <h3 class="text-xl font-bold leading-tight text-white">
+        ${item.nombre || ""}
+    </h3>
+</div>
 
-            <h3>${item.nombre || ""}</h3>
+${item.matricula ? `
+    <p class="mb-2 text-sm font-medium text-gray-400">
+        ${item.matricula}
+    </p>
+` : ""}
 
-            ${item.matricula ? `
-                <p class="matricula">
-                    ${item.matricula}
-                </p>
-            ` : ""}
+${item.modalidad ? `
+    <p class="mb-2 text-sm font-medium text-vm-green">
+        ${item.modalidad}
+    </p>
+` : ""}
 
-            ${item.modalidad ? `
-                <p class="modalidad">
-                    ${item.modalidad}
-                </p>
-            ` : ""}
+${item.descripcion ? `
+    <p class="mb-4 text-sm leading-relaxed text-gray-400">
+        ${item.descripcion}
+    </p>
+` : ""}
 
-            ${item.descripcion ? `
-                <p class="descripcion">
-                    ${item.descripcion}
-                </p>
-            ` : ""}
+${ubicacionesHTML ? `
+    <div class="mb-4 space-y-2">
+        ${ubicacionesHTML}
+    </div>
+` : ""}
 
-            ${ubicacionesHTML ? `
-                <div class="resultado-ubicaciones">
-                    ${ubicacionesHTML}
-                </div>
-            ` : ""}
 
-            ${linksContacto ? `
-                <div class="comercio-links">
-                    ${linksContacto}
-                </div>
-            ` : ""}
+  ${linksContacto ? `
+        <div class="mt-auto flex flex-wrap gap-2">
+            ${linksContacto}
+        </div>
+    ` : ""}
+`;
 
-        `;
+contenedorResultados.appendChild(card);
+});
 
-        contenedorResultados.appendChild(card);
-    });
 }
-
 
 
 
@@ -604,5 +636,5 @@ if ("serviceWorker" in navigator) {
             });
     });
 }
-    
 });
+    
