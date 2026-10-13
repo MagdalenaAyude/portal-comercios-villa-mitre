@@ -55,10 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
         tipo: "variete",
         rubro: "Panificados",
         logo: "assets/spika.jpg",
-        modalidad: "Artesano",
-        participanteActivo: true,
+        
         descripcion: "Panificados integrales y caseros, con opciones saludables y simples. También ofrecemos panificados elaborados con harina de almendras, tanto dulces como salados.",
-        horario: "Lunes a Viernes 13:00 a 20:00hs",
+        dias: "Lunes a Viernes 13:00 a 20:00hs",
         contacto: {
             whatsapp: "2915021127",
             instagram: "spika.bb"
@@ -71,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tipo: "variete",
         rubro: "Productos Biogreen",
         logo: "assets/junai.jpg",
-        modalidad: "Reventa",
+        
         descripcion: "Distribuidora de productos Biogreen: aromatizantes de ambientes y textiles, difusores, perfumes personales, cosmética, productos de limpieza, aceites esenciales y mucho más. Calidad, seguridad y compromiso ambiental y social.",
         horario: "Lunes a Viernes 9:00 a 19:00hs",
         contacto: {
@@ -82,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     {
         nombre: "Lic. Claribel Springer",
+        destacado: "Atención virtual",
 
         tipo: "profesional",
         rubro: "Psicología",
@@ -93,14 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 nombre: "Espacio Haru",
                 direccion: "Necochea 321",
                 maps: "https://www.google.com/maps/@-38.7356218,-62.2378866,18a,75y,130.03h,90t/data=!3m7!1e1!3m5!1sHFysjsxT5VJwHmh8DrI17w!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DHFysjsxT5VJwHmh8DrI17w%26yaw%3D130.03!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkyOS4wIKXMDSoASAFQAw%3D%3D",
-                dias: "Miércoles 13:00hs a 17:00hs",
+                dias: "Miércoles 13:00 a 17:00hs",
                 
             },
             {
                 nombre: "Centro Deportivo Club Villa Mitre",
                 direccion: "Garibaldi 149",
                 maps: "https://www.google.com/maps/@-38.7300482,-62.2484651,19a,75y,152.82h,90t/data=!3m7!1e1!3m5!1sCUH2lXomRAO00OdFdTTG9A!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DCUH2lXomRAO00OdFdTTG9A%26yaw%3D152.82!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
-                dias: "Viernes 10:00hs a 12:00hs",
+                dias: "Viernes 10:00 a 12:00hs",
               
             }
         ],
@@ -147,8 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
      
         tipo: "comercio",
         rubro: "Manejo Integral de Plagas",
-        destacado: true,
-        modalidad: "Servicios",
         logo: "assets/plagas.jpg",
         descripcion: "Técnico en Manejo Integral de Plagas y Técnico Agropecuario. Brindamos servicios de control de plagas y parquizado/desmalezado.",
         sucursales: [
@@ -170,7 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     },
  {
-            nombre:"Lic. Mara Alvarez Garza · Profesora de Educación Física",
+            nombre:"Lic. Mara Alvarez Garza",
+            destacado: "Profesora de Educación Física",
+            
      
             tipo: "profesional",
             rubro: "Nutrición",
@@ -179,10 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
             descripcion: "Tratamiento nutricional y asesoramiento en actividad física. Recetarios, seguimiento personalizado mediante App, rutinas para realizar en casa o gimnasio y antropometría.",
             ubicacion: [
                 {
-                    nombre: "Mara Nuticionista",
+                    nombre: "Mara Nutricionista",
                     direccion: "Chiclana 1602",
                     maps: "https://www.google.com/maps/@-38.7323398,-62.248669,18a,75y,58.11h,90t/data=!3m7!1e1!3m5!1srqaE3QzqHtcawiltXHJD-g!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D0%26panoid%3DrqaE3QzqHtcawiltXHJD-g%26yaw%3D58.11!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
-                    dias: "Lunes a Viernes 9:00hs a 12:00hs<br>17:00hs a 20:00hs",
+                    horario: "Lunes a Viernes 9:00 a 12:00hs<br>17:00 a 20:00hs",
                    
                 }
             ],
@@ -434,81 +434,83 @@ function renderizarResultados(resultados) {
                 const franja = ubicacion.franjaHoraria?.[0];
                 const incluirDias = !ubicacion.horariosPorDia || !ubicacion.horario;
 
-                return `
-                    <div class="resultado-ubicacion">
-                    ${ubicacion.nombre ? `
-    <p class="mb-2 text-sm font-semibold text-white">
-        ${ubicacion.nombre}
-    </p>
-` : ""}
+               return `
 
-${ubicacion.direccion ? `
-    <p class="mb-2 flex items-start gap-2 text-sm text-gray-400">
+               <div class="resultado-ubicacion mx-auto mb-3 w-full max-w-md rounded-xl border border-white/10 bg-white/5 p-4 last:mb-0">
 
-        <i class="fas fa-map-marker-alt mt-0.5 shrink-0 text-vm-green"></i>
+    ${ubicacion.nombre ? `
+        <p class="mb-2 text-center text-sm font-semibold text-white">
+            ${ubicacion.nombre}
+        </p>
+    ` : ""}
 
-        ${ubicacion.maps ? `
-            <a 
-                href="${ubicacion.maps}"
-                target="_blank"
-                rel="noopener noreferrer"
-                onclick="registrarClick('${item.nombre}', 'maps')"
-                class="transition-colors hover:text-vm-green"
-            >
-                ${ubicacion.direccion}
-            </a>
-        ` : `
-            <span>
-                ${ubicacion.direccion}
-            </span>
-        `}
+    ${ubicacion.direccion ? `
+        <p class="mb-2 flex items-center justify-center gap-2 text-center text-sm text-gray-400">
+            <i class="fas fa-map-marker-alt mt-1 shrink-0 text-vm-green"></i>
 
-    </p>
-` : ""}
+            ${ubicacion.maps ? `
+                <a 
+                    href="${ubicacion.maps}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onclick="registrarClick('${item.nombre}', 'maps')"
+                    class="text-gray-400 transition-colors hover:text-vm-green hover:underline"
+                >
+                    ${ubicacion.direccion}
+                </a>
+            ` : `
+                <span class="text-gray-400">
+                    ${ubicacion.direccion}
+                </span>
+            `}
+        </p>
+    ` : ""}
 
-${diasTexto || ubicacion.horario ? `
-    <p class="mb-2 flex items-start gap-2 text-sm text-gray-400">
-
+    ${diasTexto || ubicacion.horario ? `
+         <p class="mb-2 flex items-start justify-center gap-2 text-center text-sm text-gray-400">
         <i class="fas fa-clock mt-0.5 shrink-0 text-vm-green"></i>
 
-        <span>
-            ${incluirDias && diasTexto
-                ? `${diasTexto}${franja || ubicacion.horario ? ": " : ""}`
-                : ""}
-
-            ${franja
-                ? `de ${franja.apertura}hs a ${franja.cierre}hs`
-                : ubicacion.horario || ""}
-        </span>
-
-    </p>
-` : ""}
-${abierto !== null ? `
-    <div class="flex justify-center">
-        <p class="
-            inline-flex
-            w-fit
-            items-center
-            justify-center
-            rounded-full
-            px-3
-            py-1
-            text-xs
-            font-semibold
-            ${abierto
-                ? "bg-vm-green/10 text-vm-green"
-                : "bg-white/5 text-gray-500"
-            }
-        ">
-            ${abierto ? "Abierto ahora" : "Cerrado"}
+                
+           <span class="text-gray-400">
+                ${incluirDias && diasTexto ? `${diasTexto}${franja || ubicacion.horario ? ": " : ""}` : ""}
+                ${franja ? `de ${franja.apertura}hs a ${franja.cierre}hs` : ubicacion.horario || ""}
+            </span>
         </p>
-    </div>
-` : ""}
-</div>
-`;
+    ` : ""}
 
-}).join("");
+    ${abierto !== null ? `
+        <div class="mt-4 flex justify-center">
+            <span class="
+                inline-flex
+                items-center
+                rounded-full
+                px-3
+                py-1
+                text-xs
+                font-semibold
+                ${abierto
+                    ? "bg-vm-green/15 text-vm-green border border-vm-green/30"
+                    : "bg-white/5 text-gray-400 border border-white/10"
+                }
+            ">
+                ${abierto ? "Abierto ahora" : "Cerrado"}
+            </span>
+        </div>
+    ` : ""}
+
+</div>
+
+               `;
+            }).join("");
         }
+                
+
+
+       
+        
+
+
+
 
  
 
@@ -521,31 +523,60 @@ ${abierto !== null ? `
 
         const linksContacto = generarLinksContacto(item);
 
-    card.innerHTML = `
+    card.innerHTML=`
+    <div class="group flex h-full flex-col">
+    <div class="mb-4 flex items-center gap-4">
 
-           <span class="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-vm-green/20 bg-vm-green/10 px-3 py-1 text-xs font-semibold text-vm-green">
-    <i class="${icono}"></i>
-    ${item.rubro || ""}
-</span>
-        <div class="mb-4 flex items-center gap-4">
-    <div class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2">
+    <div class="relative h-16 w-16 shrink-0 overflow-hidden rounded-full bg-white border-2 border-white/20 shadow-md transition-all duration-300 group-hover:scale-105 group-hover:border-vm-green/50 group-hover:shadow-vm-green/10">
         <img
             src="${item.logo || ""}"
             alt="Logo de ${item.nombre || ""}"
-            class="max-h-full max-w-full object-contain"
+            class="h-full w-full object-contain p-1"
         >
     </div>
 
-    <h3 class="text-xl font-bold leading-tight text-white">
-        ${item.nombre || ""}
-    </h3>
+    <div class="min-w-0 flex-1">
+        <h3 class="text-xl font-bold leading-tight text-white transition-colors group-hover:text-vm-green">
+            ${item.nombre || ""}
+        </h3>
+
+        ${item.destacado ? `
+            <div class="mt-2 flex justify-start">
+                <span class="inline-flex items-center gap-2 text-sm text-gray-400">
+                    <i class="fas fa-user-tie text-vm-green"></i>
+                    <span>${item.destacado}</span>
+                </span>
+            </div>
+        ` : ""}
+    </div>
+
 </div>
 
-${item.matricula ? `
-    <p class="mb-2 text-sm font-medium text-gray-400">
-        ${item.matricula}
-    </p>
+        
+        
+
+
+       
+
+    
+
+         
+            
+    ${item.matricula ? `
+    <div class="mb-3 flex justify-center">
+        <span class="rounded-lg bg-white/5 px-3 py-1 text-xs font-medium text-gray-300 border border-white/10">
+            ${item.matricula}
+        </span>
+    </div>
 ` : ""}
+
+
+   
+    
+
+
+
+
 
 ${item.modalidad ? `
     <p class="mb-2 text-sm font-medium text-vm-green">
@@ -560,21 +591,26 @@ ${item.descripcion ? `
 ` : ""}
 
 ${ubicacionesHTML ? `
-    <div class="mb-4 space-y-2">
+    <div class="mb-5 space-y-3">
         ${ubicacionesHTML}
     </div>
 ` : ""}
+<div>
+
+        ${linksContacto ? `
+            <div class="border-t border-white/5 pt-5">
+        <div class="flex justify-center gap-2">
+                ${linksContacto}
+            </div>
+        ` : ""}
+   `;
 
 
-  ${linksContacto ? `
-        <div class="mt-auto flex flex-wrap gap-2">
-            ${linksContacto}
-        </div>
-    ` : ""}
-`;
+
 
 contenedorResultados.appendChild(card);
 });
+
 
 }
 

@@ -3363,3 +3363,24 @@
     }
   }
 }
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #008542 #1c1e1d;
+}
+
+html::-webkit-scrollbar {
+    width: 7px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #1c1e1d;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #008542;
+    border-radius: 10px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #006832;
+}
